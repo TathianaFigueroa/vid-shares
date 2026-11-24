@@ -1,0 +1,5 @@
+append "test list sitting"
+carrier VID-QUESTION: (OQ-1) Which browsers must the page support? The counting rule relies on a browser feature that older versions lack (Firefox before version 125, for example).
+carrier VID-QUESTION: (OQ-2) Do invisible characters that paste in from Word or PDF (zero-width space, soft hyphen, direction marks) count? The rule counts every character the person sees, and these show nothing.
+carrier VID-QUESTION: (OQ-3) Phone keyboards usually have no undo, so undo after a mistaken clear does not reach most phone users. Keep the clear button as ruled (no confirmation, undo on keyboards), or change it?
+end

@@ -1,0 +1,139 @@
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-223-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-224-What the grading passes found — and how each finding was dispositioned —
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-225-is part of the artifact, not of the session. At every pause, before its
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-226-commit, write the sitting into `## Findings` under a dated sub-heading:
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md:227:one `vid-prd-findings` row per finding —
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-228-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-229-    F-NN | pass | severity | target | disposition | evidence: …
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-230-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-231-pass ∈ `red-team` | `audit` | `review` | `lens` | `final` | `strength` (the
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-870-withdrawn <A-NNN>` — so the diff shows what each acceptance arm became.
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-871-Before the freeze the accounting rides the diff; after it, an append's
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-872-`AMENDED` row carries the same field and checks/prd.sh join 14 joins it.
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-873-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md:874:The review's findings are `vid-prd-findings` rows (pass `review`) in the
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-875-pause-3 sitting record, so the F-ids the plan cites are durable: a
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-876-resolved finding's row is dispositioned `repaired`, and its target names
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-877-where the edit landed. Then the same pass reads the repair again, round
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-878-by round, by § "Reviews converge" (Pass mechanics); every round's rows, and
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-969-| Thesis red-team (§4) | `passes/thesis-red-team.md` | seed, sources, ledger, the drafted thesis | the authoring session's reasoning — it judges the artifact, not the intent; any previous verdict |
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-970-| Completeness judgment (§7) | `passes/completeness-audit.md` | the ratified thesis, the effective item set, the ledger, the ratified contract with the catalog prompts | the authoring session's reasoning; any previous verdict |
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-971-| Wording lens (§9b) | `passes/wording-lens.md` | every demand item's id, statement and fail-if (the effective set), the seed, the ratified thesis | the authoring session's reasoning; any previous verdict; the derived inventory; other passes' findings |
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-972-[Omitted long context line]
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md:973:[Omitted long matching line]
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-974-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-975-Every pass file opens with the same fixed header — the independence
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-976-mechanism (a separate agent, no authoring- or build-session context, a
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\SKILL.md-977-re-run never told the previous verdict, a prompt carrying anything the
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-29-`covered` (with the citations that genuinely answer it), or `gap` with
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-30-up to a handful of owner questions (each a product decision at PRD
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-31-altitude, with why-it-matters and answer guidance), or a **proposed**
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-32-`na` rationale awaiting the owner. Gaps and proposed NAs become
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md:33:`vid-prd-findings` rows (pass `audit`) in the pause-2 sitting record,
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-34-dispositioned by the owner's answers and rulings there — an answered
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-35-gap is `accepted A-NNN`, an accepted NA proposal likewise, a gap the
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-36-owner routes onward `routed OQ-n`.
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-37-
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-56-outcome, the passages that permit, require or fail to resolve it, and
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-57-why the consequence is material to the agreed scope. "Lifecycle
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-58-handling needs more detail" does not qualify; two rules requiring
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-59-incompatible behaviour when a tenant is suspended does. Same finding
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md:60:format — the `vid-prd-findings` row — no new document.
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-61-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-62-**Challenge your own finding first.** *Before reporting a gap or
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-63-contradiction, find the strongest evidence that it is already settled —
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\completeness-audit.md-64-related items, owner answers, the Explicitly-not-MVP section, later
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-13-its labelling pass and once more after init's stage cut. -->
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-14-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-15-mode: whole | delta
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-16-when: at init — after step 6's budget lines, before step 7's labelling pass; after init's stage cut — once, after STAGES.md is committed
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md:17:[Omitted long matching line]
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-18-must not receive: the session's reasoning; any earlier verdict — the PRD's findings, the append reviews' records, a previous round's findings.
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-19-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-20-A fresh pass over the whole spec: every document the project's build
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-21-will be held to, read together, as one record. It reads the documents as
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-67-minimum, never the scope; what did not change is not re-judged.
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-68-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-69-## Your findings
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-70-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md:71:Every finding is a `vid-prd-findings` row, pass `final`:
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-72-`F-NN | final | <severity> | <target> | <triage class> | evidence: <…>`;
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-73-the caller replaces your triage class with its ruling (`repaired`,
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-74-`accepted A-NNN`, `overruled A-NNN`, `routed OQ-n`, `noted`). Severity is
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\final-review.md-75-`blocking` or `advisory`. A target is a PRD id (an item, an answer, a
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-39-**off-screen obligation** (what unwritten requirement does an off-screen
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-40-phase imply). The seed itself is in scope: a contradiction *inside* the
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-41-brief is a finding routed as a question — the seed is trusted as
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-42-authority, not as consistency. Every finding this pass returns becomes a
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md:43:`vid-prd-findings` row (pass `red-team`) in the pause-1 sitting record,
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-44-dispositioned at the sitting.
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-45-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-46-## Precision (v0.9.1 3.10 — brief text only; stages, count, pauses and the finiteness mandate unchanged)
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-47-
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-50-outcome, the passages that permit, require or fail to resolve it, and
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-51-why the consequence is material to the agreed scope. "Lifecycle
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-52-handling needs more detail" does not qualify; two rules requiring
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-53-incompatible behaviour when a tenant is suspended does. Same finding
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md:54:format — the `vid-prd-findings` row — no new document.
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-55-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-56-**Challenge your own finding first.** *Before reporting a gap or
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-57-contradiction, find the strongest evidence that it is already settled —
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\thesis-red-team.md-58-related items, owner answers, the Explicitly-not-MVP section, later
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-78-`needs_owner`, its recommended answer the restatement the owner may give
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-79-— never a human row the owner did not give. The finiteness mandate
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-80-holds: a clean append returns a clean verdict. A finding that would
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-81-override an owner answer is a QUESTION, never a correction. Your findings
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md:82:are `vid-prd-findings` rows (pass `review`): the caller rules them and
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-83-writes them into the append's own findings block, beside the line
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-84-`review: delta, round <r>, <n> findings` — the record the commit hook asks
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-85-of every new append (0.26.10.29.3 R3; the round, phase 2 R2).
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-86-
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-145-outcome, the passages that permit, require or fail to resolve it, and
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-146-why the consequence is material to the agreed scope. "Lifecycle
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-147-handling needs more detail" does not qualify; two rules requiring
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-148-incompatible behaviour when a tenant is suspended does. Same finding
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md:149:format — the `vid-prd-findings` row — no new document.
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-150-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-151-**Challenge your own finding first.** *Before reporting a gap or
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-152-contradiction, find the strongest evidence that it is already settled —
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\passes\whole-set-review.md-153-related items, owner answers, the Explicitly-not-MVP section, later
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\README.md-48-   the contract with `../CONTRACT-CATALOG.md`; for the review the whole
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\README.md-49-   effective set; for the review in `mode: delta` — the `append-*`
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\README.md-50-   fixtures — the effective set and, as the DELTA, the one dated append
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\README.md-51-   under `## Appends`; for the wording lens every demand item with its statement and fail-if, the seed and the thesis — the whole PRD carries them), the scratch path, and this output instruction only:
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\README.md:52:[Omitted long matching line]
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\README.md-53-3. Judge: `sh pass-check.sh fixtures/<name> <scratch>/findings-<pass>.md`.
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\README.md-54-   Exit 0 = every expectation held; one line per expectation.
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\README.md-55-
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\README.md-56-Keep the checker output with the release, with the model id that reviewed. A run whose agent
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-10-# one line per expectation, counts never scores. A fixture whose correct
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-11-# output is ZERO findings is a first-class case here — the reviewer that
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-12-# can accept good work is demonstrated, not assumed.
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-13-#
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh:14:# The pass output is a markdown file carrying one ```vid-prd-findings block
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-15-# (the three reviewers) or one ```vid-prd-rewordings block (the wording
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-16-# lens, 3.5a) — possibly empty: an empty block IS the clean verdict; a
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-17-# missing block is "nothing returned" and fails closed. Finding rows are the
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-18-# PRD's own findings grammar, disposition `-` (the sitting's, not the
+--
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-43-  case "$line" in ''|'#'*) continue ;; esac
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-44-  N=$((N + 1))
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-45-  cls=$(printf '%s\n' "$line" | awk '{print $2}')
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-46-  case "$cls" in
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh:47:    finding) grep -q '^```vid-prd-findings' "$OUT" || { echo 'pass-check: no ```vid-prd-findings block — the pass returned nothing (an empty block is the clean verdict; no block is no verdict).' >&2; exit 1; }; BLOCK=$(blockof vid-prd-findings) ;;
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-48-    rewording) grep -q '^```vid-prd-rewordings' "$OUT" || { echo 'pass-check: no ```vid-prd-rewordings block — the lens returned nothing (an empty block is the clean verdict; no block is no verdict).' >&2; exit 1; }; BLOCK=$(blockof vid-prd-rewordings) ;;
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-49-    *) echo "pass-check: unknown class '$cls' in expectation: $line" >&2; exit 1 ;;
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-50-  esac
+C:\Users\[REDACTED:user-name]\.claude\plugins\cache\vid\vid\0.26.11.1.7\skills\vid-create-prd\selftest\pass-check.sh-51-  got=$(printf '%s\n' "$BLOCK" | awk -v spec="$line" '

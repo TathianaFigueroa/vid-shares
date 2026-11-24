@@ -1,0 +1,75 @@
+section thesis
+item thesis-summary | A single Spanish web page: the person types or pastes their CV summary into one box and sees, as they write, how many characters it holds against 500. Past 500 a message says so, never blocking typing; one button clears the text. Nothing about the person is kept or sent.
+item thesis-goals | Goals. First: the person always knows the count and is told plainly when it is past 500. Second: they can start over with an empty box in one press. Third: what they write stays theirs alone; nothing is kept or sent.
+item thesis-journey | The journey: they have a summary to fit into 500 characters (away from the page); they open the page and type or paste; they watch the count and trim until the message goes; they may clear and start again; they copy the text out by hand, and closing the page leaves nothing behind.
+section contract
+item privacy | Privacy: what personal data is held (none) and that nothing is retained
+recommend | Needs it
+item char-rule | What counts as one character: spaces, line breaks, accents typed in two keystrokes, emoji
+recommend | Needs it
+item count-display | How and when the count is shown, and which edits update it (paste, cut, undo)
+recommend | Needs it
+item limit | The 500 boundary: exactly 500 is fine, the message shows from 501, typing never blocked
+recommend | Needs it
+item clear | What clearing does: no confirmation, the count and the message reset with the box
+recommend | Needs it
+item spanish | The interface's Spanish words: form of address, variety of Spanish, the page declared Spanish
+recommend | Needs it
+item no-retention | Nothing kept across a reload or a later visit, the browser not restoring the text
+recommend | Needs it
+item text-egress | The text never leaves the page: no server counting, nothing in the address, no tracker capturing it
+recommend | Needs it
+item accessibility | Accessibility baseline, including screen readers hearing the count and the message
+recommend | Doesn't need it: deferred to a later version, to keep this one to three requirements
+item small-screen | A required phone layout with the count visible above the on-screen keyboard
+recommend | Doesn't need it: covered by a decision of mine, not a requirement
+item third-party | No outside fonts, scripts or beacons that see the visitor's address
+recommend | Doesn't need it: no requirement in this version
+item browser-assist | Turning off the browser's own spell-check and autofill on the box
+recommend | Doesn't need it: the brief rules out a spell checker the page adds, not the browser's own
+item privacy-note | A sentence on the page telling the visitor nothing is kept or sent
+recommend | Doesn't need it: the brief does not ask for it
+item box-shape | The text box's size, resizing and scrolling
+recommend | Doesn't need it: a builder's choice that changes nothing for the person
+item no-extras | Ruling out unrequested controls such as a copy button or a word count
+recommend | Doesn't need it: the list of things left out already does this
+item big-paste | A bound on how large a paste must stay responsive
+recommend | Doesn't need it: no requirement in this version
+item security | Security floor
+recommend | Doesn't need it: no accounts, no data sent, nothing to protect beyond the text-never-leaves rule
+item availability | Speed and uptime floor
+recommend | Doesn't need it: no requirement in this version
+item operability | Backup, error monitoring, support path
+recommend | Doesn't need it: nothing is stored, and an error tracker could capture the text
+item core-loop | What happens after the main action: empty and restart states
+recommend | Doesn't need it: the clearing quality already covers it
+item accounts | Accounts and sign-in
+recommend | Doesn't need it: out of scope in your brief
+item consent | Contact permission and unsubscribe
+recommend | Doesn't need it: no contact details are taken
+item lifecycle | Records changing state over time
+recommend | Doesn't need it: no records exist
+item operations | Admin and review screens
+recommend | Doesn't need it: nothing to review
+item feedback | Handling user corrections and reports
+recommend | Doesn't need it: no feedback path
+item trust | Trust labels such as "verified"
+recommend | Doesn't need it: none shown
+item authorization | Who may do what
+recommend | Doesn't need it: one person, no accounts
+item notifications | Notifications and reminders
+recommend | Doesn't need it: none
+item data-integrity | Record identity, duplicates and change history
+recommend | Doesn't need it: no records are kept
+item success-thresholds | Numbers that decide whether the product succeeded
+recommend | Doesn't need it: analytics are out of scope, so nothing could measure them
+item instrumentation | Events recorded to measure success
+recommend | Doesn't need it: analytics are out of scope
+item seo | Search-engine findability
+recommend | Doesn't need it: no acquisition channel declared
+item locale | Several languages, time zones, currencies
+recommend | Doesn't need it: one language, no dates or money
+section findings
+item F-01 | The count follows your rule (every visible character is one). Some sites that receive the text count differently, for example an emoji as two characters or a line break as two, so a summary showing 498 / 500 here could still be too long there.
+look | An open finding
+recommend | Leave it: you chose this counting rule, and adding help text would grow this version

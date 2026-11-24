@@ -1,0 +1,217 @@
+# Contador de caracteres para el resumen del CV — PRD
+grammar: 0.26.11.1.2
+
+> **Precedence rule:** the base of this file (everything above `## Appends`)
+> is immutable after final ratification. All change is appended under
+> `## Appends`. Later appends win over the base and over earlier appends.
+> Authority order within the record: Seed and human answers > ratified
+> thesis > sources > model proposals.
+
+## Seed
+
+### 2026-11-24 — the owner's brief
+
+Producto: Una sola página donde una persona escribe el resumen de su CV en un cuadro de texto y ve cuántos caracteres lleva, con un límite de 500.
+Qué debe hacer:
+
+1. Mostrar el número de caracteres escritos mientras la persona escribe.
+2. Cuando el texto supera los 500 caracteres, mostrar un mensaje que lo indique. No definas el texto del mensaje; redáctalo tú.
+3. Un botón para borrar todo el texto.
+
+La interfaz está en español.
+Fuera de esta versión: guardar el texto, cuentas, enviar o descargar el CV, corrector ortográfico, sugerencias de redacción, otros idiomas, analítica, diseño elaborado (una página limpia y legible basta). Nada se guarda sobre la persona.
+Tamaño: es una primera versión. Escribe como máximo 3 requisitos y deja todo lo demás fuera de esta versión.
+
+## Thesis
+
+### Product summary
+
+A single web page, with its interface in Spanish, where a person types or pastes the summary of their CV into one text box and sees, as they write, how many characters it holds against a limit of 500. When the text goes past 500 characters a message says so, without ever blocking the typing; one button clears all the text. Nothing about the person is kept or sent anywhere.
+
+### Primary users
+
+A person writing the summary paragraph of their own CV who needs it to fit within 500 characters before they use it somewhere else.
+
+### MVP focus
+
+- G1: The person always knows how many characters their summary holds, and is told plainly when it is past 500.
+- G2: The person can start over with an empty box in one press.
+- G3: The summary the person writes stays theirs alone: nothing about them is kept or sent.
+
+### Explicitly not MVP
+
+Saving the text, accounts, sending or downloading the CV, a spell checker, writing suggestions, other languages, analytics, and an elaborate design (a clean, readable page is enough), all as the seed lists them. The first version holds at most three requirements, at the owner's word; everything else waits for a later version.
+
+### Required core flows
+
+- Write or paste a summary and see its character count, and whether it is past 500, at every moment.
+- Clear the box in one press to start again.
+
+### Value logic
+
+Wherever a CV summary is limited to 500 characters, the person needs to know before they use it whether it fits, and by how much it does not. The page answers that one question while they write, and asks nothing of them in return: no account, nothing stored.
+
+### Evidence basis
+
+The seed and the five interview answers (A-001 to A-005) are the only sources; they do not conflict. The seed leaves the message's wording to ViD, which is therefore a ViD decision.
+
+## Actors and journeys
+
+### The person writing their CV summary
+
+1. Has a CV summary to write, or one that is too long, for a place that allows 500 characters (off_screen)
+2. Opens the page and types, or pastes a draft, into the text box
+3. Watches the count; when it passes 500 the message appears, and they trim the text until it disappears
+4. Clears the box in one press to start a new attempt, if they want to
+5. Copies the finished summary out by hand and uses it in their CV; closing the page leaves nothing behind (off_screen)
+
+## Mechanisms
+
+```vid-prd-mechanisms
+MECH-01 | G1 | The count is recomputed from the box's whole text on every change, whatever made the change, by the counting rule the owner chose. | stated: answer A-001
+MECH-02 | G1 | Whenever the count is above 500 the over-limit message is shown, and whenever it is 500 or fewer it is not; typing is never blocked. | stated: answer A-003
+MECH-03 | G2 | One press of the clear button empties the box at once, with no confirmation, and the count and message follow the empty text. | stated: answer A-002
+MECH-04 | G3 | The text exists only in the open page: it is never written to storage of any kind, never sent over the network, and is gone when the page closes. | stated: seed "Nada se guarda sobre la persona"
+```
+
+## Content contract
+
+```vid-prd-contract
+DIM-nfr-privacy | NFR: privacy & data protection | nfr | required | covered_by: nfr, constraint, functional, data_entity | status: covered
+DIM-char-count-rule | What counts as one character | mechanism | required | covered_by: functional, invariant, constraint | prompt: without it a builder decides alone whether spaces, line breaks, accented letters typed in two parts and emoji count as one, zero or several, and two builds show different counts for the same text | status: covered
+DIM-count-display | How and when the count is shown | mechanism | required | covered_by: functional, ux_flow, constraint | prompt: without it a builder invents the counter's form (used or remaining, the over-500 form) and which edits update it (paste, cut, undo, accent composition), so the count can lag or contradict the box | status: covered
+DIM-limit-boundary | The 500 boundary and the over-limit message | mechanism | required | covered_by: functional, invariant, ux_flow | prompt: without it a builder decides whether exactly 500 is over, whether the message clears as soon as the text is back under, and may quietly block typing or cut pasted text at 500 | status: covered
+DIM-clear-action | What clearing does | mechanism | required | covered_by: functional, ux_flow, invariant | prompt: without it a builder invents a confirmation or none, and whether the count and message reset with the box | status: covered
+DIM-spanish-copy | The interface's Spanish words | mechanism | required | covered_by: constraint, functional | prompt: without it a builder writes every label, the message and the button in whatever form of address and variety of Spanish they like, and leaves the page's language undeclared | status: covered
+DIM-no-retention | Nothing kept across reloads or visits | mechanism | required | covered_by: functional, constraint, invariant | prompt: without it a builder adds an autosave to browser storage or lets the browser restore the text after a reload, breaking the promise that nothing is kept | status: covered
+DIM-text-egress | The text never leaves the page | nfr | required | covered_by: constraint, invariant, nfr | prompt: without it a builder counts on a server, puts the text in the address, or adds an error tracker that captures what was typed | status: covered
+```
+
+## Criticality tiers
+
+- **T0** — must never break or leak.
+- **T1** — core behavior; getting it wrong is a defect.
+- **T2** — desirable; getting it wrong is a fix-round item.
+
+## Items
+
+```vid-prd-features
+FEAT-01 | G1 | The character counter
+FEAT-02 | G1 | The over-limit message
+FEAT-03 | G2 | The clear button
+```
+
+```vid-prd
+REQ-001 | functional | T1 | Below the text box the page shows how many characters the box holds out of the limit of 500, in the form A-007 states, updated on every change to the text whatever made it. | fail-if: (1) after a change the shown count differs from the characters the person sees in the box, where each space, each line break, each accented letter and each emoji counts as one; (2) after text is pasted, cut, dropped or undone the count does not change until a further key is pressed; (3) the count shows characters remaining instead of characters used; (4) the count stops at 500 while the box holds more | serves: the person knows at every moment how long their summary is against the 500 they are allowed (G1) | authority: provisional | confirms_via: owner-decision/no | source: seed, A-001, A-007, A-008 | covers: DIM-char-count-rule, DIM-count-display | phase: pilot | feature: FEAT-01 | plain: Below the box the page always shows how many characters you have written out of 500, counting every visible character, space and line break as one.
+REQ-002 | functional | T1 | While the count the page shows is above 500 characters the message A-006 states is shown below the box, and while that count is 500 or fewer no such message is shown; nothing ever blocks or cuts what the person types or pastes. | fail-if: (1) the box holds 501 characters and the over-limit message is not shown; (2) the over-limit message is shown while the box holds 500 characters or fewer; (3) the message is still shown after the text is brought back to 500 characters or fewer; (4) a key press, paste or drop that would take the text past 500 characters is refused, or the text is cut to 500; (5) the over-limit message is shown while the count the page shows is 500 or fewer, or is not shown while that count is above 500 | serves: the person learns the moment their summary no longer fits, without losing anything they wrote (G1) | authority: provisional | confirms_via: owner-decision/no | source: seed, A-001, A-003, A-006, thesis MECH-02 | covers: DIM-limit-boundary | phase: pilot | feature: FEAT-02 | plain: When your text passes 500 characters a message says so and disappears once you are back to 500 or fewer; typing is never blocked.
+REQ-003 | functional | T1 | One press of the clear button empties the text box at once, with no confirmation, and the count and the over-limit message follow the empty box; undo right after clearing brings the cleared text back. | fail-if: (1) after one press of the clear button the box still holds any character; (2) a confirmation or any other question appears before the box is emptied; (3) after clearing the count shows anything other than zero characters; (4) after clearing the over-limit message is still shown; (5) undo pressed right after clearing does not bring back the text that was cleared | serves: the person can start a new attempt in one press, without losing their work to a mistaken press (G2) | authority: authoritative | source: seed, A-002, A-014 | covers: DIM-clear-action | phase: pilot | feature: FEAT-03 | plain: One press of the clear button empties the box straight away, without asking, and the count goes back to zero; undo right after brings the text back.
+CON-001 | constraint | T0 | The text the person writes, and anything derived from it, never leaves the open page: it is never sent over the network, never placed in the page's address, and never written to cookies or to any storage in the browser. | authority: authoritative | source: seed | covers: DIM-nfr-privacy, DIM-text-egress, DIM-no-retention
+CON-002 | constraint | T1 | The text box opens empty on every load of the page, and the browser is told not to restore or remember what was typed in it. | authority: provisional | confirms_via: owner-decision/no | source: seed, A-009 | covers: DIM-no-retention
+CON-003 | constraint | T1 | Every word of the interface is in Spanish, worded as A-010 states, and the page declares Spanish as its language. | authority: provisional | confirms_via: owner-decision/no | source: seed, A-010 | covers: DIM-spanish-copy
+NG-001 | non_goal | - | Saving the text, in any form, is not part of this version. | authority: authoritative | source: seed
+NG-002 | non_goal | - | Accounts or sign-in are not part of this version. | authority: authoritative | source: seed
+NG-003 | non_goal | - | Sending or downloading the CV is not part of this version. | authority: authoritative | source: seed
+NG-004 | non_goal | - | A spell checker added by the page is not part of this version. | authority: authoritative | source: seed
+NG-005 | non_goal | - | Writing suggestions are not part of this version. | authority: authoritative | source: seed
+NG-006 | non_goal | - | Languages other than Spanish are not part of this version. | authority: authoritative | source: seed
+NG-007 | non_goal | - | Analytics of any kind are not part of this version. | authority: authoritative | source: seed
+NG-008 | non_goal | - | An elaborate design is not part of this version: a clean, readable page is enough. | authority: authoritative | source: seed
+NG-009 | non_goal | - | Accessibility work beyond what a plain page gives, such as announcing the count to screen readers, is deferred out of this version. | authority: authoritative | source: A-012
+```
+
+## Answer ledger
+
+```vid-prd-answers
+A-001 | human | 2026-11-24 | Q: How does the count treat spaces, line breaks and special letters? | A: accepted as recommended: every character the person sees counts as one, spaces and line breaks included; an accented letter or an emoji counts as one | settles: thesis
+A-002 | human | 2026-11-24 | Q: Does the clear button ask for confirmation first? | A: accepted as recommended: no confirmation; one press clears the text at once | settles: thesis
+A-003 | human | 2026-11-24 | Q: Once the text passes 500, can the person keep typing? | A: accepted as recommended: typing is never blocked; the over-limit message stays until the text is back to 500 or fewer | settles: thesis
+A-004 | human | 2026-11-24 | Q: Boundary challenge: keep the clear-all button in the first version? | A: accepted as recommended: keep | settles: thesis
+A-005 | human | 2026-11-24 | Q: Boundary challenge: keep the over-limit message in the first version? | A: accepted as recommended: keep | settles: thesis
+A-006 | model_proposed | 2026-11-24 | Q: What does the over-limit message say? | A: "Tu resumen supera los 500 caracteres. Acórtalo para que quepa." shown below the text box, addressing the person as tú | settles: thesis | shown: pause-1 530042824
+A-007 | model_proposed | 2026-11-24 | Q: How is the count shown? | A: as characters used out of the limit, for example "123 / 500", directly below the text box; past the limit it keeps showing the real count, for example "523 / 500" | settles: thesis | shown: pause-1 3362252088
+A-008 | model_proposed | 2026-11-24 | Q: Which edits update the count? | A: every change to the text counts the same, whether typed, pasted, cut, dropped, undone or autocorrected; an accent typed in two keystrokes counts once it is complete | settles: thesis | shown: pause-1 2681540881
+A-009 | model_proposed | 2026-11-24 | Q: What happens to the text on reload or on returning to the page? | A: the box always opens empty; the browser is told not to restore or remember the text | settles: thesis | shown: pause-1 2730608831
+A-010 | model_proposed | 2026-11-24 | Q: Which Spanish does the interface use? | A: neutral Latin American Spanish, the person addressed as tú, the document called "CV", the page declared as Spanish | settles: thesis | shown: pause-1 235434062
+A-011 | model_proposed | 2026-11-24 | Q: Must the page work on a phone? | A: no requirement in this version: phone layout was struck by the owner (A-012); the plain page is left readable at phone width as a builder's matter, and nothing is graded against it | settles: thesis | shown: pause-3 3163526163
+A-012 | human | 2026-11-24 | Q: Which qualities does the contract hold? | A: accepted as recommended: the eight kept (privacy, what counts as one character, how and when the count is shown, the 500 boundary, what clearing does, the Spanish wording, nothing kept across reloads or visits, the text never leaves the page); struck and out of this version: accessibility, phone layout as a requirement, third-party loads, browser spell-check and autofill, an on-page privacy note, text box shape, unrequested controls, large-paste performance, and the catalog floor dimensions security, availability, operability, core-loop continuity, identity, consent, lifecycle, operations, feedback intake, trust states, authorization, notifications, data integrity, proof thresholds, instrumentation; case-by-case dimensions technical SEO and i18n-locale ruled out | settles: contract
+A-013 | human | 2026-11-24 | Q: The critic's finding F-01: sites that receive the text may count emoji or line breaks as two characters; add help text? | A: accepted as recommended: leave it; the counting rule of A-001 stands and no help text is added | settles: MECH-01
+A-014 | human | 2026-11-24 | Q: If the person presses the clear button by mistake, does undo right after it bring the text back? | A: accepted as recommended: yes, undo right after clearing brings the cleared text back | settles: REQ-003
+```
+
+## Open decisions
+
+<!-- Blocking product questions, `VID-QUESTION: (OQ-n) …`. None open. -->
+
+## Ratifications
+
+- 2026-11-24 — thesis+contract — 3a7c18d
+- 2026-11-24 — gap answers — 8cb11f9
+- 2026-11-24 — final — 6d33f71
+
+## Appends
+
+<!-- Append-only below this line. -->
+=====ROWS
+grammar: 0.9.3
+ROW-001 | behavior | REQ-001 | anonymous | n/a | After any change, the shown count equals the number of characters the person sees in the box, where each space, each line break, each accented letter (typed as one code point or as a letter plus a combining accent) and each emoji (including joined emoji and flags) counts as one. | REQ-001 | owed: spec-only — first stage | origin: REQ-001
+ROW-002 | behavior | REQ-001 | anonymous | n/a | After text is pasted, cut, dropped or undone, the shown count reflects the new text at once, with no further key pressed. | REQ-001 | owed: spec-only — first stage | origin: REQ-001
+ROW-003 | behavior | REQ-001 | anonymous | n/a | The count shows characters used against the limit, in the form "<used> / 500" (for example "123 / 500"), never characters remaining. | REQ-001 | owed: spec-only — first stage | origin: REQ-001
+ROW-004 | behavior | REQ-001 | anonymous | n/a | With more than 500 characters in the box, the count shows the real number (for example "523 / 500"), never stopping at 500. | REQ-001 | owed: spec-only — first stage | origin: REQ-001
+ROW-005 | behavior | REQ-002 | anonymous | n/a | With exactly 500 characters in the box no over-limit message is shown, and with 501 the message is shown. | REQ-002 | owed: spec-only — first stage | origin: REQ-002
+ROW-006 | behavior | REQ-002 | anonymous | n/a | Once the text is brought back from above 500 to 500 characters or fewer, by deleting, cutting or undoing, the over-limit message is no longer shown. | REQ-002 | owed: spec-only — first stage | origin: REQ-002
+ROW-007 | behavior | REQ-002 | anonymous | n/a | Typing, pasting or dropping text that takes the box past 500 characters is accepted whole: no key press is refused and no text is cut, so the box holds every character entered. | REQ-002 | owed: spec-only — first stage | origin: REQ-002
+ROW-008 | behavior | REQ-002 | anonymous | n/a | For text near the limit made of emoji and accented letters (where code-unit and visible counts differ), the over-limit message is shown exactly when the shown count is above 500 and hidden exactly when it is 500 or fewer. | REQ-002 | owed: spec-only — first stage | origin: REQ-002
+ROW-009 | behavior | REQ-003 | anonymous | n/a | One press of the clear button empties the box, with no confirmation, dialog or other question before it. | REQ-003 | owed: spec-only — first stage | origin: REQ-003
+ROW-010 | behavior | REQ-003 | anonymous | n/a | Right after clearing a box that was above 500 characters, the count shows "0 / 500" and the over-limit message is not shown. | REQ-003 | owed: spec-only — first stage | origin: REQ-003
+ROW-011 | behavior | REQ-003 | anonymous | n/a | Undo pressed right after clearing brings back the exact text that was cleared, and the count and the message follow it. | REQ-003 | owed: spec-only — first stage | origin: REQ-003
+ROW-012 | behavior | CON-001 | anonymous | n/a | While the page loads and while the person types, pastes and clears, the page makes no network request other than loading its own three files, sets no cookie, writes nothing to localStorage, sessionStorage or IndexedDB, leaves the page's address unchanged, and leaves the page's title as it was at load (no text or count in the tab title or history). | CON-001 | owed: spec-only — first stage | origin: CON-001
+ROW-013 | behavior | CON-001 | anonymous | n/a | control of ROW-012: with the network cut after the page has loaded, typing, the count, the over-limit message and clearing all still work. | CON-001 | owed: spec-only — first stage | origin: CON-001
+ROW-014 | behavior | CON-002 | anonymous | n/a | After text is typed, a reload, and separately a navigation away and back, both show an empty box with the count "0 / 500" and no message. | CON-002 | owed: spec-only — first stage | origin: CON-002
+ROW-015 | behavior | CON-003 | anonymous | n/a | The page declares Spanish as its language, every visible word is Spanish, no visible word addresses the person as usted (no "su", "ingrese", "escriba", "borre"), the document is called "CV" (never "currículum" or "hoja de vida"), and the over-limit message reads exactly "Tu resumen supera los 500 caracteres. Acórtalo para que quepa." | CON-003 | owed: spec-only — first stage | origin: CON-003
+ROW-016 | shell | / | anonymous | n/a | The page loads at its address with a Spanish title, one labelled text box, the count "0 / 500", the clear button and no over-limit message, no console error, and no control beyond these. | REQ-001, REQ-003 | owed: spec-only — first stage | origin: derivation 2026-11-24
+ROW-017 | reachability | / | anonymous | n/a | The page is reached from its entry address and from /index.html, and every link on it, if any, resolves. | REQ-001 | owed: spec-only — first stage | origin: derivation 2026-11-24
+ROW-018 | journey | / | anonymous | n/a | The person writing their CV summary arrives with a summary to fit (off_screen), writes it, trims it under the limit, may clear and undo, and leaves with nothing kept (off_screen). transitions: (1) person at the empty page · the text box · types or pastes a draft · the box holds the text · the count shows its length out of 500; (2) person at a text of 500 or fewer · the text box · keeps typing past 500 · over the limit · the over-limit message appears and nothing typed is refused; (3) person over the limit · the text box · deletes text down to 500 or fewer · within the limit · the message disappears and the count follows; (4) person at any text · the clear button · presses it · an empty box · the count shows "0 / 500" and no message; (5) person at a just-cleared box · undo (Ctrl+Z) · presses undo · the text is back · the count shows the restored text's length | REQ-001, REQ-002, REQ-003 | owed: spec-only — first stage | origin: derivation 2026-11-24
+ROW-019 | behavior | REQ-001 | anonymous | n/a | After text arrives with no key press — an autocorrect or predictive replacement, dictation, an emoji-picker insert, an input-method commit, a redo, a drag inside the box, a drag out of the box — the shown count reflects the new text at once. | REQ-001 | owed: spec-only — first stage | origin: domain
+ROW-020 | behavior | REQ-001 | anonymous | n/a | During and after composition — an accent typed with a dead key (´ then e), and a word still being composed as phone keyboards do — the count equals the characters shown, a finished accented letter counting once, and it is never left one step behind once composition ends. | REQ-001 | owed: spec-only — first stage | origin: domain
+ROW-021 | behavior | REQ-002 | anonymous | n/a | The page never changes what the person entered: double and trailing spaces, accents typed in two parts and every other character stay exactly as entered, and a character typed mid-text leaves the caret right after it. | REQ-002 | owed: spec-only — first stage | origin: domain
+ROW-022 | behavior | CON-003 | anonymous | n/a | Served with no charset in its Content-Type, the page still shows every accented letter of its labels and of the over-limit message correctly. | CON-003 | owed: spec-only — first stage | origin: domain
+ROW-023 | behavior | REQ-001 | anonymous | n/a | The obligations of ROW-001, ROW-008, ROW-011 and ROW-014 hold alike in the Chromium, Firefox and WebKit browser engines. | REQ-001, REQ-002, REQ-003, CON-002 | owed: spec-only — first stage | origin: domain
+ROW-024 | behavior | REQ-001 | anonymous | n/a | Whatever the box holds after a load, a reload or a back navigation, the count and the message agree with it at once, never a stale "0 / 500" beside restored text. | REQ-001, CON-002 | owed: spec-only — first stage | origin: domain
+ROW-025 | behavior | REQ-001 | anonymous | n/a | With the page's script blocked from running, the page shows no count that looks like a reading, so no "0 / 500" stays on screen while typing changes nothing. | REQ-001 | owed: spec-only — first stage | origin: domain
+ROW-026 | behavior | CON-001 | anonymous | n/a | Typing, pasting, clearing and undoing leave the system clipboard exactly as it was before. | CON-001 | owed: spec-only — first stage | origin: domain
+ROW-027 | behavior | CON-001 | anonymous | n/a | control of ROW-026: the person can still select the box's text and copy it by hand, and the clipboard then holds exactly that text. | CON-001 | owed: spec-only — first stage | origin: domain
+ROW-028 | behavior | CON-001 | anonymous | n/a | Pasting formatted content (HTML holding a remote image, bold text and a list) puts plain text only into the box, loads nothing from any other address, and counts each line break once. | CON-001, REQ-001 | owed: spec-only — first stage | origin: domain
+ROW-029 | behavior | CON-001 | anonymous | n/a | control of ROW-028: pasting plain text of several lines keeps every line break, and the count includes each as one. | CON-001, REQ-001 | owed: spec-only — first stage | origin: domain
+ROW-030 | behavior | CON-001 | anonymous | n/a | Loaded with text in its address (a query such as ?texto=hola, or a fragment such as #hola), the page opens with an empty box and "0 / 500": nothing from the address enters the box. | CON-001 | owed: spec-only — first stage | origin: domain
+ROW-031 | behavior | CON-001 | anonymous | n/a | control of ROW-030: loaded with a query or a fragment in its address, the page still works: typing is counted and clearing clears. | CON-001 | owed: spec-only — first stage | origin: domain
+ROW-032 | behavior | REQ-003 | anonymous | n/a | Undo right after clearing brings the text back through every undo the browser offers — Ctrl+Z, Cmd+Z on macOS, the text box's own context-menu Undo — a redo then empties the box again, and further undos step back through earlier edits without ever doubling the text. | REQ-003 | owed: spec-only — first stage | origin: domain
+ROW-033 | behavior | REQ-003 | anonymous | n/a | Pressing clear twice in a row and then undoing (repeated if needed) brings back the original text exactly, never an empty box. | REQ-003 | owed: spec-only — first stage | origin: domain
+ROW-034 | behavior | REQ-003 | anonymous | n/a | After one press of clear, with no further click, the characters the person types and the undo they press go to the text box. | REQ-003 | owed: spec-only — first stage | origin: domain
+rule | RULE-001 | No file the page ships contains a way to send or store data: no network call, no storage write, no cookie, no change to the page's address or title, no clipboard write | find site -type f \( -name '*.js' -o -name '*.html' \) :: grep -LE 'fetch\(|XMLHttpRequest|sendBeacon|WebSocket|EventSource|localStorage|sessionStorage|indexedDB|document\.cookie|caches\.|serviceWorker|window\.name *=|location *=|location\.(hash|search|href) *=|location\.(assign|replace)\(|window\.open\(|history\.(pushState|replaceState)|document\.title *=|navigator\.clipboard|execCommand\(.copy|<form' $(find site -type f \( -name '*.js' -o -name '*.html' \)) | 0 | owed: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test | origin: CON-001
+hostility | HOS-001 | With one line added to the page's script that sends the box's text to the harness's listening address on every change, type a summary and expect the listener to receive no request carrying it | protects: RULE-001 | disable: insert into site/main.js's input handler one call sending the box's text to the harness listener, then remove it | owed: guard-first — RULE-001; paid in the slice that builds site/main.js
+rule | RULE-002 | The count is decided only by the text box's input event and the clear action: no key, keypress or change listener decides it | find site -type f \( -name '*.js' -o -name '*.html' \) :: grep -LE "addEventListener\( *['\"](keyup|keydown|keypress|change)['\"]|on(keyup|keydown|keypress|change) *=" $(find site -type f \( -name '*.js' -o -name '*.html' \)) | 1 | owed: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test | origin: domain REQ-001
+rule | RULE-003 | No file the page ships writes HTML from strings or runs strings as code | find site -type f \( -name '*.js' -o -name '*.html' \) :: grep -LE 'innerHTML|outerHTML|insertAdjacentHTML|document\.write|eval\(|new Function' $(find site -type f \( -name '*.js' -o -name '*.html' \)) | 1 | owed: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test | origin: domain CON-001
+rule | RULE-004 | Every local reference in the page (src, href) is relative and names a shipped file exactly, letter case included, so the page works under any folder of any host | checks/extractors/invariant.local-refs.sh | 1 | owed: census-armed — the extractor is generated with the code skeleton; armed when the first stage writes the rule's test | origin: domain REQ-001
+=====ACC
+Accepted candidates so far (round 1, all lenses), as they landed:
+- ROW-012 strengthened: the page's title stays as at load (no text or count in the tab title or history).
+- ROW-015 strengthened: no usted, the document called "CV".
+- ROW-019 count right after input with no key press (autocorrect, dictation, emoji picker, input-method commit, redo, drag inside, drag out).
+- ROW-020 count right during and after composition (dead key; a word still composing on phone keyboards).
+- ROW-021 the page never changes what was entered; caret stays after a mid-text insert.
+- ROW-022 accents correct when served with no charset.
+- ROW-023 key rows hold in Chromium, Firefox and WebKit.
+- ROW-024 count and message agree with whatever the box holds after load, reload, back navigation.
+- ROW-025 with the script blocked, no count that looks like a reading.
+- ROW-026 clipboard untouched by typing, pasting, clearing, undo; ROW-027 its control (copy by hand works).
+- ROW-028 formatted paste: plain text only, nothing loaded, line break counts once; ROW-029 its control.
+- ROW-030 nothing from the page's address enters the box; ROW-031 its control.
+- ROW-032 undo after clear through every browser undo, redo, no doubling.
+- ROW-033 double clear then undo restores the text.
+- ROW-034 after clear, typing and undo go to the box.
+- RULE-001 widened: window.name, caches, serviceWorker, location assign/replace, window.open, document.title, clipboard writes.
+- RULE-002 the count decided only by the input event and the clear action (no key/change listeners).
+- RULE-003 no HTML written from strings, no strings run as code.
+- RULE-004 every local reference relative and exact in letter case.
+- Grader questions: usted/CV register; session restore after reopen or restart; a dropped file leaves the page untouched; only site/ files published; cached asset mismatch after a re-release.
+- Owner questions raised (to the sitting): which browsers are supported; whether invisible characters (zero-width space, soft hyphen, BOM, direction marks) count; phone keyboards without undo versus A-014.

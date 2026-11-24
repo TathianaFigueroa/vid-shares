@@ -1,0 +1,74 @@
+note: no checks/extractors/routes.sh — route-table checks inactive (generate and ratify the routes extractor; see seed/extractors/README.md).
+OWED  ROW-001 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-002 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-003 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-004 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-005 (REQ-002) — owed: spec-only — first stage
+OWED  ROW-006 (REQ-002) — owed: spec-only — first stage
+OWED  ROW-007 (REQ-002) — owed: spec-only — first stage
+OWED  ROW-008 (REQ-002) — owed: spec-only — first stage
+OWED  ROW-009 (REQ-003) — owed: spec-only — first stage
+OWED  ROW-010 (REQ-003) — owed: spec-only — first stage
+OWED  ROW-011 (REQ-003) — owed: spec-only — first stage
+OWED  ROW-012 (CON-001) — owed: spec-only — first stage
+OWED  ROW-013 (CON-001) — owed: spec-only — first stage
+OWED  ROW-014 (CON-002) — owed: spec-only — first stage
+OWED  ROW-015 (CON-003) — owed: spec-only — first stage
+OWED  ROW-016 (/) — owed: spec-only — first stage
+OWED  ROW-017 (/) — owed: spec-only — first stage
+OWED  ROW-018 (/) — owed: spec-only — first stage
+OWED  ROW-019 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-020 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-021 (REQ-002) — owed: spec-only — first stage
+OWED  ROW-022 (CON-003) — owed: spec-only — first stage
+OWED  ROW-023 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-024 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-025 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-026 (CON-001) — owed: spec-only — first stage
+OWED  ROW-027 (CON-001) — owed: spec-only — first stage
+OWED  ROW-028 (CON-001) — owed: spec-only — first stage
+OWED  ROW-029 (CON-001) — owed: spec-only — first stage
+OWED  ROW-030 (CON-001) — owed: spec-only — first stage
+OWED  ROW-031 (CON-001) — owed: spec-only — first stage
+OWED  ROW-032 (REQ-003) — owed: spec-only — first stage
+OWED  ROW-033 (REQ-003) — owed: spec-only — first stage
+OWED  ROW-034 (REQ-003) — owed: spec-only — first stage
+OWED  ROW-035 (REQ-002) — owed: spec-only — first stage
+OWED  ROW-036 (REQ-002) — owed: spec-only — first stage
+OWED  ROW-037 (REQ-003) — owed: spec-only — first stage
+OWED  ROW-038 (REQ-001) — owed: spec-only — first stage
+DEPLOY-OWED  ROW-039 (CON-001) — owed: paid by /vid deploy gate 2 — the page at its live address, after the owner publishes it
+DEPLOY-OWED  ROW-040 (CON-001) — owed: paid by /vid deploy gate 2 — the page at its live address, after the owner publishes it
+OWED  ROW-041 (REQ-002) — owed: spec-only — first stage
+OWED  ROW-042 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-043 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-044 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-045 (CON-001) — owed: spec-only — first stage
+OWED  ROW-046 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-047 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-048 (REQ-001) — owed: spec-only — first stage
+OWED  ROW-049 (REQ-003) — owed: spec-only — first stage
+OWED  ROW-050 (REQ-003) — owed: spec-only — first stage
+OWED  ROW-051 (CON-001) — owed: spec-only — first stage
+OWED  RULE-001 (No file the page ships contains a way to send or store data: no network call, no storage write, no cookie, no change to the page's address or title, no clipboard write) — owed: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test
+OWED  RULE-002 (No key, keypress or change listener decides the count: the count follows the text box's input event, the clear action, and a recount at load and when the page is shown again) — owed: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test
+OWED  RULE-003 (No file the page ships writes HTML from strings or runs strings as code) — owed: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test
+OWED  RULE-004 (Every local reference in the page (src, href) is relative and names a shipped file exactly, letter case included, so the page works under any folder of any host) — owed: census-armed — the extractor is generated with the code skeleton; armed when the first stage writes the rule's test
+OWED  RULE-005 (No file the page ships names another site: no absolute (http:, https:) or protocol-relative (//) address in any attribute, stylesheet or script, so nothing preconnects, prefetches or imports from elsewhere (a code comment is written with a space after //)) — owed: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test
+OWED  RULE-006 (Every script the page ships is included exactly once, so no two copies of the counting code run at the same time) — owed: census-armed — the extractor is generated with the code skeleton; armed when the first stage writes the rule's test
+OWED  RULE-007 (The text box is the browser's own plain-text field: no file the page ships makes an element editable as rich content) — owed: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test
+OWED  RULE-008 (No file the page ships carries a real person's contact details: no email address and no phone number in the page, its placeholder, its comments or anything else published; a run of seven or more digits, however spaced, dotted, hyphenated or bracketed, counts as a phone number, so no shipped file holds one) — owed: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test
+OWED  RULE-009 (The count never depends on the kind of edit: no shipped code reads the input event's kind to decide whether, or how, to recount) — owed: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test
+GAP  RULE-001 — its census command searches a path that does not exist yet (find: ‘site’: No such file or directory); checks/census.sh refuses it at commit. Write the census as an extractor-path census, checks/extractors/invariant.<name>.sh: it reports pending while checks/extractors/ holds no extractor, and the extractor is written with the code.
+GAP  RULE-002 — its census command searches a path that does not exist yet (find: ‘site’: No such file or directory); checks/census.sh refuses it at commit. Write the census as an extractor-path census, checks/extractors/invariant.<name>.sh: it reports pending while checks/extractors/ holds no extractor, and the extractor is written with the code.
+GAP  RULE-003 — its census command searches a path that does not exist yet (find: ‘site’: No such file or directory); checks/census.sh refuses it at commit. Write the census as an extractor-path census, checks/extractors/invariant.<name>.sh: it reports pending while checks/extractors/ holds no extractor, and the extractor is written with the code.
+GAP  RULE-005 — its census command searches a path that does not exist yet (find: ‘site’: No such file or directory); checks/census.sh refuses it at commit. Write the census as an extractor-path census, checks/extractors/invariant.<name>.sh: it reports pending while checks/extractors/ holds no extractor, and the extractor is written with the code.
+GAP  RULE-007 — its census command searches a path that does not exist yet (find: ‘site’: No such file or directory); checks/census.sh refuses it at commit. Write the census as an extractor-path census, checks/extractors/invariant.<name>.sh: it reports pending while checks/extractors/ holds no extractor, and the extractor is written with the code.
+GAP  RULE-008 — its census command searches a path that does not exist yet (find: ‘site’: No such file or directory); checks/census.sh refuses it at commit. Write the census as an extractor-path census, checks/extractors/invariant.<name>.sh: it reports pending while checks/extractors/ holds no extractor, and the extractor is written with the code.
+GAP  RULE-009 — its census command searches a path that does not exist yet (find: ‘site’: No such file or directory); checks/census.sh refuses it at commit. Write the census as an extractor-path census, checks/extractors/invariant.<name>.sh: it reports pending while checks/extractors/ holds no extractor, and the extractor is written with the code.
+OWED  HOS-001 (RULE-001) — owed: guard-first — RULE-001; paid in the slice that builds site/main.js
+OWED  HOS-003 (RULE-001) — owed: guard-first — RULE-001; paid in the slice that builds site/main.js
+OWED  HOS-002 (RULE-005) — owed: guard-first — RULE-005; paid in the slice that builds site/index.html
+
+inventory: rows=51 routes=0 route-gaps=0 owed=61 (legitimate=61: guard-first=3 census-armed=9 probe-capture=0 golden-set=0 fixture-source=0 prerequisite=0 spec-only=49 owner-decision=0 reverted=0; other=0; seam-probes=0) deploy-owed=2 orphans=0 missing-tests=0 hostility=3 tier0=2 hostility-gaps=0
+par: rows=51 materialised=0 legitimate=49 deploy-owed=2 other=0 — holds

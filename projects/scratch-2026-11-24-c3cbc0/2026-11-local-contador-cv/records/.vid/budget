@@ -1,0 +1,6 @@
+stacks=1
+memory-headroom-mb=2048
+claims-per-slice=60
+wall-hours-per-slice=8
+court-seconds=300
+builder-context-tokens=400000

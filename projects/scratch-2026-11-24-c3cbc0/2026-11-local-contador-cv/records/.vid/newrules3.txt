@@ -1,0 +1,1 @@
+rule | RULE-009 | The count never depends on the kind of edit: no shipped code reads the input event's kind to decide whether, or how, to recount | find site -type f :: grep -LE 'inputType' $(find site -type f) | 1 | owed: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test | origin: domain REQ-001

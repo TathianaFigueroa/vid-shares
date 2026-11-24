@@ -1,0 +1,1 @@
+ROW-051 | behavior | CON-001 | anonymous | n/a | With text in the box, switching to another tab, staying idle 60 seconds, navigating away and closing the tab make no network request, set no cookie and write no storage of any kind. | CON-001 | owed: spec-only — first stage | origin: domain

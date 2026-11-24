@@ -1,0 +1,6 @@
+hook result=refused seconds=103 placement=- conformance=- imports=- seams=- inventory+census=- design-cite=- prd=- harness=- selftest=- redstamp=- by=decisions-label at=2026-11-24T21:19:01Z
+hook result=refused seconds=149 placement=1 conformance=3 imports=1 seams=1 inventory+census=42 design-cite=0 prd=5 harness=0 selftest=- redstamp=- by=inventory,census at=2026-11-24T21:21:42Z
+hook result=pass seconds=147 placement=1 conformance=3 imports=2 seams=2 inventory+census=36 design-cite=0 prd=4 harness=0 selftest=- redstamp=0 at=2026-11-24T21:27:28Z
+hook result=pass seconds=81 placement=1 conformance=6 imports=3 seams=2 inventory+census=48 design-cite=1 prd=11 harness=0 selftest=- redstamp=- at=2026-11-24T21:29:17Z
+hook result=refused seconds=7 placement=0 conformance=2 imports=1 seams=1 inventory+census=- design-cite=- prd=- harness=- selftest=- redstamp=- by=seams at=2026-11-24T21:39:47Z
+hook result=pass seconds=43 placement=0 conformance=1 imports=1 seams=0 inventory+census=33 design-cite=0 prd=memo harness=0 selftest=- redstamp=- at=2026-11-24T21:40:44Z

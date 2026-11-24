@@ -1,0 +1,8 @@
+FAIL  RULE-001  census command wrote to standard error — a failing arm must never silently shrink a population: find: ‘site’: No such file or directory
+FAIL  RULE-002  census command wrote to standard error — a failing arm must never silently shrink a population: find: ‘site’: No such file or directory
+FAIL  RULE-003  census command wrote to standard error — a failing arm must never silently shrink a population: find: ‘site’: No such file or directory
+FAIL  RULE-005  census command wrote to standard error — a failing arm must never silently shrink a population: find: ‘site’: No such file or directory
+FAIL  RULE-007  census command wrote to standard error — a failing arm must never silently shrink a population: find: ‘site’: No such file or directory
+FAIL  RULE-008  census command wrote to standard error — a failing arm must never silently shrink a population: find: ‘site’: No such file or directory
+FAIL  RULE-009  census command wrote to standard error — a failing arm must never silently shrink a population: find: ‘site’: No such file or directory
+ViD census: rejected — every orphan is fixed, or carries a ratified exception/suppression row (standalone law commit).

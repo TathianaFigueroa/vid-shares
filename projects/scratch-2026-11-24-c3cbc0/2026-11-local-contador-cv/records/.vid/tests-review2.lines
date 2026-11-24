@@ -1,0 +1,7 @@
+empty findings | The review's other points were repaired from your answers on record.
+section alone
+item C1 | Your answers changed two failure clauses, and the record needs your yes on each change.
+detail | The counter's first clause: it used to fail any count that differed from what the person sees; it now counts each invisible character standing on its own as one, following your invisible-characters answer.
+detail | The message's first clause: it used to fail any page without the message at 501 characters; it now applies only on the browsers the page supports, following your older-browser answer.
+choice | Accept both changes as written
+choice | Keep the clauses as they were before

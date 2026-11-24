@@ -1,0 +1,344 @@
+<testsuites id="" name="" tests="111" failures="0" skipped="15" errors="0" time="21.262594">
+<testsuite name="clear.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="chromium" tests="6" failures="0" skipped="0" time="1.302" errors="0">
+<testcase name="ROW-009, ROW-010, ROW-034: one press empties the box with no question, resets, and keeps focus" classname="clear.spec.js" time="0.302">
+</testcase>
+<testcase name="ROW-011: undo right after clearing brings back the exact text" classname="clear.spec.js" time="0.178">
+</testcase>
+<testcase name="ROW-032: the browser undo command restores, redo clears again, no doubling" classname="clear.spec.js" time="0.174">
+</testcase>
+<testcase name="ROW-033: clear twice then undo brings the text back" classname="clear.spec.js" time="0.228">
+</testcase>
+<testcase name="ROW-049: clear, undo, clear again, undo again" classname="clear.spec.js" time="0.219">
+</testcase>
+<testcase name="ROW-050: the button is reached with Tab and works with Enter and Space" classname="clear.spec.js" time="0.201">
+</testcase>
+</testsuite>
+<testsuite name="counter.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="chromium" tests="13" failures="0" skipped="0" time="6.055" errors="0">
+<testcase name="ROW-001: every character counts by the owner&apos;s rule" classname="counter.spec.js" time="0.476">
+</testcase>
+<testcase name="ROW-001: generated mixes count as the sum of their parts" classname="counter.spec.js" time="0.311">
+</testcase>
+<testcase name="ROW-003, ROW-004: used characters, the real number past 500, no thousands separator" classname="counter.spec.js" time="0.145">
+</testcase>
+<testcase name="ROW-002, ROW-048: undo and redo update the count at once, read with no retry" classname="counter.spec.js" time="1.16">
+</testcase>
+<testcase name="ROW-046, ROW-047: deletions by keyboard, typing over a selection, and a box emptied by hand" classname="counter.spec.js" time="0.345">
+</testcase>
+<testcase name="ROW-019: text inserted with no key press is counted at once" classname="counter.spec.js" time="0.171">
+</testcase>
+<testcase name="ROW-020, ROW-037: a composed accent counts once, and clear during composition leaves the box empty" classname="counter.spec.js" time="0.34">
+</testcase>
+<testcase name="ROW-024, ROW-014: after a reload the box is empty and the count agrees with it" classname="counter.spec.js" time="0.194">
+</testcase>
+<testcase name="ROW-025: with the script blocked no count that looks like a reading, and no message" classname="counter.spec.js" time="0.144">
+</testcase>
+<testcase name="ROW-042: with the counting facility missing, no reading and no message" classname="counter.spec.js" time="0.117">
+</testcase>
+<testcase name="ROW-043: text typed while the script is still loading is kept and counted" classname="counter.spec.js" time="2.196">
+</testcase>
+<testcase name="ROW-038: resizing and rotating leave the text, count and message unchanged" classname="counter.spec.js" time="0.259">
+</testcase>
+<testcase name="ROW-044: unusual text raises no error and the count keeps following the box" classname="counter.spec.js" time="0.197">
+</testcase>
+</testsuite>
+<testsuite name="message.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="chromium" tests="7" failures="0" skipped="0" time="11.805" errors="0">
+<testcase name="ROW-005: no message at exactly 500, shown at 501 and staying while above" classname="message.spec.js" time="10.645">
+</testcase>
+<testcase name="ROW-006: the message goes once the text is back to 500 or fewer, by deleting or undoing" classname="message.spec.js" time="0.284">
+</testcase>
+<testcase name="ROW-007: typing and inserting past 500 is accepted whole" classname="message.spec.js" time="0.146">
+</testcase>
+<testcase name="ROW-008: the message follows the shown count for emoji and accents near the limit" classname="message.spec.js" time="0.133">
+</testcase>
+<testcase name="ROW-035, ROW-036: one message however often 500 is crossed, and the over-limit look follows it" classname="message.spec.js" time="0.302">
+</testcase>
+<testcase name="ROW-041: with the stylesheet blocked the boundary still holds" classname="message.spec.js" time="0.148">
+</testcase>
+<testcase name="ROW-021: the page never changes what was typed, and the caret stays put, above 500 too" classname="message.spec.js" time="0.147">
+</testcase>
+</testsuite>
+<testsuite name="page.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="chromium" tests="4" failures="0" skipped="0" time="0.832" errors="0">
+<testcase name="ROW-016: the page loads with its title, labelled box, count, button, no message and no console error" classname="page.spec.js" time="0.297">
+</testcase>
+<testcase name="ROW-017: the page is reached at its address and at /index.html" classname="page.spec.js" time="0.16">
+</testcase>
+<testcase name="ROW-015: every word is Spanish, addresses the person as tú, and calls the document CV" classname="page.spec.js" time="0.115">
+</testcase>
+<testcase name="ROW-018: the journey — write, pass 500, trim back, clear, undo" classname="page.spec.js" time="0.26">
+</testcase>
+</testsuite>
+<testsuite name="privacy.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="chromium" tests="7" failures="0" skipped="0" time="3.062" errors="0">
+<testcase name="ROW-012, ROW-045: only the page&apos;s own files are requested; no storage, cookie, address or title change" classname="privacy.spec.js" time="0.839">
+</testcase>
+<testcase name="ROW-013: with the network cut after load, everything still works" classname="privacy.spec.js" time="0.206">
+</testcase>
+<testcase name="ROW-030, ROW-031: text in the page address never enters the box, and the page still works" classname="privacy.spec.js" time="0.176">
+</testcase>
+<testcase name="ROW-051: hiding the page and leaving it send nothing" classname="privacy.spec.js" time="0.64">
+</testcase>
+<testcase name="ROW-026, ROW-027: the clipboard is untouched, and copying by hand works" classname="privacy.spec.js" time="0.298">
+</testcase>
+<testcase name="ROW-028, ROW-029: formatted paste lands as plain text and loads nothing; plain lines keep their breaks" classname="privacy.spec.js" time="0.735">
+</testcase>
+<testcase name="ROW-022: the page declares UTF-8 within its first 1024 bytes, and accents show although the server sends no charset" classname="privacy.spec.js" time="0.168">
+</testcase>
+</testsuite>
+<testsuite name="clear.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="firefox" tests="6" failures="0" skipped="0" time="4.664" errors="0">
+<testcase name="ROW-009, ROW-010, ROW-034: one press empties the box with no question, resets, and keeps focus" classname="clear.spec.js" time="1.752">
+</testcase>
+<testcase name="ROW-011: undo right after clearing brings back the exact text" classname="clear.spec.js" time="0.576">
+</testcase>
+<testcase name="ROW-032: the browser undo command restores, redo clears again, no doubling" classname="clear.spec.js" time="0.563">
+</testcase>
+<testcase name="ROW-033: clear twice then undo brings the text back" classname="clear.spec.js" time="0.578">
+</testcase>
+<testcase name="ROW-049: clear, undo, clear again, undo again" classname="clear.spec.js" time="0.632">
+</testcase>
+<testcase name="ROW-050: the button is reached with Tab and works with Enter and Space" classname="clear.spec.js" time="0.563">
+</testcase>
+</testsuite>
+<testsuite name="counter.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="firefox" tests="13" failures="0" skipped="1" time="11.593" errors="0">
+<testcase name="ROW-001: every character counts by the owner&apos;s rule" classname="counter.spec.js" time="2.224">
+</testcase>
+<testcase name="ROW-001: generated mixes count as the sum of their parts" classname="counter.spec.js" time="0.803">
+</testcase>
+<testcase name="ROW-003, ROW-004: used characters, the real number past 500, no thousands separator" classname="counter.spec.js" time="0.456">
+</testcase>
+<testcase name="ROW-002, ROW-048: undo and redo update the count at once, read with no retry" classname="counter.spec.js" time="1.466">
+</testcase>
+<testcase name="ROW-046, ROW-047: deletions by keyboard, typing over a selection, and a box emptied by hand" classname="counter.spec.js" time="0.609">
+</testcase>
+<testcase name="ROW-019: text inserted with no key press is counted at once" classname="counter.spec.js" time="0.672">
+</testcase>
+<testcase name="ROW-020, ROW-037: a composed accent counts once, and clear during composition leaves the box empty" classname="counter.spec.js" time="0.417">
+<properties>
+<property name="skip" value="real composition is driven in Chromium only (ROW-023)">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-024, ROW-014: after a reload the box is empty and the count agrees with it" classname="counter.spec.js" time="0.834">
+</testcase>
+<testcase name="ROW-025: with the script blocked no count that looks like a reading, and no message" classname="counter.spec.js" time="0.532">
+</testcase>
+<testcase name="ROW-042: with the counting facility missing, no reading and no message" classname="counter.spec.js" time="0.407">
+</testcase>
+<testcase name="ROW-043: text typed while the script is still loading is kept and counted" classname="counter.spec.js" time="2.46">
+</testcase>
+<testcase name="ROW-038: resizing and rotating leave the text, count and message unchanged" classname="counter.spec.js" time="0.416">
+</testcase>
+<testcase name="ROW-044: unusual text raises no error and the count keeps following the box" classname="counter.spec.js" time="0.297">
+</testcase>
+</testsuite>
+<testsuite name="message.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="firefox" tests="7" failures="0" skipped="0" time="14.038" errors="0">
+<testcase name="ROW-005: no message at exactly 500, shown at 501 and staying while above" classname="message.spec.js" time="11.965">
+</testcase>
+<testcase name="ROW-006: the message goes once the text is back to 500 or fewer, by deleting or undoing" classname="message.spec.js" time="0.367">
+</testcase>
+<testcase name="ROW-007: typing and inserting past 500 is accepted whole" classname="message.spec.js" time="0.313">
+</testcase>
+<testcase name="ROW-008: the message follows the shown count for emoji and accents near the limit" classname="message.spec.js" time="0.277">
+</testcase>
+<testcase name="ROW-035, ROW-036: one message however often 500 is crossed, and the over-limit look follows it" classname="message.spec.js" time="0.506">
+</testcase>
+<testcase name="ROW-041: with the stylesheet blocked the boundary still holds" classname="message.spec.js" time="0.282">
+</testcase>
+<testcase name="ROW-021: the page never changes what was typed, and the caret stays put, above 500 too" classname="message.spec.js" time="0.328">
+</testcase>
+</testsuite>
+<testsuite name="page.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="firefox" tests="4" failures="0" skipped="0" time="3.744" errors="0">
+<testcase name="ROW-016: the page loads with its title, labelled box, count, button, no message and no console error" classname="page.spec.js" time="1.833">
+</testcase>
+<testcase name="ROW-017: the page is reached at its address and at /index.html" classname="page.spec.js" time="0.698">
+</testcase>
+<testcase name="ROW-015: every word is Spanish, addresses the person as tú, and calls the document CV" classname="page.spec.js" time="0.452">
+</testcase>
+<testcase name="ROW-018: the journey — write, pass 500, trim back, clear, undo" classname="page.spec.js" time="0.761">
+</testcase>
+</testsuite>
+<testsuite name="privacy.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="firefox" tests="7" failures="0" skipped="2" time="5.99" errors="0">
+<testcase name="ROW-012, ROW-045: only the page&apos;s own files are requested; no storage, cookie, address or title change" classname="privacy.spec.js" time="2.499">
+</testcase>
+<testcase name="ROW-013: with the network cut after load, everything still works" classname="privacy.spec.js" time="0.657">
+</testcase>
+<testcase name="ROW-030, ROW-031: text in the page address never enters the box, and the page still works" classname="privacy.spec.js" time="0.559">
+</testcase>
+<testcase name="ROW-051: hiding the page and leaving it send nothing" classname="privacy.spec.js" time="0.943">
+</testcase>
+<testcase name="ROW-026, ROW-027: the clipboard is untouched, and copying by hand works" classname="privacy.spec.js" time="0.428">
+<properties>
+<property name="skip" value="clipboard permissions are granted in Chromium only">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-028, ROW-029: formatted paste lands as plain text and loads nothing; plain lines keep their breaks" classname="privacy.spec.js" time="0.419">
+<properties>
+<property name="skip" value="clipboard permissions are granted in Chromium only">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-022: the page declares UTF-8 within its first 1024 bytes, and accents show although the server sends no charset" classname="privacy.spec.js" time="0.485">
+</testcase>
+</testsuite>
+<testsuite name="clear.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="webkit" tests="6" failures="0" skipped="5" time="2.478" errors="0">
+<testcase name="ROW-009, ROW-010, ROW-034: one press empties the box with no question, resets, and keeps focus" classname="clear.spec.js" time="1.103">
+</testcase>
+<testcase name="ROW-011: undo right after clearing brings back the exact text" classname="clear.spec.js" time="0.251">
+<properties>
+<property name="skip" value="WebKit test build has no working undo; checked on real Safari (grading checklist)">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-032: the browser undo command restores, redo clears again, no doubling" classname="clear.spec.js" time="0.246">
+<properties>
+<property name="skip" value="WebKit test build has no working undo; checked on real Safari (grading checklist)">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-033: clear twice then undo brings the text back" classname="clear.spec.js" time="0.253">
+<properties>
+<property name="skip" value="WebKit test build has no working undo; checked on real Safari (grading checklist)">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-049: clear, undo, clear again, undo again" classname="clear.spec.js" time="0.303">
+<properties>
+<property name="skip" value="WebKit test build has no working undo; checked on real Safari (grading checklist)">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-050: the button is reached with Tab and works with Enter and Space" classname="clear.spec.js" time="0.322">
+<properties>
+<property name="skip" value="Safari does not move focus to buttons with Tab by default">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="counter.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="webkit" tests="13" failures="0" skipped="2" time="8.08" errors="0">
+<testcase name="ROW-001: every character counts by the owner&apos;s rule" classname="counter.spec.js" time="1.288">
+</testcase>
+<testcase name="ROW-001: generated mixes count as the sum of their parts" classname="counter.spec.js" time="0.888">
+</testcase>
+<testcase name="ROW-003, ROW-004: used characters, the real number past 500, no thousands separator" classname="counter.spec.js" time="0.489">
+</testcase>
+<testcase name="ROW-002, ROW-048: undo and redo update the count at once, read with no retry" classname="counter.spec.js" time="0.251">
+<properties>
+<property name="skip" value="WebKit test build has no working undo; checked on real Safari (grading checklist)">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-046, ROW-047: deletions by keyboard, typing over a selection, and a box emptied by hand" classname="counter.spec.js" time="0.631">
+</testcase>
+<testcase name="ROW-019: text inserted with no key press is counted at once" classname="counter.spec.js" time="0.387">
+</testcase>
+<testcase name="ROW-020, ROW-037: a composed accent counts once, and clear during composition leaves the box empty" classname="counter.spec.js" time="0.174">
+<properties>
+<property name="skip" value="real composition is driven in Chromium only (ROW-023)">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-024, ROW-014: after a reload the box is empty and the count agrees with it" classname="counter.spec.js" time="0.475">
+</testcase>
+<testcase name="ROW-025: with the script blocked no count that looks like a reading, and no message" classname="counter.spec.js" time="0.302">
+</testcase>
+<testcase name="ROW-042: with the counting facility missing, no reading and no message" classname="counter.spec.js" time="0.207">
+</testcase>
+<testcase name="ROW-043: text typed while the script is still loading is kept and counted" classname="counter.spec.js" time="2.28">
+</testcase>
+<testcase name="ROW-038: resizing and rotating leave the text, count and message unchanged" classname="counter.spec.js" time="0.357">
+</testcase>
+<testcase name="ROW-044: unusual text raises no error and the count keeps following the box" classname="counter.spec.js" time="0.351">
+</testcase>
+</testsuite>
+<testsuite name="message.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="webkit" tests="7" failures="0" skipped="2" time="12.641" errors="0">
+<testcase name="ROW-005: no message at exactly 500, shown at 501 and staying while above" classname="message.spec.js" time="11.105">
+</testcase>
+<testcase name="ROW-006: the message goes once the text is back to 500 or fewer, by deleting or undoing" classname="message.spec.js" time="0.158">
+<properties>
+<property name="skip" value="WebKit test build has no working undo; checked on real Safari (grading checklist)">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-007: typing and inserting past 500 is accepted whole" classname="message.spec.js" time="0.35">
+</testcase>
+<testcase name="ROW-008: the message follows the shown count for emoji and accents near the limit" classname="message.spec.js" time="0.276">
+</testcase>
+<testcase name="ROW-035, ROW-036: one message however often 500 is crossed, and the over-limit look follows it" classname="message.spec.js" time="0.176">
+<properties>
+<property name="skip" value="WebKit test build has no working undo; checked on real Safari (grading checklist)">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-041: with the stylesheet blocked the boundary still holds" classname="message.spec.js" time="0.265">
+</testcase>
+<testcase name="ROW-021: the page never changes what was typed, and the caret stays put, above 500 too" classname="message.spec.js" time="0.311">
+</testcase>
+</testsuite>
+<testsuite name="page.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="webkit" tests="4" failures="0" skipped="1" time="2.053" errors="0">
+<testcase name="ROW-016: the page loads with its title, labelled box, count, button, no message and no console error" classname="page.spec.js" time="0.655">
+</testcase>
+<testcase name="ROW-017: the page is reached at its address and at /index.html" classname="page.spec.js" time="0.658">
+</testcase>
+<testcase name="ROW-015: every word is Spanish, addresses the person as tú, and calls the document CV" classname="page.spec.js" time="0.481">
+</testcase>
+<testcase name="ROW-018: the journey — write, pass 500, trim back, clear, undo" classname="page.spec.js" time="0.259">
+<properties>
+<property name="skip" value="WebKit test build has no working undo; checked on real Safari (grading checklist)">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="privacy.spec.js" timestamp="2026-11-24T21:40:59.918Z" hostname="webkit" tests="7" failures="0" skipped="2" time="4.366" errors="0">
+<testcase name="ROW-012, ROW-045: only the page&apos;s own files are requested; no storage, cookie, address or title change" classname="privacy.spec.js" time="1.387">
+</testcase>
+<testcase name="ROW-013: with the network cut after load, everything still works" classname="privacy.spec.js" time="0.691">
+</testcase>
+<testcase name="ROW-030, ROW-031: text in the page address never enters the box, and the page still works" classname="privacy.spec.js" time="0.521">
+</testcase>
+<testcase name="ROW-051: hiding the page and leaving it send nothing" classname="privacy.spec.js" time="0.927">
+</testcase>
+<testcase name="ROW-026, ROW-027: the clipboard is untouched, and copying by hand works" classname="privacy.spec.js" time="0.182">
+<properties>
+<property name="skip" value="clipboard permissions are granted in Chromium only">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-028, ROW-029: formatted paste lands as plain text and loads nothing; plain lines keep their breaks" classname="privacy.spec.js" time="0.222">
+<properties>
+<property name="skip" value="clipboard permissions are granted in Chromium only">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ROW-022: the page declares UTF-8 within its first 1024 bytes, and accents show although the server sends no charset" classname="privacy.spec.js" time="0.436">
+</testcase>
+</testsuite>
+</testsuites>

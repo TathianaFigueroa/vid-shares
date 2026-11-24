@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contador de caracteres para el resumen del CV: the product book</title>
+<style>
+:root { --bg: #fbfaf7; --fg: #1d1d1b; --mute: #6b6a66; --line: #dedbd3; --card: #ffffff; --accent: #2f5d8a; --rec: #e7f0e4; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #181816; --fg: #ecebe6; --mute: #a3a29c; --line: #3a3934; --card: #22221f; --accent: #8cb4dc; --rec: #233523; } }
+:root[data-theme="dark"] { --bg: #181816; --fg: #ecebe6; --mute: #a3a29c; --line: #3a3934; --card: #22221f; --accent: #8cb4dc; --rec: #233523; }
+body { background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; padding: 24px 16px 64px; }
+main { max-width: 860px; margin: 0 auto; }
+h1 { font-size: 1.6em; margin: 0 0 .6em; } h2 { font-size: 1.25em; margin: 1.8em 0 .5em; border-bottom: 1px solid var(--line); padding-bottom: .2em; }
+h3 { font-size: 1.05em; margin: 1.4em 0 .4em; } h4 { font-size: 1em; margin: 1.2em 0 .3em; color: var(--mute); }
+table { border-collapse: collapse; width: 100%; margin: .8em 0; font-size: .94em; display: block; overflow-x: auto; }
+th, td { border: 1px solid var(--line); padding: .35em .6em; text-align: left; vertical-align: top; } th { background: var(--card); }
+code { font: .9em ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--card); padding: .05em .3em; border-radius: 3px; }
+pre { background: var(--card); border: 1px solid var(--line); padding: .8em; overflow-x: auto; border-radius: 6px; } pre code { background: none; padding: 0; }
+.card { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px; padding: .8em 1em; margin: 1em 0; }
+.card .meta { color: var(--mute); font-size: .88em; } .card .q { font-weight: 600; margin: .3em 0; } .card label { display: block; margin: .2em 0; }
+.card label.rec { background: var(--rec); border-radius: 4px; padding: 0 .3em; } .card textarea { width: 100%; box-sizing: border-box; margin-top: .4em; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 4px; }
+button#copy { position: sticky; top: 8px; float: right; background: var(--accent); color: var(--bg); border: 0; border-radius: 6px; padding: .5em .9em; font-weight: 600; cursor: pointer; }
+a { color: var(--accent); }
+.tools { position: sticky; top: 8px; float: right; display: flex; gap: .4em; } .tools button { background: var(--card); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: .3em .7em; cursor: pointer; }
+details.fold { border: 1px solid var(--line); border-radius: 6px; padding: .2em .8em; margin: .6em 0; background: var(--card); } details.fold > summary { cursor: pointer; font-weight: 600; padding: .3em 0; }
+details.fold details.fold { background: var(--bg); }
+nav.contents ul { padding-left: 1.2em; } .note { border: 1px solid var(--accent); border-left-width: 4px; border-radius: 6px; padding: .6em 1em; margin: 1em 0; background: var(--rec); }
+.mark { color: var(--accent); font-size: .8em; vertical-align: super; } .vid-id { display: none; } body.show-ids .vid-id { display: inline; color: var(--mute); font: .8em ui-monospace, SFMono-Regular, Menlo, monospace; margin-left: .3em; }
+</style>
+</head><body><main>
+<div class="tools"><button id="open-all" type="button">Open all</button><button id="close-all" type="button">Close all</button><button id="show-ids" type="button">Show ids</button></div>
+<h1>Contador de caracteres para el resumen del CV: the product book</h1>
+<p>As of 2026-11-24 20:10 UTC</p>
+<h2 id="the-chapters">The chapters</h2>
+<ul>
+<li><a href="#chapter-1">The idea</a> — Written</li>
+<li><a href="#chapter-2">The product</a> — Written</li>
+<li><a href="#chapter-3">The technical foundation</a> — Written</li>
+<li><a href="#chapter-4">The design</a> — Not written yet</li>
+<li><a href="#chapter-5">The tests</a> — Written</li>
+<li><a href="#chapter-6">The stages</a> — Waiting on you</li>
+<li><a href="#chapter-7">The plan</a> — Not written yet</li>
+<li><a href="#chapter-8">The findings</a> — Written</li>
+</ul>
+<span id="chapter-1" class="at"></span>
+<h1>Contador de caracteres para el resumen del CV: the idea</h1>
+<h3>2026-11-24 — the owner's brief</h3>
+<p>Producto: Una sola página donde una persona escribe el resumen de su CV en un cuadro de texto y ve cuántos caracteres lleva, con un límite de 500. Qué debe hacer:</p>
+<ol>
+<li>Mostrar el número de caracteres escritos mientras la persona escribe.</li>
+<li>Cuando el texto supera los 500 caracteres, mostrar un mensaje que lo indique. No definas el texto del mensaje; redáctalo tú.</li>
+<li>Un botón para borrar todo el texto.</li>
+</ol>
+<p>La interfaz está en español. Fuera de esta versión: guardar el texto, cuentas, enviar o descargar el CV, corrector ortográfico, sugerencias de redacción, otros idiomas, analítica, diseño elaborado (una página limpia y legible basta). Nada se guarda sobre la persona. Tamaño: es una primera versión. Escribe como máximo 3 requisitos y deja todo lo demás fuera de esta versión.</p>
+<span id="chapter-2" class="at"></span>
+<h1>Contador de caracteres para el resumen del CV: the product</h1>
+<p>As of 2026-11-24 20:10 UTC</p>
+<ul>
+<li><code>PRD.md</code>: not committed yet</li>
+</ul>
+<p>Requirements: 3 · Features: 3 · Open questions: 0 · Answers of yours: 14 · Answers of ViD's: 6 · Findings: 50</p>
+<nav class="contents"><ul><li><a href="#c2-the-summary">The summary</a></li><li><a href="#c2-the-qualities-it-must-have">The qualities it must have</a></li><li><a href="#c2-the-features">The features</a></li><li><a href="#c2-decisions">Decisions</a></li><li><a href="#c2-open-questions">Open questions</a></li><li><a href="#c2-history-what-changed-after-the-final-wording-was-agreed">History: what changed after the final wording was agreed</a></li><li><a href="#c2-when-it-was-agreed">When it was agreed</a></li></ul></nav>
+<details class="fold chap"><summary><h2 id="c2-the-summary">The summary</h2></summary>
+<h3>Product summary</h3>
+<p>A single web page, with its interface in Spanish, where a person types or pastes the summary of their CV into one text box and sees, as they write, how many characters it holds against a limit of 500. When the text goes past 500 characters a message says so, without ever blocking the typing; one button clears all the text. Nothing about the person is kept or sent anywhere.</p>
+<h3>Primary users</h3>
+<p>A person writing the summary paragraph of their own CV who needs it to fit within 500 characters before they use it somewhere else.</p>
+<h3>MVP focus</h3>
+<ul>
+<li>G1: The person always knows how many characters their summary holds, and is told plainly when it is past 500.</li>
+<li>G2: The person can start over with an empty box in one press.</li>
+<li>G3: The summary the person writes stays theirs alone: nothing about them is kept or sent.</li>
+</ul>
+<h3>Explicitly not MVP</h3>
+<p>Saving the text, accounts, sending or downloading the CV, a spell checker, writing suggestions, other languages, analytics, and an elaborate design (a clean, readable page is enough), all as the seed lists them. The first version holds at most three requirements, at the owner's word; everything else waits for a later version.</p>
+<h3>Required core flows</h3>
+<ul>
+<li>Write or paste a summary and see its character count, and whether it is past 500, at every moment.</li>
+<li>Clear the box in one press to start again.</li>
+</ul>
+<h3>Value logic</h3>
+<p>Wherever a CV summary is limited to 500 characters, the person needs to know before they use it whether it fits, and by how much it does not. The page answers that one question while they write, and asks nothing of them in return: no account, nothing stored.</p>
+<h3>Evidence basis</h3>
+<p>The seed and the five interview answers (A-001 to A-005) are the only sources; they do not conflict. The seed leaves the message's wording to ViD, which is therefore a ViD decision.</p>
+</details>
+<details class="fold chap"><summary><h2 id="c2-the-qualities-it-must-have">The qualities it must have</h2></summary>
+<ul>
+<li><strong>NFR: privacy &amp; data protection</strong>: Needs it <span class="vid-id">DIM-nfr-privacy</span></li>
+<li><strong>What counts as one character</strong>: Needs it <span class="vid-id">DIM-char-count-rule</span></li>
+<li><strong>How and when the count is shown</strong>: Needs it <span class="vid-id">DIM-count-display</span></li>
+<li><strong>The 500 boundary and the over-limit message</strong>: Needs it <span class="vid-id">DIM-limit-boundary</span></li>
+<li><strong>What clearing does</strong>: Needs it <span class="vid-id">DIM-clear-action</span></li>
+<li><strong>The interface's Spanish words</strong>: Needs it <span class="vid-id">DIM-spanish-copy</span></li>
+<li><strong>Nothing kept across reloads or visits</strong>: Needs it <span class="vid-id">DIM-no-retention</span></li>
+<li><strong>The text never leaves the page</strong>: Needs it <span class="vid-id">DIM-text-egress</span></li>
+</ul>
+</details>
+<details class="fold chap"><summary><h2 id="c2-the-features">The features</h2></summary>
+<details class="fold"><summary>The character counter — 1 requirement in the first version, 0 must never break <span class="vid-id">FEAT-01</span></summary>
+<span id="c2-req-001" class="at"></span>
+<p><strong>Below the box the page shows how many characters you have written out of 500, counting each character you see, space, line break and lone invisible character as one.</strong> <span class="vid-id">REQ-001</span></p>
+<p>It fails if:</p>
+<ul>
+<li>(1) after a change the shown count differs from the characters the person sees in the box, where each space, each line break, each accented letter and each emoji counts as one, an emoji built from several joined parts (a family, a skin tone, a flag) counting as one, and where each zero-width space, soft hyphen and direction mark standing on its own counts as one; (2) after text is pasted, cut, dropped</li>
+<li>undone the count does not change until a further key is pressed; (3) the count shows characters remaining instead of characters used; (4) the count stops at 500 while the box holds more</li>
+</ul>
+<p>Rests on a ViD decision</p>
+</details>
+<details class="fold"><summary>The over-limit message — 1 requirement in the first version, 0 must never break <span class="vid-id">FEAT-02</span></summary>
+<span id="c2-req-002" class="at"></span>
+<p><strong>When your text passes 500 characters a message says so and disappears once you are back to 500 or fewer; typing is never blocked.</strong> <span class="vid-id">REQ-002</span></p>
+<p>It fails if:</p>
+<ul>
+<li>(1) on a browser the page supports, the box holds 501 characters and the over-limit message is not shown; (2) the over-limit message is shown while the box holds 500 characters</li>
+<li>fewer; (3) the message is still shown after the text is brought back to 500 characters</li>
+<li>fewer; (4) a key press, paste</li>
+<li>drop that would take the text past 500 characters is refused</li>
+<li>the text is cut to 500; (5) the over-limit message is shown while the count the page shows is 500</li>
+<li>fewer</li>
+<li>is not shown while that count is above 500</li>
+</ul>
+<p>Rests on a ViD decision</p>
+</details>
+<details class="fold"><summary>The clear button — 1 requirement in the first version, 0 must never break <span class="vid-id">FEAT-03</span></summary>
+<span id="c2-req-003" class="at"></span>
+<p><strong>One press of the clear button empties the box straight away, without asking, and the count goes back to zero; undo right after brings the text back.</strong> <span class="vid-id">REQ-003</span></p>
+<p>It fails if:</p>
+<ul>
+<li>(1) after one press of the clear button the box still holds any character; (2) a confirmation</li>
+<li>any other question appears before the box is emptied; (3) after clearing the count shows anything other than zero characters; (4) after clearing the over-limit message is still shown; (5) undo pressed right after clearing does not bring back the text that was cleared</li>
+</ul>
+</details>
+<details class="fold"><summary>Beyond the features</summary>
+<span id="c2-con-001" class="at"></span>
+<p><strong>The text the person writes, and anything derived from it, never leaves the open page: it is never sent over the network, never placed in the page's address, and never written to cookies or to any storage in the browser.</strong> <span class="vid-id">CON-001</span></p>
+<p>Must never break</p>
+<span id="c2-con-002" class="at"></span>
+<p><strong>The text box opens empty on every load of the page, and the browser is told not to restore or remember what was typed in it.</strong> <span class="vid-id">CON-002</span></p>
+<p>Rests on a ViD decision</p>
+<span id="c2-con-003" class="at"></span>
+<p><strong>Every word of the interface is in Spanish, worded as A-010 states, and the page declares Spanish as its language.</strong> <span class="vid-id">CON-003</span></p>
+<p>Rests on a ViD decision</p>
+<span id="c2-ng-001" class="at"></span>
+<p><strong>Saving the text, in any form, is not part of this version.</strong> <span class="vid-id">NG-001</span></p>
+<span id="c2-ng-002" class="at"></span>
+<p><strong>Accounts or sign-in are not part of this version.</strong> <span class="vid-id">NG-002</span></p>
+<span id="c2-ng-003" class="at"></span>
+<p><strong>Sending or downloading the CV is not part of this version.</strong> <span class="vid-id">NG-003</span></p>
+<span id="c2-ng-004" class="at"></span>
+<p><strong>A spell checker added by the page is not part of this version.</strong> <span class="vid-id">NG-004</span></p>
+<span id="c2-ng-005" class="at"></span>
+<p><strong>Writing suggestions are not part of this version.</strong> <span class="vid-id">NG-005</span></p>
+<span id="c2-ng-006" class="at"></span>
+<p><strong>Languages other than Spanish are not part of this version.</strong> <span class="vid-id">NG-006</span></p>
+<span id="c2-ng-007" class="at"></span>
+<p><strong>Analytics of any kind are not part of this version.</strong> <span class="vid-id">NG-007</span></p>
+<span id="c2-ng-008" class="at"></span>
+<p><strong>An elaborate design is not part of this version: a clean, readable page is enough.</strong> <span class="vid-id">NG-008</span></p>
+<span id="c2-ng-009" class="at"></span>
+<p><strong>Accessibility work beyond what a plain page gives, such as announcing the count to screen readers, is deferred out of this version.</strong> <span class="vid-id">NG-009</span></p>
+<span id="c2-con-004" class="at"></span>
+<p><strong>The page works in the current and previous major versions of Chrome, Edge, Firefox and Safari; on an older browser that lacks the counting feature it shows neither a count nor the over-limit message, rather than wrong ones.</strong> <span class="vid-id">CON-004</span></p>
+</details>
+</details>
+<details class="fold chap"><summary><h2 id="c2-decisions">Decisions</h2></summary>
+<h3>Yours</h3>
+<ul>
+<li><strong>How does the count treat spaces, line breaks and special letters?</strong> accepted as recommended: every character in the box counts as one, each one the person sees (spaces and line breaks included, an accented letter or an emoji counting as one however many parts it is built from), plus each invisible character standing on its own (a zero-width space, a soft hyphen, a direction mark); an invisible joiner or modifier attached to the letter or emoji before it is part of that character <span class="vid-id">A-001</span></li>
+<li><strong>Does the clear button ask for confirmation first?</strong> accepted as recommended: no confirmation; one press clears the text at once <span class="vid-id">A-002</span></li>
+<li><strong>Once the text passes 500, can the person keep typing?</strong> accepted as recommended: typing is never blocked; the over-limit message stays until the text is back to 500 or fewer <span class="vid-id">A-003</span></li>
+<li><strong>Boundary challenge: keep the clear-all button in the first version?</strong> accepted as recommended: keep <span class="vid-id">A-004</span></li>
+<li><strong>Boundary challenge: keep the over-limit message in the first version?</strong> accepted as recommended: keep <span class="vid-id">A-005</span></li>
+<li><strong>Which qualities does the contract hold?</strong> accepted as recommended: the eight kept (privacy, what counts as one character, how and when the count is shown, the 500 boundary, what clearing does, the Spanish wording, nothing kept across reloads or visits, the text never leaves the page); struck and out of this version: accessibility, phone layout as a requirement, third-party loads, browser spell-check and autofill, an on-page privacy note, text box shape, unrequested controls, large-paste performance, and the catalog floor dimensions security, availability, operability, core-loop continuity, identity, consent, lifecycle, operations, feedback intake, trust states, authorization, notifications, data integrity, proof thresholds, instrumentation; case-by-case dimensions technical SEO and i18n-locale ruled out <span class="vid-id">A-012</span></li>
+<li><strong>The critic's finding F-01: sites that receive the text may count emoji or line breaks as two characters; add help text?</strong> accepted as recommended: leave it; the counting rule of A-001 stands and no help text is added <span class="vid-id">A-013</span></li>
+<li><strong>If the person presses the clear button by mistake, does undo right after it bring the text back?</strong> accepted as recommended: yes, undo right after clearing brings the cleared text back <span class="vid-id">A-014</span></li>
+<li><strong>Which browsers must the page support?</strong> accepted as recommended: the current and previous major versions of Chrome, Edge, Firefox and Safari; on an older browser that lacks the counting feature the page shows no count rather than a wrong one <span class="vid-id">A-015</span></li>
+<li><strong>Do invisible characters pasted from Word or PDF (zero-width space, soft hyphen, direction marks) count?</strong> accepted as recommended: they count, one each, like every other character, because the site that receives the summary counts them too <span class="vid-id">A-016</span></li>
+<li><strong>Phone keyboards usually have no undo; keep the clear button as ruled?</strong> accepted as recommended: keep it as ruled, one press with no question, undo wherever the keyboard has it <span class="vid-id">A-017</span></li>
+<li><strong>A strength reviewer says the census rules judge the file search by its exit code; keep the rules as written?</strong> accepted as recommended: keep the rules as written; the census compares two lists of files and ignores the exit code, and the number beside each rule is its tier <span class="vid-id">A-018</span></li>
+<li><strong>On an older browser that lacks the counting feature the page shows no count; should the over-limit message stay hidden there too?</strong> yes: on such a browser the over-limit message stays hidden too, like the count; the message rule's first failure clause applies to the browsers the page supports (CON-004) <span class="vid-id">A-019</span></li>
+<li><strong>Your answers changed two failure clauses: the counter's first clause now counts each invisible character standing on its own as one, and the message's first clause now applies only on the browsers the page supports. Accept both?</strong> yes, both changes accepted as written <span class="vid-id">A-020</span></li>
+</ul>
+<h3>ViD's</h3>
+<ul>
+<li><strong>What does the over-limit message say?</strong> &quot;Tu resumen supera los 500 caracteres. Acórtalo para que quepa.&quot; shown below the text box, addressing the person as tú (you have seen this) <span class="vid-id">A-006</span></li>
+<li><strong>How is the count shown?</strong> as characters used out of the limit, for example &quot;123 / 500&quot;, directly below the text box; past the limit it keeps showing the real count, for example &quot;523 / 500&quot; (you have seen this) <span class="vid-id">A-007</span></li>
+<li><strong>Which edits update the count?</strong> every change to the text counts the same, whether typed, pasted, cut, dropped, undone or autocorrected; an accent typed in two keystrokes counts once it is complete (you have seen this) <span class="vid-id">A-008</span></li>
+<li><strong>What happens to the text on reload or on returning to the page?</strong> the box always opens empty; the browser is told not to restore or remember the text (you have seen this) <span class="vid-id">A-009</span></li>
+<li><strong>Which Spanish does the interface use?</strong> neutral Latin American Spanish, the person addressed as tú, the document called &quot;CV&quot;, the page declared as Spanish (you have seen this) <span class="vid-id">A-010</span></li>
+<li><strong>Must the page work on a phone?</strong> no requirement in this version: phone layout was struck by the owner (A-012); the plain page is left readable at phone width as a builder's matter, and nothing is graded against it (you have seen this) <span class="vid-id">A-011</span></li>
+</ul>
+</details>
+<details class="fold chap"><summary><h2 id="c2-open-questions">Open questions</h2></summary>
+<p>None.</p>
+</details>
+<details class="fold chap"><summary><h2 id="c2-history-what-changed-after-the-final-wording-was-agreed">History: what changed after the final wording was agreed</h2></summary>
+<p>Wording here may have been replaced since. Parts 2 to 6 show what holds now.</p>
+<details class="fold"><summary>2026-11-24 (test list sitting)</summary>
+<pre><code>
+A-015 | human | 2026-11-24 | Q: Which browsers must the page support? | A: accepted as recommended: the current and previous major versions of Chrome, Edge, Firefox and Safari; on an older browser that lacks the counting feature the page shows no count rather than a wrong one | settles: OQ-1, CON-004
+A-016 | human | 2026-11-24 | Q: Do invisible characters pasted from Word or PDF (zero-width space, soft hyphen, direction marks) count? | A: accepted as recommended: they count, one each, like every other character, because the site that receives the summary counts them too | settles: OQ-2, REQ-001
+A-017 | human | 2026-11-24 | Q: Phone keyboards usually have no undo; keep the clear button as ruled? | A: accepted as recommended: keep it as ruled, one press with no question, undo wherever the keyboard has it | settles: OQ-3 | unchanged: REQ-003
+A-018 | human | 2026-11-24 | Q: A strength reviewer says the census rules judge the file search by its exit code; keep the rules as written? | A: accepted as recommended: keep the rules as written; the census compares two lists of files and ignores the exit code, and the number beside each rule is its tier | settles: contract
+A-019 | human | 2026-11-24 | Q: On an older browser that lacks the counting feature the page shows no count; should the over-limit message stay hidden there too? | A: yes: on such a browser the over-limit message stays hidden too, like the count; the message rule's first failure clause applies to the browsers the page supports (CON-004) | settles: REQ-002, CON-004
+A-001 AMENDED | human | 2026-11-24 | Q: How does the count treat spaces, line breaks and special letters? | A: accepted as recommended: every character in the box counts as one, each one the person sees (spaces and line breaks included, an accented letter or an emoji counting as one however many parts it is built from), plus each invisible character standing on its own (a zero-width space, a soft hyphen, a direction mark); an invisible joiner or modifier attached to the letter or emoji before it is part of that character | settles: REQ-001, MECH-01 | unchanged: REQ-002
+A-020 | human | 2026-11-24 | Q: Your answers changed two failure clauses: the counter's first clause now counts each invisible character standing on its own as one, and the message's first clause now applies only on the browsers the page supports. Accept both? | A: yes, both changes accepted as written | settles: REQ-001, REQ-002
+</code></pre>
+<pre><code>
+REQ-001 AMENDED | functional | T1 | Below the text box the page shows how many characters the box holds out of the limit of 500, in the form A-007 states, updated on every change to the text whatever made it; an invisible character standing on its own (a zero-width space, a soft hyphen, a direction mark) counts as one like any other, and an invisible part of an emoji or an accented letter adds nothing to it; on an older browser that lacks the counting feature (CON-004) no count is shown. | fail-if: (1) after a change the shown count differs from the characters the person sees in the box, where each space, each line break, each accented letter and each emoji counts as one, an emoji built from several joined parts (a family, a skin tone, a flag) counting as one, and where each zero-width space, soft hyphen and direction mark standing on its own counts as one; (2) after text is pasted, cut, dropped or undone the count does not change until a further key is pressed; (3) the count shows characters remaining instead of characters used; (4) the count stops at 500 while the box holds more | serves: the person knows at every moment how long their summary is against the 500 they are allowed (G1) | authority: provisional | confirms_via: owner-decision/no | source: seed, A-001, A-007, A-008, A-016 | covers: DIM-char-count-rule, DIM-count-display | phase: pilot | feature: FEAT-01 | plain: Below the box the page shows how many characters you have written out of 500, counting each character you see, space, line break and lone invisible character as one. | arms: 1 strengthened, 2 retained, 3 retained, 4 retained
+CON-004 | constraint | T1 | The page works in the current and previous major versions of Chrome, Edge, Firefox and Safari; on an older browser that lacks the counting feature it shows neither a count nor the over-limit message, rather than wrong ones. | authority: authoritative | source: A-015, A-019 | covers: DIM-count-display
+REQ-002 AMENDED | functional | T1 | While the count the page shows is above 500 characters the message A-006 states is shown below the box, and while that count is 500 or fewer no such message is shown; nothing ever blocks or cuts what the person types or pastes; on an older browser that lacks the counting feature (CON-004) neither the count nor the message is shown. | fail-if: (1) on a browser the page supports, the box holds 501 characters and the over-limit message is not shown; (2) the over-limit message is shown while the box holds 500 characters or fewer; (3) the message is still shown after the text is brought back to 500 characters or fewer; (4) a key press, paste or drop that would take the text past 500 characters is refused, or the text is cut to 500; (5) the over-limit message is shown while the count the page shows is 500 or fewer, or is not shown while that count is above 500 | serves: the person learns the moment their summary no longer fits, without losing anything they wrote (G1) | authority: provisional | confirms_via: owner-decision/no | source: seed, A-001, A-003, A-006, A-019, thesis MECH-02 | covers: DIM-limit-boundary | phase: pilot | feature: FEAT-02 | plain: When your text passes 500 characters a message says so and disappears once you are back to 500 or fewer; typing is never blocked. | arms: 1 retained, 2 retained, 3 retained, 4 retained, 5 retained
+</code></pre>
+<pre><code>
+F-44 | review | blocking | REQ-001 | repaired | evidence: round 1 — the first rewording let a joined emoji count as its parts; repaired at the owner's answer to keep an emoji one however built
+F-45 | review | blocking | A-001, A-016 | repaired | evidence: round 1 — A-016 changed A-001's rule; A-001 restated with the owner's yes
+F-46 | review | advisory | REQ-002, CON-004 | repaired | evidence: round 1 — whether the message shows on an older browser was undecided; the owner ruled it stays hidden (A-019)
+F-47 | review | blocking | REQ-001 | accepted A-020 | evidence: arm 1 — round 2 — the arm now counts each invisible character standing on its own as one, where it used to fail a count differing from what the person sees; the owner accepted the change
+F-48 | review | blocking | REQ-002 | accepted A-020 | evidence: arm 1 — round 2 — the arm now applies on the browsers the page supports only; the owner accepted the narrowing
+F-49 | review | blocking | REQ-001, CON-004 | repaired | evidence: round 2 — REQ-001 now states no count is shown on an older browser, as CON-004 does
+F-50 | review | blocking | REQ-001 | repaired | evidence: round 2 — the plain sentence said every invisible character counts; it now says a lone invisible character
+</code></pre>
+<p>RESOLVED: (OQ-1) A-015 — Which browsers must the page support? The counting rule relies on a browser feature that older versions lack (Firefox before version 125, for example).</p>
+<p>RESOLVED: (OQ-2) A-016 — Do invisible characters that paste in from Word or PDF (zero-width space, soft hyphen, direction marks) count? The rule counts every character the person sees, and these show nothing.</p>
+<p>RESOLVED: (OQ-3) A-017 — Phone keyboards usually have no undo, so undo after a mistaken clear does not reach most phone users. Keep the clear button as ruled (no confirmation, undo on keyboards), or change it?</p>
+<p>review: delta, round 2, 7 findings</p>
+</details>
+</details>
+<details class="fold chap"><summary><h2 id="c2-when-it-was-agreed">When it was agreed</h2></summary>
+<ul>
+<li>2026-11-24 — thesis+contract — 3a7c18d</li>
+<li>2026-11-24 — gap answers — 8cb11f9</li>
+<li>2026-11-24 — final — 6d33f71</li>
+</ul>
+</details>
+<span id="chapter-3" class="at"></span>
+<h1>Contador de caracteres para el resumen del CV: the technical foundation</h1>
+<p>As of 2026-11-24 20:10 UTC</p>
+<ul>
+<li><code>BASELINE.md</code>: not committed yet</li>
+<li><code>ARCHITECTURE.md</code>: not committed yet</li>
+<li><code>DECISIONS.md</code>: not committed yet</li>
+</ul>
+<nav class="contents"><ul><li><a href="#c3-contador-de-caracteres-para-el-resumen-del-cv-baseline">Contador de caracteres para el resumen del CV — BASELINE</a></li><li><a href="#c3-contador-de-caracteres-para-el-resumen-del-cv-architecture">Contador de caracteres para el resumen del CV — ARCHITECTURE</a></li><li><a href="#c3-contador-de-caracteres-para-el-resumen-del-cv-decisions">Contador de caracteres para el resumen del CV — DECISIONS</a></li></ul></nav>
+<details class="fold chap"><summary><h2 id="c3-contador-de-caracteres-para-el-resumen-del-cv-baseline">Contador de caracteres para el resumen del CV — BASELINE</h2></summary>
+<p>One page: what the stack IS, what it is NOT, and the rows that must never break.</p>
+<h3>Stack</h3>
+<table><thead><tr><th>Layer</th><th>Choice</th><th>FORBIDDEN alternatives (named)</th></tr></thead><tbody>
+<tr><td>Page</td><td>One static HTML file, <code>site/index.html</code>, <code>lang=&quot;es&quot;</code></td><td>React, Vue, Angular, Svelte, Next.js, any single-page-app framework; server-rendered pages (PHP, Django, Express views)</td></tr>
+<tr><td>Styles</td><td>One plain CSS file, <code>site/styles.css</code>, no preprocessor</td><td>Tailwind CSS, Bootstrap, Sass/SCSS, CSS-in-JS, web fonts or stylesheets loaded from another site</td></tr>
+<tr><td>Behaviour</td><td>One plain JavaScript ES module, <code>site/main.js</code>, run in the browser</td><td>jQuery, TypeScript compile step, any bundler (webpack, Vite, Parcel), any npm runtime dependency shipped to the page</td></tr>
+<tr><td>Character count</td><td>The browser's own <code>Intl.Segmenter</code> (grapheme clusters: what a person sees as one character)</td><td><code>string.length</code> or code-point counts as the shown count, a third-party counting library</td></tr>
+<tr><td>Data</td><td>None: the text lives only in the open page's memory</td><td>localStorage, sessionStorage, IndexedDB, cookies, any server or database</td></tr>
+<tr><td>Outside services</td><td>None</td><td>analytics (Google Analytics, Tag Manager), error trackers (Sentry), CDNs for scripts or fonts</td></tr>
+<tr><td>Hosting</td><td>Any free static host; the owner publishes by hand (ARCHITECTURE.md, &quot;Where it runs&quot;)</td><td>a server process, serverless functions, a paid plan</td></tr>
+</tbody></table>
+<h3>Module seams &amp; data ownership</h3>
+<p>The seam table lives in ARCHITECTURE.md. Ownership law: each table/data store is written by exactly one module; everyone else goes through that module's public surface. This product holds no data store at all.</p>
+<h3>Tier-0 rows</h3>
+<table><thead><tr><th>Rule</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>CON-001 — the text never leaves the page</td><td>The text the person writes, and anything derived from it, is never sent over the network, never placed in the page's address, and never written to cookies or to any browser storage. A page load, typing, pasting and clearing produce no request carrying it.</td></tr>
+</tbody></table>
+<h3>Test environment</h3>
+<p>The ledger runs ONLY inside Docker: <code>sh checks/test.sh</code> → docker compose -f docker-compose.test.yml. No test process ever receives real credentials. The harness itself (a headless browser driving <code>site/index.html</code>) arrives with the code skeleton.</p>
+<h3>Owner hints (verbatim)</h3>
+<ul>
+<li>Design: none given</li>
+<li>Architecture/stack: none given</li>
+</ul>
+<h3>Machine blocks</h3>
+<p>Parsed by checks/conformance.sh at every commit. Extensions space- or newline-separated. Forbidden terms one per line: dependency/import names that must never appear in staged source additions — pick tokens that will not legitimately occur in code or config otherwise.</p>
+<details class="fold"><summary>For ViD's checks</summary>
+<pre><code>
+.md .yml .yaml .sh .html .css .js .mjs .json .txt
+</code></pre>
+</details>
+<details class="fold"><summary>For ViD's checks</summary>
+<pre><code>
+react-dom
+@angular/core
+svelte
+jquery
+tailwindcss
+bootstrap.min
+@sentry
+googletagmanager
+google-analytics
+fonts.googleapis
+</code></pre>
+</details>
+</details>
+<details class="fold chap"><summary><h2 id="c3-contador-de-caracteres-para-el-resumen-del-cv-architecture">Contador de caracteres para el resumen del CV — ARCHITECTURE</h2></summary>
+<p>The seam table. One row per module. Updated in the same commit as any seam change (law in CLAUDE.md). This table is EXECUTED, not descriptive: it is the import court's rule source (checks/imports.sh reads it at every commit). A module with no row cannot be imported; a row that lies fails the build.</p>
+<p>Import court: enforce</p>
+<h3>Column contract (machine-read — keep the shapes exact)</h3>
+<ul>
+<li><strong>Module</strong> — the module's repo path (<code>apps/web</code>, <code>packages/core/alerts</code>);</li>
+</ul>
+<p>  <code>/src/</code> segments in real file paths are collapsed when matching, so   <code>packages/core/alerts</code> also owns <code>packages/core/src/alerts/</code>. Django-style   dotted labels (<code>apps.public</code>) are accepted and read as paths.</p>
+<ul>
+<li><strong>Public surface</strong> — leads with the module's import specifier(s) in</li>
+</ul>
+<p>  backticks; prose may follow. Importing any path DEEPER than a declared   specifier is a violation — declare an entry point per module, not one   barrel for the world. A row with no backticked specifier can only be   reached by its own files.</p>
+<ul>
+<li><strong>Dependents</strong> — comma-separated Module paths that may import this module,</li>
+</ul>
+<p>  or <code>all</code>, or <code>none</code>. Direction law is encoded here: app-layer rows say   <code>none</code> (nothing imports the app), so core reaching into app is rejected as   an undeclared dependent. Relative imports that cross module paths are   always violations — enter a module through its specifier.</p>
+<table><thead><tr><th>Module</th><th>Responsibility</th><th>Owned tables/data</th><th>Public surface</th><th>Dependents</th></tr></thead><tbody>
+<tr><td>site</td><td>The one page: the text box, the live character count, the over-limit message and the clear button, in Spanish</td><td>none — the text lives only in the open page's memory</td><td><code>site/index.html</code> — the page as a browser loads it; tests drive it only through what a person can see and do</td><td>tests/invariants</td></tr>
+</tbody></table>
+<p>Laws:</p>
+<ul>
+<li>A module without a row here should not be committed to — add the row in the</li>
+</ul>
+<p>  same commit.</p>
+<ul>
+<li>Cross-module access goes through the public-surface column only; reaching</li>
+</ul>
+<p>  into another module's tables or internals is a defect — and, since v0.6, a   rejected commit.</p>
+<ul>
+<li>The dependents column is the blast-radius map: a fix in module X re-grades</li>
+</ul>
+<p>  X plus its declared dependents, not the whole product (/vid fix law).</p>
+<p>External boundaries: none. The page calls no outside service: no network request, no analytics, no fonts or scripts from another site (BASELINE.md, CON-001).</p>
+<h3>Where it runs</h3>
+<ul>
+<li>platform: static-host</li>
+<li>region: global</li>
+<li>staging: the platform's own</li>
+<li>production: the platform's own</li>
+<li>sending: none</li>
+<li>spend-cap: 0 a month</li>
+<li>access: none</li>
+<li>dns-access: none</li>
+<li>owner-only: choosing the static host, creating its account, and publishing the page to both addresses by hand</li>
+<li>providers: none</li>
+</ul>
+</details>
+<details class="fold chap"><summary><h2 id="c3-contador-de-caracteres-para-el-resumen-del-cv-decisions">Contador de caracteres para el resumen del CV — DECISIONS</h2></summary>
+<details class="fold"><summary>For ViD's checks</summary>
+<p>Append-only, except labels and replaced-by marks. One line per decision. Trigger (law in CLAUDE.md): the choice picked between plausible alternatives, constrains future code, or would surprise a competent newcomer. Entries without an <code>| enforced:</code> ref, or without a label, are rejected at commit.</p>
+<p>Format:</p>
+<ul>
+<li><strong>D-NNN</strong> &lt;what&gt; | why: &lt;why&gt; | enforced: &lt;test/hook ref, or &quot;convention&quot;&gt; | applies-to: &lt;ids and codes&gt; [| origin: proposal] [| model: &lt;id&gt;]</li>
+<li><strong>D-NNN</strong> &lt;what&gt; | why: &lt;why&gt; | enforced: &lt;test/hook ref, or &quot;convention&quot;&gt; | scope: project [| origin: proposal] [| model: &lt;id&gt;]</li>
+</ul>
+<p><code>why:</code> gives the reason in ViD's own words and cites the answer it rests on (<code>A-NNN</code>), never the owner's words, which stay in the commit's <code>Owner:</code> trailer.</p>
+<p><code>origin: proposal</code> marks defaults the model chose when the owner skipped a hint or delegated the choice.</p>
+</details>
+<h3>Log</h3>
+<ul>
+<li>The page is plain HTML, CSS and JavaScript in three files under site/, with no framework, no build step and no runtime dependency; the named alternatives are forbidden in BASELINE.md — why: one static page with three behaviours and a three-requirement cap (seed, A-012); a framework or bundler adds machinery and supply-chain surface the page never uses, and the owner gave no stack hint (ViD's proposal) <span class="vid-id">D-001</span></li>
+<li>The shown count is the number of grapheme clusters the browser's Intl.Segmenter finds in the box's text, so an emoji, an accented letter in one or two code points, a space and a line break (LF or CRLF) each count as one — why: A-001 counts every character the person sees as one; string length and code-point counts disagree with what is seen for emoji and composed accents <span class="vid-id">D-002</span></li>
+<li>The over-limit message reads the same count the counter shows, computed once per change by one function, never a second count of its own — why: REQ-002 part (5) forbids a message that disagrees with the shown count (F-03) <span class="vid-id">D-003</span></li>
+<li>The clear button clears the box through the browser's editing path (select all, then delete as an edit) so the browser's undo restores the text, never by assigning an empty value, which discards the undo history — why: A-014, REQ-003 part (5): undo right after clearing must bring the text back <span class="vid-id">D-004</span></li>
+<li>The text box carries autocomplete=&quot;off&quot;, and the page empties the box on every pageshow event, so neither form restoration nor the back-forward cache brings text back — why: CON-002 and A-009: the box opens empty on every load and the browser is told not to restore it <span class="vid-id">D-005</span></li>
+<li>The page is hosted on any free static host the owner chooses and publishes by hand; ViD holds no access and the spend cap is zero. Rejected: a server process, serverless functions and paid plans, which the page has no use for — why: the owner answered &quot;none&quot; for access and zero for the spend cap at init's technical sitting; the owner named no host, so the static-host choice is ViD's (ViD's proposal) <span class="vid-id">D-006</span></li>
+<li>No release can need downtime: the product has no database and no stored data, so the downtime-tolerance question does not apply — why: CON-001 and NG-001: nothing is stored anywhere (ViD's proposal) <span class="vid-id">D-007</span></li>
+<li>The page loads nothing from another site: no web fonts, no scripts, no images from a CDN; the system font stack is used — why: CON-001 forbids anything derived from the text leaving the page, and a page with no outside loads makes that promise checkable as &quot;zero outside requests&quot; <span class="vid-id">D-008</span></li>
+<li>The build runs at most one test stack at a time (budget stacks=1) — why: ViD's default; one static page needs no parallel stacks (ViD's proposal) <span class="vid-id">D-009</span></li>
+<li>The observer reports when free memory falls below 2048 MB (budget memory-headroom-mb=2048) — why: ViD's default headroom for a headless-browser test stack (ViD's proposal) <span class="vid-id">D-010</span></li>
+<li>A build slice claims at most 60 rows (budget claims-per-slice=60) — why: ViD's default (ViD's proposal) <span class="vid-id">D-011</span></li>
+<li>A build slice runs at most 8 wall-clock hours (budget wall-hours-per-slice=8) — why: ViD's default (ViD's proposal) <span class="vid-id">D-012</span></li>
+<li>A court run may take at most 300 seconds (budget court-seconds=300) — why: ViD's default (ViD's proposal) <span class="vid-id">D-013</span></li>
+<li>A builder or fixer is told once to finish when its context reaches 400000 tokens (budget builder-context-tokens=400000) — why: ViD's default (ViD's proposal) <span class="vid-id">D-014</span></li>
+<li>The shown count is the number of grapheme clusters the browser's Intl.Segmenter finds in the box's text, corrected where the owner's rule differs: a combining mark, joiner, modifier or selector that follows a space, a tab, a line break or any other character that is not a letter or an emoji counts as one of its own; an invisible character standing on its own counts as one; on a browser without Intl.Segmenter neither a count nor the over-limit message is shown — why: A-001 as restated, A-016, A-019 and CON-004: grapheme clusters match the owner's rule except at those edges <span class="vid-id">D-015</span></li>
+</ul>
+</details>
+<span id="chapter-4" class="at"></span>
+<h1>The design</h1>
+<p>Not written yet: it comes at the design.</p>
+<span id="chapter-5" class="at"></span>
+<h1>Contador de caracteres para el resumen del CV: the tests</h1>
+<p>As of 2026-11-24 20:10 UTC</p>
+<ul>
+<li><code>INVENTORY.md</code>: not committed yet</li>
+<li><code>GRADING-CHECKLIST.md</code>: not committed yet</li>
+<li><code>PRD.md</code>: not committed yet</li>
+</ul>
+<p>This list has 63 tests. You are asked to approve it, not to read every line.</p>
+<p>Behaviours: 48 · Screens as drawn: 0 · Journeys: 1 · The parts on every page: 1 · Ways to reach a screen: 1 · Rules: 9 · Attacks tried: 3 · Outside services: 0</p>
+<nav class="contents"><ul><li><a href="#c5-look-here-first">Look here first</a></li><li><a href="#c5-ways-the-product-could-be-wrong">Ways the product could be wrong</a></li><li><a href="#c5-by-feature">By feature</a></li><li><a href="#c5-rules-checked-across-the-product-and-the-attacks-tried">Rules checked across the product, and the attacks tried</a></li><li><a href="#c5-what-is-deliberately-not-tested">What is deliberately not tested</a></li><li><a href="#c5-the-grading-checklist">The grading checklist</a></li></ul></nav>
+<details class="fold chap"><summary><h2 id="c5-look-here-first">Look here first</h2></summary>
+<p>Nothing here waits on you.</p>
+</details>
+<details class="fold chap"><summary><h2 id="c5-ways-the-product-could-be-wrong">Ways the product could be wrong</h2></summary>
+<ul>
+<li>a message toggled on key release shows at 501 typed, but a paste, drop or undo to above 500 showed none until a key; ROW-035 now covers every way upward, at once — the tests it is about: <a href="#c5-row-005">With exactly 500 characters in the box no over-limit message is shown, and with 501 the message is shown and stays shown while the text stays above 500 — still after ten seconds with no input, and still after typing on to 600.</a>, <a href="#c5-row-035">However often the text crosses 500 upward — by typing, pasting, dropping, after deleting, after clear and undo — exactly one over-limit message is shown each time, at once, with no further key pressed, and it goes at once when the text comes back to 500 or fewer by any of those ways, never stacked copies.</a> — Repaired</li>
+<li>a transient toast passes &quot;shown at 501&quot;; ROW-005 now requires the message to stay while the text stays above 500 — the tests it is about: <a href="#c5-row-005">With exactly 500 characters in the box no over-limit message is shown, and with 501 the message is shown and stays shown while the text stays above 500 — still after ten seconds with no input, and still after typing on to 600.</a>, <a href="#c5-row-035">However often the text crosses 500 upward — by typing, pasting, dropping, after deleting, after clear and undo — exactly one over-limit message is shown each time, at once, with no further key pressed, and it goes at once when the text comes back to 500 or fewer by any of those ways, never stacked copies.</a> — Repaired</li>
+<li>test text of single-code-point emoji and precomposed accents gives equal counts under both rules; ROW-008 now pins multi-code-point emoji and a combining accent — the test it is about: <a href="#c5-row-008">For text near the limit whose code units, code points and visible characters all differ — holding at least one emoji made of a surrogate pair, one emoji made of several code points (a skin-tone modifier or a joined sequence) and one letter with a combining accent — the over-limit message is shown exactly when the shown count is above 500 and hidden exactly when it is 500 or fewer.</a> — Repaired</li>
+<li>over-limit styling never removed after coming back down; ROW-036 now checks after coming down — the test it is about: <a href="#c5-row-036">At exactly 500 characters none of the over-limit styling the page uses at 501 (a colour, a mark on the box or the count) is present, and at 501 it is; and after coming back down from 501 — by deleting, and by clearing then typing again — it is gone at 500 and below.</a> — Repaired</li>
+<li>the caret could jump only above 500; ROW-021 now checks above 500 too — the test it is about: <a href="#c5-row-021">The page never changes what the person entered: double and trailing spaces, accents typed in two parts and every other character stay exactly as entered, and a character typed mid-text leaves the caret right after it, both below 500 characters and above it (for example at 520, typing at position 100).</a> — Repaired</li>
+<li>a debounced count passes retrying checks; &quot;at once&quot; now means one read without retry and a second after one quiet second — the tests it is about: <a href="#c5-row-002">After text is pasted, cut, dropped or undone, the shown count reflects the new text at once, with no further key pressed; &quot;at once&quot; means read once, with no retrying, before the next screen update after the edit, and read again after one second with no input.</a>, <a href="#c5-row-019">After text arrives with no key press, the shown count reflects the new text at once, each edit made as the browser itself makes that kind of edit, never by setting the box's value: in Chromium, an input-method commit and an emoji insert through the browser's own input-method and text-insertion path, a replacement (as autocorrect and a predictive suggestion make) as an insert-text command over a selected word, a redo through the browser's redo command, and a drag inside and a drag out of the box as real drags; dictation is not driven by the harness and is left to the real-device check; &quot;at once&quot; means read once, with no retrying, before the next screen update after the edit, and read again after one second with no input.</a>, <a href="#c5-row-048">Typing or pasting followed at once, with no wait, by clear, undo or redo — and a quick burst of these — leaves the count and the message matching the box's final text, read once with no retrying right after the last action and again after one second with no input.</a> — Repaired</li>
+<li>a count that skips composing input with no end-of-composition recount; ROW-020 now names the sequence and drives real composition in Chromium — the test it is about: <a href="#c5-row-020">During and after composition — an accent typed with a dead key (´ then e), and a word still being composed as phone keyboards do — the count equals the characters shown, a finished accented letter counting once, and it is never left one step behind once composition ends, including when the composition's last input event is still marked as composing and no input event follows its end; driven as a real composition in Chromium.</a> — Repaired</li>
+<li>a handler filtering on the kind of edit passes value-setting tests; edits are now made as the browser makes them — the tests it is about: <a href="#c5-row-019">After text arrives with no key press, the shown count reflects the new text at once, each edit made as the browser itself makes that kind of edit, never by setting the box's value: in Chromium, an input-method commit and an emoji insert through the browser's own input-method and text-insertion path, a replacement (as autocorrect and a predictive suggestion make) as an insert-text command over a selected word, a redo through the browser's redo command, and a drag inside and a drag out of the box as real drags; dictation is not driven by the harness and is left to the real-device check; &quot;at once&quot; means read once, with no retrying, before the next screen update after the edit, and read again after one second with no input.</a>, <a href="#c5-row-046">After the person's own deletions and replacements — deleting a word, deleting to the start of the line, the forward Delete key, deleting a selection, typing or pasting over a selection, choosing a spelling suggestion — each made as the browser itself makes that kind of edit, never by setting the box's value, the count equals the characters in the box.</a> — Repaired</li>
+<li>a code-point fallback passes a plain-letter test; ROW-042 now removes the facility before the script and enters a combining accent and a joined emoji — the test it is about: <a href="#c5-row-042">With the browser's grapheme-counting facility removed before the page's script runs, or the count failing at runtime, typing never leaves &quot;0 / 500&quot; or the last value beside text that has changed: run on the sampled and generated strings of ROW-001 (flags, skin tones, keycaps, variation selectors, combining accents), every shown count equals the pinned expected count, or the page shows no reading at all, and then no over-limit message either.</a> — Repaired</li>
+<li>rows left out of the three-engine run; ROW-002, ROW-024, ROW-043, ROW-046 and ROW-048 added — the test it is about: <a href="#c5-row-023">The obligations of ROW-001, ROW-002, ROW-008, ROW-011, ROW-014, ROW-024, ROW-032, ROW-033, ROW-043, ROW-046 and ROW-048 hold alike in the Chromium, Firefox and WebKit browser engines; of ROW-019, the drags and the replacement run in all three engines, while the input-method commit and the emoji insert run in Chromium only, and the rest is left to the real-device check of the grading checklist.</a> — Repaired</li>
+<li>expected counts taken from the engine's own segmenter agree by construction; they now come from Unicode's published grapheme-break data, pinned — the test it is about: <a href="#c5-row-001">After any change, the shown count equals the number of characters in the box, where each space, each line break, each accented letter (typed as one code point or as a letter plus a combining accent) and each emoji (however many joined parts it is built from, flags and skin tones included) counts as one, each invisible character standing on its own (a zero-width space, a soft hyphen, a direction mark) counts as one, and an invisible joiner or modifier attached to the letter or emoji before it is part of that character, and leading or trailing spaces, a trailing line break, tabs, no-break spaces and a box of only spaces count in full; the rule is checked on independently sampled and generated strings (for example the Unicode grapheme-break test sequences, emoji with skin tones, variation selectors and keycaps), never only on named examples, and the expected counts come from Unicode's published grapheme-break test data for a pinned Unicode version, never from the browser under test, corrected by the owner's rule where the two differ: a combining mark, joiner, modifier or selector that follows a space, a tab, a line break or any other character that is not a letter or an emoji counts as one of its own, as does a prepended mark (sampled cases include a space then a lone skin-tone swatch, a space then a joiner, and a space then a combining accent, each counting 3 with a letter before them).</a> — Repaired</li>
+<li>invisible characters were undecided between &quot;what the person sees&quot; and grapheme clusters; the owner ruled they count (A-016), REQ-001 amended and ROW-001 rewritten — what it is about: <a href="#c5-row-001">After any change, the shown count equals the number of characters in the box, where each space, each line break, each accented letter (typed as one code point or as a letter plus a combining accent) and each emoji (however many joined parts it is built from, flags and skin tones included) counts as one, each invisible character standing on its own (a zero-width space, a soft hyphen, a direction mark) counts as one, and an invisible joiner or modifier attached to the letter or emoji before it is part of that character, and leading or trailing spaces, a trailing line break, tabs, no-break spaces and a box of only spaces count in full; the rule is checked on independently sampled and generated strings (for example the Unicode grapheme-break test sequences, emoji with skin tones, variation selectors and keycaps), never only on named examples, and the expected counts come from Unicode's published grapheme-break test data for a pinned Unicode version, never from the browser under test, corrected by the owner's rule where the two differ: a combining mark, joiner, modifier or selector that follows a space, a tab, a line break or any other character that is not a letter or an emoji counts as one of its own, as does a prepended mark (sampled cases include a space then a lone skin-tone swatch, a space then a joiner, and a space then a combining accent, each counting 3 with a letter before them).</a>, a part of the PRD <span class="vid-id">REQ-001</span>, a part of the PRD <span class="vid-id">A-001</span> — Repaired</li>
+<li>the word list held unescaped parentheses and did not compile; escaped, and every rule's pattern checked on a planted folder — the test it is about: <a href="#c5-rule-001">No file the page ships contains a way to send or store data: no network call, no storage write, no cookie, no change to the page's address or title, no clipboard write</a> — Repaired</li>
+<li>the probes showed failure with the line inserted but never a pass without it; both now pass with the line removed — the tests it is about: [With one line added to the page's script that sends the box's text to the harness's listening host by a path the rule's word list does not name (a request function reached through a computed property name, for example window<a href="#c5-hos-001">'fe'+'tch']), in one session type a summary, paste text, go past 500, press clear, stay idle 30 seconds, then hide the page and close it; recorded at the browser's network exit outside the page from the start of load, expect no request to any host other than the page's own address at any moment, no request to the page's own address after load, and every storage the page can reach still empty at the end; with the line removed the same probe passes</a>, <a href="#c5-hos-002">With a link to another site's address added to the page (a preconnect to the harness's outside host), load the page and expect the outside host, counting accepted connections at its socket, to receive none; with the link removed the same probe passes, and a control load with the guard off shows the browser does open the connection</a> — Repaired</li>
+<li>headless Chromium does not restore a textarea on reload and a harness back navigation may skip the back-forward cache; ROW-014 now requires a cache restore and autocomplete=&quot;off&quot; — the test it is about: <a href="#c5-row-014">After text is typed, a reload, and separately a navigation away and back that the browser serves from its back-forward cache (the page reports it was restored from that cache), both show an empty box with the count &quot;0 / 500&quot; and no message; and the text box tells the browser not to remember its content (autocomplete=&quot;off&quot;).</a> — Repaired</li>
+<li>a short banned-word list passes other usted forms and catches &quot;su&quot; inside &quot;supera&quot;; ROW-015 now compares the full set of strings, whole words — the test it is about: <a href="#c5-row-015">The page declares Spanish as its language; the full set of words it shows or ships for people to read — the title, labels, placeholder, button text, tooltips and accessible names — equals an expected list written in Spanish addressing the person as tú, with no whole word in usted (for example &quot;su&quot;, &quot;usted&quot;, &quot;ingrese&quot;, &quot;introduzca&quot;, &quot;pegue&quot;, &quot;escriba&quot;, &quot;borre&quot;, &quot;limpie&quot;) and the document called &quot;CV&quot; (never &quot;currículum&quot; or &quot;hoja de vida&quot;); and the over-limit message reads exactly &quot;Tu resumen supera los 500 caracteres. Acórtalo para que quepa.&quot;</a> — Repaired</li>
+<li>headless Chromium guesses UTF-8; ROW-022 now also checks the declared charset in the first 1024 bytes — the test it is about: <a href="#c5-row-022">Served with no charset in its Content-Type, the page still shows every accented letter of its labels and of the over-limit message correctly, and index.html declares UTF-8 within its first 1024 bytes.</a> — Repaired</li>
+<li>window.name and history state unchecked, and requests at close unseen by the page; both added — the tests it is about: <a href="#c5-row-012">While the page loads and while the person types, pastes and clears, the page makes no network request other than loading its own shipped site/ files, sets no cookie, writes nothing to localStorage, sessionStorage, IndexedDB, the Cookie Store or the origin-private file system, leaves window.name empty and the history entry's state empty, leaves the page's address unchanged, and leaves the page's title as it was at load (no text or count in the tab title or history).</a>, <a href="#c5-row-051">With text in the box, switching to another tab, staying idle 60 seconds, navigating away and closing the tab make no network request to any host — every request the browser attempts is observed, with all of the browser's traffic routed to the harness's own listening host outside the page — set no cookie and write no storage of any kind.</a> — Repaired</li>
+<li>a preconnect sends no request the browser logs; HOS-002 now counts connections at the outside host's socket — the test it is about: <a href="#c5-hos-002">With a link to another site's address added to the page (a preconnect to the harness's outside host), load the page and expect the outside host, counting accepted connections at its socket, to receive none; with the link removed the same probe passes, and a control load with the guard off shows the browser does open the connection</a> — Repaired</li>
+<li>literal extension lists and missing call names; both scan every shipped file and RULE-001 adds setAttribute, url( and Worker — the tests it is about: <a href="#c5-rule-001">No file the page ships contains a way to send or store data: no network call, no storage write, no cookie, no change to the page's address or title, no clipboard write</a>, <a href="#c5-rule-005">No file the page ships names another site: no absolute (http:, https:) or protocol-relative (//) address in any attribute, stylesheet or script, so nothing preconnects, prefetches or imports from elsewhere (a code comment is written with a space after //)</a> — Repaired</li>
+<li>&quot;its own three files&quot; against a shipped icon file; ROW-012 now allows the shipped site/ files and ROW-045 names an empty inline icon — the tests it is about: <a href="#c5-row-012">While the page loads and while the person types, pastes and clears, the page makes no network request other than loading its own shipped site/ files, sets no cookie, writes nothing to localStorage, sessionStorage, IndexedDB, the Cookie Store or the origin-private file system, leaves window.name empty and the history entry's state empty, leaves the page's address unchanged, and leaves the page's title as it was at load (no text or count in the tab title or history).</a>, <a href="#c5-row-045">The page declares its own icon as an empty inline icon (data:,), so on load, and when served from a subfolder, the browser requests nothing outside the page's own files and nothing from the host's root.</a> — Repaired</li>
+<li>an inline SVG icon's namespace address matches RULE-005; the icon is now data:, and comments are written with a space after // — the tests it is about: <a href="#c5-rule-005">No file the page ships names another site: no absolute (http:, https:) or protocol-relative (//) address in any attribute, stylesheet or script, so nothing preconnects, prefetches or imports from elsewhere (a code comment is written with a space after //)</a>, <a href="#c5-row-045">The page declares its own icon as an empty inline icon (data:,), so on load, and when served from a subfolder, the browser requests nothing outside the page's own files and nothing from the host's root.</a> — Repaired</li>
+<li>the phone pattern matched SVG path data and dates; reworked, the icon has no path data — the tests it is about: <a href="#c5-rule-008">No file the page ships carries a real person's contact details: no email address and no phone number in the page, its placeholder, its comments or anything else published; a run of seven or more digits, however spaced, dotted, hyphenated or bracketed, counts as a phone number, so no shipped file holds one</a>, <a href="#c5-row-045">The page declares its own icon as an empty inline icon (data:,), so on load, and when served from a subfolder, the browser requests nothing outside the page's own files and nothing from the host's root.</a> — Repaired</li>
+<li>the rule's words forbade the load and page-shown recount the rows need; RULE-002 reworded to what its census holds — the tests it is about: <a href="#c5-rule-002">No key, keypress or change listener decides the count: the count follows the text box's input event, the clear action, and a recount at load and when the page is shown again</a>, <a href="#c5-row-024">Whatever the box holds after a load, a reload or a back navigation, the count and the message agree with it at once, never a stale &quot;0 / 500&quot; beside restored text.</a>, <a href="#c5-row-043">Text typed or pasted into the box while the page's script is still loading is still there once it runs, and the count and the message agree with it at once.</a> — Repaired</li>
+<li>Cmd+Z, menu undo and non-Chromium composition cannot be driven in the Linux harness; rows narrowed to what it drives, the rest a real-device checklist line — the tests it is about: <a href="#c5-row-023">The obligations of ROW-001, ROW-002, ROW-008, ROW-011, ROW-014, ROW-024, ROW-032, ROW-033, ROW-043, ROW-046 and ROW-048 hold alike in the Chromium, Firefox and WebKit browser engines; of ROW-019, the drags and the replacement run in all three engines, while the input-method commit and the emoji insert run in Chromium only, and the rest is left to the real-device check of the grading checklist.</a>, <a href="#c5-row-020">During and after composition — an accent typed with a dead key (´ then e), and a word still being composed as phone keyboards do — the count equals the characters shown, a finished accented letter counting once, and it is never left one step behind once composition ends, including when the composition's last input event is still marked as composing and no input event follows its end; driven as a real composition in Chromium.</a>, <a href="#c5-row-032">After undo has brought cleared text back, the browser's own undo command (the edit menu's Undo as the browser runs it, not a key the page listens for) restores it too, a redo then empties the box again, and further undos step back through earlier edits without ever doubling the text.</a> — Repaired</li>
+<li>repeat; ROW-032 now holds only what ROW-011 does not — the tests it is about: <a href="#c5-row-011">Undo pressed right after clearing brings back the exact text that was cleared, and the count and the message follow it.</a>, <a href="#c5-row-032">After undo has brought cleared text back, the browser's own undo command (the edit menu's Undo as the browser runs it, not a key the page listens for) restores it too, a redo then empties the box again, and further undos step back through earlier edits without ever doubling the text.</a> — Repaired</li>
+<li>repeated thousands-separator clause; kept in ROW-004 only — the tests it is about: <a href="#c5-row-003">The count shows characters used against the limit, in the form &quot;&lt;used&gt; / 500&quot; (for example &quot;123 / 500&quot;), never characters remaining.</a>, <a href="#c5-row-004">With more than 500 characters in the box, the count shows the real number (for example &quot;523 / 500&quot;), never stopping at 500 and with no thousands separator.</a> — Repaired</li>
+<li>round 2 — setAttribute had joined the word list, so HOS-001's planted path was no longer unnamed; it now uses a computed property name — the tests it is about: [With one line added to the page's script that sends the box's text to the harness's listening host by a path the rule's word list does not name (a request function reached through a computed property name, for example window<a href="#c5-hos-001">'fe'+'tch']), in one session type a summary, paste text, go past 500, press clear, stay idle 30 seconds, then hide the page and close it; recorded at the browser's network exit outside the page from the start of load, expect no request to any host other than the page's own address at any moment, no request to the page's own address after load, and every storage the page can reach still empty at the end; with the line removed the same probe passes</a>, <a href="#c5-rule-001">No file the page ships contains a way to send or store data: no network call, no storage write, no cookie, no change to the page's address or title, no clipboard write</a> — Repaired</li>
+<li>round 2 — observing only the listening host misses a beacon to another host on close; every request the browser attempts is now observed — the test it is about: <a href="#c5-row-051">With text in the box, switching to another tab, staying idle 60 seconds, navigating away and closing the tab make no network request to any host — every request the browser attempts is observed, with all of the browser's traffic routed to the harness's own listening host outside the page — set no cookie and write no storage of any kind.</a> — Repaired</li>
+<li>round 2 — common phone formats passed; any run of seven or more digits now counts — the test it is about: <a href="#c5-rule-008">No file the page ships carries a real person's contact details: no email address and no phone number in the page, its placeholder, its comments or anything else published; a run of seven or more digits, however spaced, dotted, hyphenated or bracketed, counts as a phone number, so no shipped file holds one</a> — Repaired</li>
+<li>round 2 — edits the harness cannot make natively; ROW-019 now names how each is driven, and RULE-009 forbids a count that reads the kind of edit — the tests it is about: <a href="#c5-row-019">After text arrives with no key press, the shown count reflects the new text at once, each edit made as the browser itself makes that kind of edit, never by setting the box's value: in Chromium, an input-method commit and an emoji insert through the browser's own input-method and text-insertion path, a replacement (as autocorrect and a predictive suggestion make) as an insert-text command over a selected word, a redo through the browser's redo command, and a drag inside and a drag out of the box as real drags; dictation is not driven by the harness and is left to the real-device check; &quot;at once&quot; means read once, with no retrying, before the next screen update after the edit, and read again after one second with no input.</a>, <a href="#c5-row-023">The obligations of ROW-001, ROW-002, ROW-008, ROW-011, ROW-014, ROW-024, ROW-032, ROW-033, ROW-043, ROW-046 and ROW-048 hold alike in the Chromium, Firefox and WebKit browser engines; of ROW-019, the drags and the replacement run in all three engines, while the input-method commit and the emoji insert run in Chromium only, and the rest is left to the real-device check of the grading checklist.</a> — Repaired</li>
+<li>round 3 — no probe shows the census itself catching a plain call; HOS-003 added at the owner's ruling — the tests it is about: [With one line added to the page's script that sends the box's text to the harness's listening host by a path the rule's word list does not name (a request function reached through a computed property name, for example window<a href="#c5-hos-001">'fe'+'tch']), in one session type a summary, paste text, go past 500, press clear, stay idle 30 seconds, then hide the page and close it; recorded at the browser's network exit outside the page from the start of load, expect no request to any host other than the page's own address at any moment, no request to the page's own address after load, and every storage the page can reach still empty at the end; with the line removed the same probe passes</a>, <a href="#c5-rule-001">No file the page ships contains a way to send or store data: no network call, no storage write, no cookie, no change to the page's address or title, no clipboard write</a> — Repaired</li>
+<li>round 3 — ROW-023 required ROW-019 in three engines with no stated path; narrowed at the owner's ruling — the tests it is about: <a href="#c5-row-019">After text arrives with no key press, the shown count reflects the new text at once, each edit made as the browser itself makes that kind of edit, never by setting the box's value: in Chromium, an input-method commit and an emoji insert through the browser's own input-method and text-insertion path, a replacement (as autocorrect and a predictive suggestion make) as an insert-text command over a selected word, a redo through the browser's redo command, and a drag inside and a drag out of the box as real drags; dictation is not driven by the harness and is left to the real-device check; &quot;at once&quot; means read once, with no retrying, before the next screen update after the edit, and read again after one second with no input.</a>, <a href="#c5-row-023">The obligations of ROW-001, ROW-002, ROW-008, ROW-011, ROW-014, ROW-024, ROW-032, ROW-033, ROW-043, ROW-046 and ROW-048 hold alike in the Chromium, Firefox and WebKit browser engines; of ROW-019, the drags and the replacement run in all three engines, while the input-method commit and the emoji insert run in Chromium only, and the rest is left to the real-device check of the grading checklist.</a> — Repaired</li>
+<li>after the owner's rulings — the probe watched only the listening host; it now watches every request after load and reads storage — the test it is about: [With one line added to the page's script that sends the box's text to the harness's listening host by a path the rule's word list does not name (a request function reached through a computed property name, for example window<a href="#c5-hos-001">'fe'+'tch']), in one session type a summary, paste text, go past 500, press clear, stay idle 30 seconds, then hide the page and close it; recorded at the browser's network exit outside the page from the start of load, expect no request to any host other than the page's own address at any moment, no request to the page's own address after load, and every storage the page can reach still empty at the end; with the line removed the same probe passes</a> — Repaired</li>
+<li>after the owner's rulings — one named pair let a hand-written fallback pass; the row now runs ROW-001's sampled strings with the facility removed — the test it is about: <a href="#c5-row-042">With the browser's grapheme-counting facility removed before the page's script runs, or the count failing at runtime, typing never leaves &quot;0 / 500&quot; or the last value beside text that has changed: run on the sampled and generated strings of ROW-001 (flags, skin tones, keycaps, variation selectors, combining accents), every shown count equals the pinned expected count, or the page shows no reading at all, and then no over-limit message either.</a> — Repaired</li>
+<li>after the owner's rulings — joiners attached to a character against &quot;each invisible character counts&quot;; settled by the owner's answers on joined emoji (A-001 restated) and ROW-001 rewritten — what it is about: <a href="#c5-row-001">After any change, the shown count equals the number of characters in the box, where each space, each line break, each accented letter (typed as one code point or as a letter plus a combining accent) and each emoji (however many joined parts it is built from, flags and skin tones included) counts as one, each invisible character standing on its own (a zero-width space, a soft hyphen, a direction mark) counts as one, and an invisible joiner or modifier attached to the letter or emoji before it is part of that character, and leading or trailing spaces, a trailing line break, tabs, no-break spaces and a box of only spaces count in full; the rule is checked on independently sampled and generated strings (for example the Unicode grapheme-break test sequences, emoji with skin tones, variation selectors and keycaps), never only on named examples, and the expected counts come from Unicode's published grapheme-break test data for a pinned Unicode version, never from the browser under test, corrected by the owner's rule where the two differ: a combining mark, joiner, modifier or selector that follows a space, a tab, a line break or any other character that is not a letter or an emoji counts as one of its own, as does a prepended mark (sampled cases include a space then a lone skin-tone swatch, a space then a joiner, and a space then a combining accent, each counting 3 with a letter before them).</a>, a part of the PRD <span class="vid-id">REQ-001</span>, a part of the PRD <span class="vid-id">A-016</span> — Repaired</li>
+<li>Unicode's grapheme data glues a mark to a preceding space, the owner's rule does not; ROW-001 now states the owner's correction with sampled cases — what it is about: <a href="#c5-row-001">After any change, the shown count equals the number of characters in the box, where each space, each line break, each accented letter (typed as one code point or as a letter plus a combining accent) and each emoji (however many joined parts it is built from, flags and skin tones included) counts as one, each invisible character standing on its own (a zero-width space, a soft hyphen, a direction mark) counts as one, and an invisible joiner or modifier attached to the letter or emoji before it is part of that character, and leading or trailing spaces, a trailing line break, tabs, no-break spaces and a box of only spaces count in full; the rule is checked on independently sampled and generated strings (for example the Unicode grapheme-break test sequences, emoji with skin tones, variation selectors and keycaps), never only on named examples, and the expected counts come from Unicode's published grapheme-break test data for a pinned Unicode version, never from the browser under test, corrected by the owner's rule where the two differ: a combining mark, joiner, modifier or selector that follows a space, a tab, a line break or any other character that is not a letter or an emoji counts as one of its own, as does a prepended mark (sampled cases include a space then a lone skin-tone swatch, a space then a joiner, and a space then a combining accent, each counting 3 with a letter before them).</a>, a part of the PRD <span class="vid-id">REQ-001</span>, a part of the PRD <span class="vid-id">A-001</span> — Repaired</li>
+<li>the probe covered typing only; it now covers a whole session from load to close, recorded at the network exit — the test it is about: [With one line added to the page's script that sends the box's text to the harness's listening host by a path the rule's word list does not name (a request function reached through a computed property name, for example window<a href="#c5-hos-001">'fe'+'tch']), in one session type a summary, paste text, go past 500, press clear, stay idle 30 seconds, then hide the page and close it; recorded at the browser's network exit outside the page from the start of load, expect no request to any host other than the page's own address at any moment, no request to the page's own address after load, and every storage the page can reach still empty at the end; with the line removed the same probe passes</a> — Repaired</li>
+<li>critical — the reviewers read the fifth field as an expected exit code of grep -L; ViD's belief rests on checks/census.sh lines 12-15 and 412-420 (orphans are the left list minus the right list; the exit code is not read) and the template's rule grammar (the fifth field is the tier); the owner kept the rules as written — the tests it is about: <a href="#c5-rule-001">No file the page ships contains a way to send or store data: no network call, no storage write, no cookie, no change to the page's address or title, no clipboard write</a>, <a href="#c5-rule-002">No key, keypress or change listener decides the count: the count follows the text box's input event, the clear action, and a recount at load and when the page is shown again</a>, <a href="#c5-rule-003">No file the page ships writes HTML from strings or runs strings as code</a>, <a href="#c5-rule-005">No file the page ships names another site: no absolute (http:, https:) or protocol-relative (//) address in any attribute, stylesheet or script, so nothing preconnects, prefetches or imports from elsewhere (a code comment is written with a space after //)</a>, <a href="#c5-rule-007">The text box is the browser's own plain-text field: no file the page ships makes an element editable as rich content</a>, <a href="#c5-rule-008">No file the page ships carries a real person's contact details: no email address and no phone number in the page, its placeholder, its comments or anything else published; a run of seven or more digits, however spaced, dotted, hyphenated or bracketed, counts as a phone number, so no shipped file holds one</a> — Your ruling</li>
+</ul>
+</details>
+<details class="fold chap"><summary><h2 id="c5-by-feature">By feature</h2></summary>
+<details class="fold"><summary>The character counter — 21 tests</summary>
+<span id="c5-row-001" class="at"></span>
+<p><strong>After any change, the shown count equals the number of characters in the box, where each space, each line break, each accented letter (typed as one code point or as a letter plus a combining accent) and each emoji (however many joined parts it is built from, flags and skin tones included) counts as one, each invisible character standing on its own (a zero-width space, a soft hyphen, a direction mark) counts as one, and an invisible joiner or modifier attached to the letter or emoji before it is part of that character, and leading or trailing spaces, a trailing line break, tabs, no-break spaces and a box of only spaces count in full; the rule is checked on independently sampled and generated strings (for example the Unicode grapheme-break test sequences, emoji with skin tones, variation selectors and keycaps), never only on named examples, and the expected counts come from Unicode's published grapheme-break test data for a pinned Unicode version, never from the browser under test, corrected by the owner's rule where the two differ: a combining mark, joiner, modifier or selector that follows a space, a tab, a line break or any other character that is not a letter or an emoji counts as one of its own, as does a prepended mark (sampled cases include a space then a lone skin-tone swatch, a space then a joiner, and a space then a combining accent, each counting 3 with a letter before them).</strong> <span class="vid-id">ROW-001</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-002" class="at"></span>
+<p><strong>After text is pasted, cut, dropped or undone, the shown count reflects the new text at once, with no further key pressed; &quot;at once&quot; means read once, with no retrying, before the next screen update after the edit, and read again after one second with no input.</strong> <span class="vid-id">ROW-002</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-003" class="at"></span>
+<p><strong>The count shows characters used against the limit, in the form &quot;&lt;used&gt; / 500&quot; (for example &quot;123 / 500&quot;), never characters remaining.</strong> <span class="vid-id">ROW-003</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-004" class="at"></span>
+<p><strong>With more than 500 characters in the box, the count shows the real number (for example &quot;523 / 500&quot;), never stopping at 500 and with no thousands separator.</strong> <span class="vid-id">ROW-004</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-016" class="at"></span>
+<p><strong>The page loads at its address with a Spanish title, one labelled text box, the count &quot;0 / 500&quot;, the clear button and no over-limit message, no console error, and no control beyond these.</strong> <span class="vid-id">ROW-016</span></p>
+<p>Kind: the parts on every page</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-017" class="at"></span>
+<p><strong>The page is reached from its entry address and from /index.html, and every link on it, if any, resolves.</strong> <span class="vid-id">ROW-017</span></p>
+<p>Kind: a way to reach a screen</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-018" class="at"></span>
+<p><strong>The person writing their CV summary arrives with a summary to fit (off_screen), writes it, trims it under the limit, may clear and undo, and leaves with nothing kept (off_screen). transitions: (1) person at the empty page · the text box · types or pastes a draft · the box holds the text · the count shows its length out of 500; (2) person at a text of 500 or fewer · the text box · keeps typing past 500 · over the limit · the over-limit message appears and nothing typed is refused; (3) person over the limit · the text box · deletes text down to 500 or fewer · within the limit · the message disappears and the count follows; (4) person at any text · the clear button · presses it · an empty box · the count shows &quot;0 / 500&quot; and no message; (5) person at a just-cleared box · undo (Ctrl+Z) · presses undo · the text is back · the count shows the restored text's length</strong> <span class="vid-id">ROW-018</span></p>
+<p>Kind: a journey</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-019" class="at"></span>
+<p><strong>After text arrives with no key press, the shown count reflects the new text at once, each edit made as the browser itself makes that kind of edit, never by setting the box's value: in Chromium, an input-method commit and an emoji insert through the browser's own input-method and text-insertion path, a replacement (as autocorrect and a predictive suggestion make) as an insert-text command over a selected word, a redo through the browser's redo command, and a drag inside and a drag out of the box as real drags; dictation is not driven by the harness and is left to the real-device check; &quot;at once&quot; means read once, with no retrying, before the next screen update after the edit, and read again after one second with no input.</strong> <span class="vid-id">ROW-019</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-020" class="at"></span>
+<p><strong>During and after composition — an accent typed with a dead key (´ then e), and a word still being composed as phone keyboards do — the count equals the characters shown, a finished accented letter counting once, and it is never left one step behind once composition ends, including when the composition's last input event is still marked as composing and no input event follows its end; driven as a real composition in Chromium.</strong> <span class="vid-id">ROW-020</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-023" class="at"></span>
+<p><strong>The obligations of ROW-001, ROW-002, ROW-008, ROW-011, ROW-014, ROW-024, ROW-032, ROW-033, ROW-043, ROW-046 and ROW-048 hold alike in the Chromium, Firefox and WebKit browser engines; of ROW-019, the drags and the replacement run in all three engines, while the input-method commit and the emoji insert run in Chromium only, and the rest is left to the real-device check of the grading checklist.</strong> <span class="vid-id">ROW-023</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-024" class="at"></span>
+<p><strong>Whatever the box holds after a load, a reload or a back navigation, the count and the message agree with it at once, never a stale &quot;0 / 500&quot; beside restored text.</strong> <span class="vid-id">ROW-024</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-025" class="at"></span>
+<p><strong>With the page's script blocked from running, the page shows no count that looks like a reading, so no &quot;0 / 500&quot; stays on screen while typing changes nothing, and no over-limit message is visible.</strong> <span class="vid-id">ROW-025</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-028" class="at"></span>
+<p><strong>Pasting or dropping formatted content (HTML holding a remote image, bold text and a list) puts plain text only into the box, loads nothing from any other address, and counts each line break once.</strong> <span class="vid-id">ROW-028</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-029" class="at"></span>
+<p><strong>control of ROW-028: pasting plain text of several lines keeps every line break, and the count includes each as one.</strong> <span class="vid-id">ROW-029</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-038" class="at"></span>
+<p><strong>Resizing the window or rotating between portrait and landscape, with text past 500 in the box, leaves the text, the count and the single message unchanged.</strong> <span class="vid-id">ROW-038</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-042" class="at"></span>
+<p><strong>With the browser's grapheme-counting facility removed before the page's script runs, or the count failing at runtime, typing never leaves &quot;0 / 500&quot; or the last value beside text that has changed: run on the sampled and generated strings of ROW-001 (flags, skin tones, keycaps, variation selectors, combining accents), every shown count equals the pinned expected count, or the page shows no reading at all, and then no over-limit message either.</strong> <span class="vid-id">ROW-042</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-043" class="at"></span>
+<p><strong>Text typed or pasted into the box while the page's script is still loading is still there once it runs, and the count and the message agree with it at once.</strong> <span class="vid-id">ROW-043</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-044" class="at"></span>
+<p><strong>Across the journey's steps and pastes of unusual but legal text (a lone surrogate, a null character, right-to-left text and direction marks, a block of 2,000 characters) no uncaught error is logged and the count keeps following the box.</strong> <span class="vid-id">ROW-044</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-046" class="at"></span>
+<p><strong>After the person's own deletions and replacements — deleting a word, deleting to the start of the line, the forward Delete key, deleting a selection, typing or pasting over a selection, choosing a spelling suggestion — each made as the browser itself makes that kind of edit, never by setting the box's value, the count equals the characters in the box.</strong> <span class="vid-id">ROW-046</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-047" class="at"></span>
+<p><strong>A box the person empties by their own editing (select all then delete, deleting back to the start, cutting everything) shows &quot;0 / 500&quot; in every engine.</strong> <span class="vid-id">ROW-047</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-048" class="at"></span>
+<p><strong>Typing or pasting followed at once, with no wait, by clear, undo or redo — and a quick burst of these — leaves the count and the message matching the box's final text, read once with no retrying right after the last action and again after one second with no input.</strong> <span class="vid-id">ROW-048</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+</details>
+<details class="fold"><summary>The over-limit message — 8 tests</summary>
+<span id="c5-row-005" class="at"></span>
+<p><strong>With exactly 500 characters in the box no over-limit message is shown, and with 501 the message is shown and stays shown while the text stays above 500 — still after ten seconds with no input, and still after typing on to 600.</strong> <span class="vid-id">ROW-005</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-006" class="at"></span>
+<p><strong>Once the text is brought back from above 500 to 500 characters or fewer, by deleting, cutting or undoing, the over-limit message is no longer shown.</strong> <span class="vid-id">ROW-006</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-007" class="at"></span>
+<p><strong>Typing, pasting or dropping text that takes the box past 500 characters is accepted whole: no key press is refused and no text is cut, so the box holds every character entered.</strong> <span class="vid-id">ROW-007</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-008" class="at"></span>
+<p><strong>For text near the limit whose code units, code points and visible characters all differ — holding at least one emoji made of a surrogate pair, one emoji made of several code points (a skin-tone modifier or a joined sequence) and one letter with a combining accent — the over-limit message is shown exactly when the shown count is above 500 and hidden exactly when it is 500 or fewer.</strong> <span class="vid-id">ROW-008</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-021" class="at"></span>
+<p><strong>The page never changes what the person entered: double and trailing spaces, accents typed in two parts and every other character stay exactly as entered, and a character typed mid-text leaves the caret right after it, both below 500 characters and above it (for example at 520, typing at position 100).</strong> <span class="vid-id">ROW-021</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-035" class="at"></span>
+<p><strong>However often the text crosses 500 upward — by typing, pasting, dropping, after deleting, after clear and undo — exactly one over-limit message is shown each time, at once, with no further key pressed, and it goes at once when the text comes back to 500 or fewer by any of those ways, never stacked copies.</strong> <span class="vid-id">ROW-035</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-036" class="at"></span>
+<p><strong>At exactly 500 characters none of the over-limit styling the page uses at 501 (a colour, a mark on the box or the count) is present, and at 501 it is; and after coming back down from 501 — by deleting, and by clearing then typing again — it is gone at 500 and below.</strong> <span class="vid-id">ROW-036</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-041" class="at"></span>
+<p><strong>With the stylesheet blocked from loading, the count reads &quot;0 / 500&quot;, no over-limit message is visible, and the 500/501 boundary of ROW-005 still holds.</strong> <span class="vid-id">ROW-041</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+</details>
+<details class="fold"><summary>The clear button — 9 tests</summary>
+<span id="c5-row-009" class="at"></span>
+<p><strong>One press of the clear button empties the box, with no confirmation, dialog or other question before it.</strong> <span class="vid-id">ROW-009</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-010" class="at"></span>
+<p><strong>Right after clearing a box that was above 500 characters, the count shows &quot;0 / 500&quot; and the over-limit message is not shown.</strong> <span class="vid-id">ROW-010</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-011" class="at"></span>
+<p><strong>Undo pressed right after clearing brings back the exact text that was cleared, and the count and the message follow it.</strong> <span class="vid-id">ROW-011</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-032" class="at"></span>
+<p><strong>After undo has brought cleared text back, the browser's own undo command (the edit menu's Undo as the browser runs it, not a key the page listens for) restores it too, a redo then empties the box again, and further undos step back through earlier edits without ever doubling the text.</strong> <span class="vid-id">ROW-032</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-033" class="at"></span>
+<p><strong>Pressing clear twice in a row and then undoing (repeated if needed) brings back the original text exactly, never an empty box.</strong> <span class="vid-id">ROW-033</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-034" class="at"></span>
+<p><strong>After one press of clear, with no further click, the characters the person types and the undo they press go to the text box.</strong> <span class="vid-id">ROW-034</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-037" class="at"></span>
+<p><strong>Pressing clear while a word is still being composed (an input-method or phone-keyboard composition) leaves the box empty: the composing word does not come back on the next key, the next letter typed gives &quot;1 / 500&quot;, and undo still brings the cleared text back.</strong> <span class="vid-id">ROW-037</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-049" class="at"></span>
+<p><strong>Clear, then undo, then clear again empties the box again, and a further undo brings the text back again.</strong> <span class="vid-id">ROW-049</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-050" class="at"></span>
+<p><strong>The clear button is reached with Tab from the box, and Enter and Space each clear the box once, with undo then restoring the text and the count following it.</strong> <span class="vid-id">ROW-050</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+</details>
+<details class="fold"><summary>Across the whole product — 13 tests</summary>
+<span id="c5-row-012" class="at"></span>
+<p><strong>While the page loads and while the person types, pastes and clears, the page makes no network request other than loading its own shipped site/ files, sets no cookie, writes nothing to localStorage, sessionStorage, IndexedDB, the Cookie Store or the origin-private file system, leaves window.name empty and the history entry's state empty, leaves the page's address unchanged, and leaves the page's title as it was at load (no text or count in the tab title or history).</strong> <span class="vid-id">ROW-012</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-013" class="at"></span>
+<p><strong>control of ROW-012: with the network cut after the page has loaded, typing, the count, the over-limit message and clearing all still work.</strong> <span class="vid-id">ROW-013</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-014" class="at"></span>
+<p><strong>After text is typed, a reload, and separately a navigation away and back that the browser serves from its back-forward cache (the page reports it was restored from that cache), both show an empty box with the count &quot;0 / 500&quot; and no message; and the text box tells the browser not to remember its content (autocomplete=&quot;off&quot;).</strong> <span class="vid-id">ROW-014</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-015" class="at"></span>
+<p><strong>The page declares Spanish as its language; the full set of words it shows or ships for people to read — the title, labels, placeholder, button text, tooltips and accessible names — equals an expected list written in Spanish addressing the person as tú, with no whole word in usted (for example &quot;su&quot;, &quot;usted&quot;, &quot;ingrese&quot;, &quot;introduzca&quot;, &quot;pegue&quot;, &quot;escriba&quot;, &quot;borre&quot;, &quot;limpie&quot;) and the document called &quot;CV&quot; (never &quot;currículum&quot; or &quot;hoja de vida&quot;); and the over-limit message reads exactly &quot;Tu resumen supera los 500 caracteres. Acórtalo para que quepa.&quot;</strong> <span class="vid-id">ROW-015</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-022" class="at"></span>
+<p><strong>Served with no charset in its Content-Type, the page still shows every accented letter of its labels and of the over-limit message correctly, and index.html declares UTF-8 within its first 1024 bytes.</strong> <span class="vid-id">ROW-022</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-026" class="at"></span>
+<p><strong>Typing, pasting, clearing and undoing leave the system clipboard exactly as it was before.</strong> <span class="vid-id">ROW-026</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-027" class="at"></span>
+<p><strong>control of ROW-026: the person can still select the box's text and copy it by hand, and the clipboard then holds exactly that text.</strong> <span class="vid-id">ROW-027</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-030" class="at"></span>
+<p><strong>Loaded with text in its address (a query such as ?texto=hola, or a fragment such as #hola), the page opens with an empty box and &quot;0 / 500&quot;: nothing from the address enters the box.</strong> <span class="vid-id">ROW-030</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-031" class="at"></span>
+<p><strong>control of ROW-030: loaded with a query or a fragment in its address, the page still works: typing is counted and clearing clears.</strong> <span class="vid-id">ROW-031</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-039" class="at"></span>
+<p><strong>At its live address the page serves files identical to the shipped site/ files, and loading, typing and clearing there make no request beyond them, set no cookie and log no console error.</strong> <span class="vid-id">ROW-039</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: paid by /vid deploy gate 2 — the page at its live address, after the owner publishes it</p>
+<span id="c5-row-040" class="at"></span>
+<p><strong>At its live address the page is served only over HTTPS: the plain-HTTP address redirects to HTTPS, the HTTPS response carries Strict-Transport-Security, and nothing loads over plain HTTP.</strong> <span class="vid-id">ROW-040</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: paid by /vid deploy gate 2 — the page at its live address, after the owner publishes it</p>
+<span id="c5-row-045" class="at"></span>
+<p><strong>The page declares its own icon as an empty inline icon (data:,), so on load, and when served from a subfolder, the browser requests nothing outside the page's own files and nothing from the host's root.</strong> <span class="vid-id">ROW-045</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+<span id="c5-row-051" class="at"></span>
+<p><strong>With text in the box, switching to another tab, staying idle 60 seconds, navigating away and closing the tab make no network request to any host — every request the browser attempts is observed, with all of the browser's traffic routed to the harness's own listening host outside the page — set no cookie and write no storage of any kind.</strong> <span class="vid-id">ROW-051</span></p>
+<p>Kind: a behaviour</p>
+<p>Not tested yet: spec-only — first stage</p>
+</details>
+</details>
+<details class="fold chap"><summary><h2 id="c5-rules-checked-across-the-product-and-the-attacks-tried">Rules checked across the product, and the attacks tried</h2></summary>
+<details class="fold"><summary>Rules checked across the product — 9 tests</summary>
+<span id="c5-rule-001" class="at"></span>
+<p><strong>No file the page ships contains a way to send or store data: no network call, no storage write, no cookie, no change to the page's address or title, no clipboard write</strong> <span class="vid-id">RULE-001</span></p>
+<p>Kind: a rule checked across the product</p>
+<p>Checked over: find site -type f :: grep -LE 'fetch\( | XMLHttpRequest | sendBeacon | WebSocket | EventSource | localStorage | sessionStorage | indexedDB | document\.cookie | caches\. | serviceWorker | window\.name *= | location *= | location\.(hash | search | href) *= | location\.(assign | replace)\( | window\.open\( | history\.(pushState | replaceState) | document\.title *= | navigator\.clipboard | execCommand\(.copy | new Image | \.src *= | setAttribute\( | url\( | Worker\( | createElement\(.(img | script | link | iframe) | import\( | ping= | postMessage | BroadcastChannel | navigator\.share | &lt;iframe | http-equiv=.refresh | speechSynthesis | SpeechSynthesisUtterance | SpeechRecognition | getUserMedia | RTCPeerConnection | WebTransport | new Notification | setAppBadge | cookieStore | navigator\.storage | getDirectory\( | showSaveFilePicker | requestFileSystem | createObjectURL | download= | \.download *= | createElement\(.a.\) | \.href *= | &lt;form' $(find site -type f)</p>
+<p>Not tested yet: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test</p>
+<span id="c5-rule-002" class="at"></span>
+<p><strong>No key, keypress or change listener decides the count: the count follows the text box's input event, the clear action, and a recount at load and when the page is shown again</strong> <span class="vid-id">RULE-002</span></p>
+<p>Kind: a rule checked across the product</p>
+<p>Checked over: find site -type f :: grep -LE &quot;addEventListener\( *'\&quot;['\&quot;] | on(keyup | keydown | keypress | change) *=&quot; $(find site -type f)</p>
+<p>Not tested yet: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test</p>
+<span id="c5-rule-003" class="at"></span>
+<p><strong>No file the page ships writes HTML from strings or runs strings as code</strong> <span class="vid-id">RULE-003</span></p>
+<p>Kind: a rule checked across the product</p>
+<p>Checked over: find site -type f \( -name '*.js' -o -name '*.html' \) :: grep -LE 'innerHTML | outerHTML | insertAdjacentHTML | document\.write | eval\( | new Function' $(find site -type f \( -name '*.js' -o -name '*.html' \))</p>
+<p>Not tested yet: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test</p>
+<span id="c5-rule-004" class="at"></span>
+<p><strong>Every local reference in the page (src, href) is relative and names a shipped file exactly, letter case included, so the page works under any folder of any host</strong> <span class="vid-id">RULE-004</span></p>
+<p>Kind: a rule checked across the product</p>
+<p>Checked over: checks/extractors/invariant.local-refs.sh</p>
+<p>Not tested yet: census-armed — the extractor is generated with the code skeleton; armed when the first stage writes the rule's test</p>
+<span id="c5-rule-005" class="at"></span>
+<p><strong>No file the page ships names another site: no absolute (http:, https:) or protocol-relative (//) address in any attribute, stylesheet or script, so nothing preconnects, prefetches or imports from elsewhere (a code comment is written with a space after //)</strong> <span class="vid-id">RULE-005</span></p>
+<p>Kind: a rule checked across the product</p>
+<p>Checked over: find site -type f :: grep -LE '(https?:)?//[A-Za-z0-9]' $(find site -type f)</p>
+<p>Not tested yet: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test</p>
+<span id="c5-rule-006" class="at"></span>
+<p><strong>Every script the page ships is included exactly once, so no two copies of the counting code run at the same time</strong> <span class="vid-id">RULE-006</span></p>
+<p>Kind: a rule checked across the product</p>
+<p>Checked over: checks/extractors/invariant.script-once.sh</p>
+<p>Not tested yet: census-armed — the extractor is generated with the code skeleton; armed when the first stage writes the rule's test</p>
+<span id="c5-rule-007" class="at"></span>
+<p><strong>The text box is the browser's own plain-text field: no file the page ships makes an element editable as rich content</strong> <span class="vid-id">RULE-007</span></p>
+<p>Kind: a rule checked across the product</p>
+<p>Checked over: find site -type f \( -name '*.js' -o -name '*.html' \) :: grep -LiE 'contenteditable | designMode' $(find site -type f \( -name '*.js' -o -name '*.html' \))</p>
+<p>Not tested yet: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test</p>
+<span id="c5-rule-008" class="at"></span>
+<p><strong>No file the page ships carries a real person's contact details: no email address and no phone number in the page, its placeholder, its comments or anything else published; a run of seven or more digits, however spaced, dotted, hyphenated or bracketed, counts as a phone number, so no shipped file holds one</strong> <span class="vid-id">RULE-008</span></p>
+<p>Kind: a rule checked across the product</p>
+<p>Checked over: find site -type f :: grep -LE '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,} | 0-9.-]?[0-9]){6,}' $(find site -type f)</p>
+<p>Not tested yet: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test</p>
+<span id="c5-rule-009" class="at"></span>
+<p><strong>The count never depends on the kind of edit: no shipped code reads the input event's kind to decide whether, or how, to recount</strong> <span class="vid-id">RULE-009</span></p>
+<p>Kind: a rule checked across the product</p>
+<p>Checked over: find site -type f :: grep -LE 'inputType' $(find site -type f)</p>
+<p>Not tested yet: census-armed — no site exists before the code skeleton; armed when the first stage writes the rule's test</p>
+</details>
+<details class="fold"><summary>Attacks tried — 3 tests</summary>
+<span id="c5-hos-001" class="at"></span>
+<p><strong>With one line added to the page's script that sends the box's text to the harness's listening host by a path the rule's word list does not name (a request function reached through a computed property name, for example window['fe'+'tch']), in one session type a summary, paste text, go past 500, press clear, stay idle 30 seconds, then hide the page and close it; recorded at the browser's network exit outside the page from the start of load, expect no request to any host other than the page's own address at any moment, no request to the page's own address after load, and every storage the page can reach still empty at the end; with the line removed the same probe passes</strong> <span class="vid-id">HOS-001</span></p>
+<p>Kind: an attack tried</p>
+<p>It protects: <a href="#c5-rule-001">No file the page ships contains a way to send or store data: no network call, no storage write, no cookie, no change to the page's address or title, no clipboard write</a></p>
+<p>To try it, take away: insert into site/main.js's input handler one line that calls window['fe'+'tch'] with the harness listener's address and the box's text, then remove it</p>
+<p>Not tested yet: guard-first — RULE-001; paid in the slice that builds site/main.js</p>
+<span id="c5-hos-003" class="at"></span>
+<p><strong>With one line added to site/main.js that calls fetch with the harness listener's address and the box's text, run RULE-001's census and expect it to name site/main.js as unguarded; with the line removed the census passes</strong> <span class="vid-id">HOS-003</span></p>
+<p>Kind: an attack tried</p>
+<p>It protects: <a href="#c5-rule-001">No file the page ships contains a way to send or store data: no network call, no storage write, no cookie, no change to the page's address or title, no clipboard write</a></p>
+<p>To try it, take away: insert into site/main.js one line calling fetch with the harness listener's address and the box's text, then remove it</p>
+<p>Not tested yet: guard-first — RULE-001; paid in the slice that builds site/main.js</p>
+<span id="c5-hos-002" class="at"></span>
+<p><strong>With a link to another site's address added to the page (a preconnect to the harness's outside host), load the page and expect the outside host, counting accepted connections at its socket, to receive none; with the link removed the same probe passes, and a control load with the guard off shows the browser does open the connection</strong> <span class="vid-id">HOS-002</span></p>
+<p>Kind: an attack tried</p>
+<p>It protects: <a href="#c5-rule-005">No file the page ships names another site: no absolute (http:, https:) or protocol-relative (//) address in any attribute, stylesheet or script, so nothing preconnects, prefetches or imports from elsewhere (a code comment is written with a space after //)</a></p>
+<p>To try it, take away: add to site/index.html one preconnect link to the harness's outside host, then remove it</p>
+<p>Not tested yet: guard-first — RULE-005; paid in the slice that builds site/index.html</p>
+</details>
+</details>
+<details class="fold chap"><summary><h2 id="c5-what-is-deliberately-not-tested">What is deliberately not tested</h2></summary>
+<p>Nothing.</p>
+</details>
+<details class="fold chap"><summary><h2 id="c5-the-grading-checklist">The grading checklist</h2></summary>
+<p>&gt; Owner-curated, versioned, injected VERBATIM into every grading brief &gt; (§7.2). This is the residue that stays human: absent guards leave no &gt; artifact — no orphan, no site list, no divergent knob — so no census can &gt; find them; only domain knowledge names them in advance. Every accepted &gt; absent-guard finding adds one line here: this run's blind spot becomes the &gt; next run's standard question. Seeded at init from the interview and the &gt; plugin's seed library (seed/checklist.md); lines the owner marks general &gt; at run end are promoted back into the seed (§7.3). A seeded line that &gt; fires nothing across two runs is dropped (the complexity law).</p>
+<h3>Standing lines (every project)</h3>
+<ul>
+<li><strong>Harness attacks.</strong> Check that the test harness itself has not been</li>
+</ul>
+<p>  defeated: assertion-neutralising equality overrides (<code>__eq__</code> and its   analogues), early process exit before assertions run (<code>sys.exit(0)</code> and   its analogues), test-framework monkey-patching, skipped or filtered tests   counted as run. Measured hidden-test hack rates of 12–13% make &quot;the suite   exited 0&quot; an attackable claim.</p>
+<ul>
+<li><strong>Example-only evidence.</strong> A computational promise — a calculation, a</li>
+</ul>
+<p>  ranking, a match, a decision — proved only by published, named examples   is unproved: find the implementation that branches on the fixture and   answers correctly for exactly those inputs. Generated or independently   sampled inputs are the standard (exact fixture-named assertions can be   satisfied by branching on the fixture names, with no engine built).</p>
+<ul>
+<li><strong>Probe fixture realism.</strong> Tidy stand-in fixtures carry none of the</li>
+</ul>
+<p>  hostile properties of real input: check that a hostility probe's input   is hostile in every field the product stores or renders, not only the   one the probe asserts on, and that filenames, addresses and markup look   like the real thing (hostile markup planted in the description alone   leaves every other field between a hostile feed and stored script).</p>
+<ul>
+<li><strong>Assertion strength on Tier-0.</strong> A Tier-0 row whose test asserts only</li>
+</ul>
+<p>  that something EXISTS — an element is present, a record count is at   least one, a status is in a set spanning success and redirect — is a   finding: name the value or behaviour the assertion should have pinned   (the ladder: existence → type → status → value → behaviour; presence   assertions can outnumber real visibility assertions many times over).</p>
+<h3>Domain lines</h3>
+<ul>
+<li><strong>Fences: the things left out.</strong> Building any of the PRD's non-goals (NG-001 to NG-009) is a defect: a save of the text in any form, accounts, sending or downloading, a spell checker the page adds, writing suggestions, another language, analytics, an elaborate design, accessibility work beyond a plain page. So is a control the page was not asked for (a copy button, a word count, sample text).</li>
+<li><strong>Spanish register.</strong> Does every visible word address the person as tú, in neutral Latin American Spanish, and call the document &quot;CV&quot; (A-010)? A label in usted, or &quot;currículum&quot; / &quot;hoja de vida&quot;, is a finding even when every row passes.</li>
+<li><strong>Session restore.</strong> Does reopening a closed tab, or the browser restoring its session after a restart or crash, bring back an empty box with &quot;0 / 500&quot;? Text restored there was written to the browser's files on disk.</li>
+<li><strong>A dropped file.</strong> Does dropping a file (for example the CV itself) on the page or the box leave the page, and the text in it, untouched — never navigating to the file and losing the summary?</li>
+<li><strong>What gets published.</strong> Does the copy that reaches the host hold only the page's own files from site/ — never PRD.md, .vid/, CLAUDE.md, tests or fixtures?</li>
+<li><strong>A release after a release.</strong> After a re-release, can a returning visitor's browser pair a cached old script or stylesheet with the new page (or the reverse), leaving a counter that silently does nothing?</li>
+<li><strong>Writing aids.</strong> Has the text box been given attributes that switch off the phone's own writing help (capitals at the start of sentences, autocorrect) that nothing in the PRD asks to switch off?</li>
+<li><strong>Dark mode.</strong> With the device in dark mode, are the box's text, the count and the message still readable?</li>
+<li><strong>The host's logs.</strong> Does the host the owner publishes to keep request logs with full visitor addresses, and for how long? Something about each person kept there runs against the seed's &quot;nothing is kept about the person&quot;.</li>
+<li><strong>A shared origin.</strong> Is the page served from an origin it shares with no other app, and is it refused when another site frames it?</li>
+<li><strong>Opened from the file.</strong> Opened by double-clicking index.html, does the page count, warn and clear exactly as it does over the web?</li>
+<li><strong>Machine translation.</strong> With the browser translating the page, do the count and the message keep following the box?</li>
+<li><strong>The console.</strong> Does any shipped code write the box's text, or the count, to the browser console (a debugging line left in), where it outlives the moment?</li>
+<li><strong>A hidden copy.</strong> After clear, does any copy of the text survive outside the browser's own undo — in an attribute, a hidden element, a variable kept for a home-made undo — where an extension, a translation, a saved page or a print could read it?</li>
+<li><strong>Undo on a real Mac and from the menu.</strong> On macOS, do Cmd+Z and the text box's own context-menu Undo bring cleared text back, as Ctrl+Z does? On Firefox and Safari, does a real dead-key accent and a phone keyboard's composing word count right once composed, and do dictation and autocorrect replacements keep the count right? The test harness cannot drive these, so a person checks them on a real device.</li>
+</ul>
+</details>
+<span id="chapter-6" class="at"></span>
+<h1>The stages</h1>
+<p>Not written yet: it comes at the releases.</p>
+<div class="note">Waiting on you: Two settings on this machine, 1 items. Answer in the panel or in the chat.</div>
+<span id="chapter-7" class="at"></span>
+<h1>The plan</h1>
+<p>Not written yet: it comes when the plan is made, after the releases.</p>
+<span id="chapter-8" class="at"></span>
+<h1>Contador de caracteres para el resumen del CV: the findings</h1>
+<p>As of 2026-11-24 20:10 UTC</p>
+<ul>
+<li><code>PRD.md</code>: not committed yet</li>
+</ul>
+<p>Still open: 0 · Fixed: 46 · Your rulings: 4 · Noted: 0</p>
+<nav class="contents"><ul><li><a href="#c8-still-open">Still open</a></li><li><a href="#c8-fixed">Fixed</a></li><li><a href="#c8-your-rulings">Your rulings</a></li><li><a href="#c8-noted">Noted</a></li></ul></nav>
+<details class="fold chap"><summary><h2 id="c8-still-open">Still open</h2></summary>
+<p>None.</p>
+</details>
+<details class="fold chap"><summary><h2 id="c8-fixed">Fixed</h2></summary>
+<ul>
+<li><strong>Advisory</strong>, found by the completeness audit, about the quality &quot;What clearing does&quot; <span class="vid-id">DIM-clear-action</span>; the requirement &quot;One press of the clear button empties the box straight away, without asking, and the count goes back to zero; undo right after brings the text back.&quot; <span class="vid-id">REQ-003</span>; how it works: &quot;One press of the clear button empties the box at once, with no confirmation, and the count and message follow the empty text.&quot; <span class="vid-id">MECH-03</span>: a mistaken press of the clear button loses the only copy of the text, and whether undo restores it depended on how a builder clears the box; the owner ruled undo restores it (A-014); REQ-003 now carries it as fail-if part (5) <span class="vid-id">F-02</span></li>
+<li><strong>Blocking</strong>, found by the review, about the requirement &quot;When your text passes 500 characters a message says so and disappears once you are back to 500 or fewer; typing is never blocked.&quot; <span class="vid-id">REQ-002</span>: critical — unguarded seam: the message's 500 was not tied to the count the page shows, so a build could show 497 / 500 beside the over-limit message; REQ-002 now uses the shown count and carries part (5); arms (1) to (4) retained <span class="vid-id">F-03</span></li>
+<li><strong>Advisory</strong>, found by the review, about an answer <span class="vid-id">A-011</span>; an answer <span class="vid-id">A-012</span>: A-011 said the page must work at phone width while the owner struck phone layout as a requirement (A-012); A-011 restated as no requirement in this version <span class="vid-id">F-04</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-005</span>; a test of the list <span class="vid-id">ROW-035</span>: a message toggled on key release shows at 501 typed, but a paste, drop or undo to above 500 showed none until a key; ROW-035 now covers every way upward, at once <span class="vid-id">F-05</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-005</span>; a test of the list <span class="vid-id">ROW-035</span>: a transient toast passes &quot;shown at 501&quot;; ROW-005 now requires the message to stay while the text stays above 500 <span class="vid-id">F-06</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-008</span>: test text of single-code-point emoji and precomposed accents gives equal counts under both rules; ROW-008 now pins multi-code-point emoji and a combining accent <span class="vid-id">F-07</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-036</span>: over-limit styling never removed after coming back down; ROW-036 now checks after coming down <span class="vid-id">F-08</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-021</span>: the caret could jump only above 500; ROW-021 now checks above 500 too <span class="vid-id">F-09</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-002</span>; a test of the list <span class="vid-id">ROW-019</span>; a test of the list <span class="vid-id">ROW-048</span>: a debounced count passes retrying checks; &quot;at once&quot; now means one read without retry and a second after one quiet second <span class="vid-id">F-10</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-020</span>: a count that skips composing input with no end-of-composition recount; ROW-020 now names the sequence and drives real composition in Chromium <span class="vid-id">F-11</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-019</span>; a test of the list <span class="vid-id">ROW-046</span>: a handler filtering on the kind of edit passes value-setting tests; edits are now made as the browser makes them <span class="vid-id">F-12</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-042</span>: a code-point fallback passes a plain-letter test; ROW-042 now removes the facility before the script and enters a combining accent and a joined emoji <span class="vid-id">F-13</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-023</span>: rows left out of the three-engine run; ROW-002, ROW-024, ROW-043, ROW-046 and ROW-048 added <span class="vid-id">F-14</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-001</span>: expected counts taken from the engine's own segmenter agree by construction; they now come from Unicode's published grapheme-break data, pinned <span class="vid-id">F-15</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-001</span>; the requirement &quot;Below the box the page shows how many characters you have written out of 500, counting each character you see, space, line break and lone invisible character as one.&quot; <span class="vid-id">REQ-001</span>; an answer <span class="vid-id">A-001</span>: invisible characters were undecided between &quot;what the person sees&quot; and grapheme clusters; the owner ruled they count (A-016), REQ-001 amended and ROW-001 rewritten <span class="vid-id">F-16</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">RULE-001</span>: the word list held unescaped parentheses and did not compile; escaped, and every rule's pattern checked on a planted folder <span class="vid-id">F-17</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">HOS-001</span>; a test of the list <span class="vid-id">HOS-002</span>: the probes showed failure with the line inserted but never a pass without it; both now pass with the line removed <span class="vid-id">F-19</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-014</span>: headless Chromium does not restore a textarea on reload and a harness back navigation may skip the back-forward cache; ROW-014 now requires a cache restore and autocomplete=&quot;off&quot; <span class="vid-id">F-20</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-015</span>: a short banned-word list passes other usted forms and catches &quot;su&quot; inside &quot;supera&quot;; ROW-015 now compares the full set of strings, whole words <span class="vid-id">F-21</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-022</span>: headless Chromium guesses UTF-8; ROW-022 now also checks the declared charset in the first 1024 bytes <span class="vid-id">F-22</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-012</span>; a test of the list <span class="vid-id">ROW-051</span>: window.name and history state unchecked, and requests at close unseen by the page; both added <span class="vid-id">F-23</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">HOS-002</span>: a preconnect sends no request the browser logs; HOS-002 now counts connections at the outside host's socket <span class="vid-id">F-24</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">RULE-001</span>; a test of the list <span class="vid-id">RULE-005</span>: literal extension lists and missing call names; both scan every shipped file and RULE-001 adds setAttribute, url( and Worker <span class="vid-id">F-25</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-012</span>; a test of the list <span class="vid-id">ROW-045</span>: &quot;its own three files&quot; against a shipped icon file; ROW-012 now allows the shipped site/ files and ROW-045 names an empty inline icon <span class="vid-id">F-26</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">RULE-005</span>; a test of the list <span class="vid-id">ROW-045</span>: an inline SVG icon's namespace address matches RULE-005; the icon is now data:, and comments are written with a space after // <span class="vid-id">F-27</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">RULE-008</span>; a test of the list <span class="vid-id">ROW-045</span>: the phone pattern matched SVG path data and dates; reworked, the icon has no path data <span class="vid-id">F-28</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">RULE-002</span>; a test of the list <span class="vid-id">ROW-024</span>; a test of the list <span class="vid-id">ROW-043</span>: the rule's words forbade the load and page-shown recount the rows need; RULE-002 reworded to what its census holds <span class="vid-id">F-29</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-023</span>; a test of the list <span class="vid-id">ROW-020</span>; a test of the list <span class="vid-id">ROW-032</span>: Cmd+Z, menu undo and non-Chromium composition cannot be driven in the Linux harness; rows narrowed to what it drives, the rest a real-device checklist line <span class="vid-id">F-30</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-011</span>; a test of the list <span class="vid-id">ROW-032</span>: repeat; ROW-032 now holds only what ROW-011 does not <span class="vid-id">F-31</span></li>
+<li><strong>Advisory</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-003</span>; a test of the list <span class="vid-id">ROW-004</span>: repeated thousands-separator clause; kept in ROW-004 only <span class="vid-id">F-32</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">HOS-001</span>; a test of the list <span class="vid-id">RULE-001</span>: round 2 — setAttribute had joined the word list, so HOS-001's planted path was no longer unnamed; it now uses a computed property name <span class="vid-id">F-33</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-051</span>: round 2 — observing only the listening host misses a beacon to another host on close; every request the browser attempts is now observed <span class="vid-id">F-34</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">RULE-008</span>: round 2 — common phone formats passed; any run of seven or more digits now counts <span class="vid-id">F-35</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-019</span>; a test of the list <span class="vid-id">ROW-023</span>: round 2 — edits the harness cannot make natively; ROW-019 now names how each is driven, and RULE-009 forbids a count that reads the kind of edit <span class="vid-id">F-36</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">HOS-001</span>; a test of the list <span class="vid-id">RULE-001</span>: round 3 — no probe shows the census itself catching a plain call; HOS-003 added at the owner's ruling <span class="vid-id">F-37</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-019</span>; a test of the list <span class="vid-id">ROW-023</span>: round 3 — ROW-023 required ROW-019 in three engines with no stated path; narrowed at the owner's ruling <span class="vid-id">F-38</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">HOS-001</span>: after the owner's rulings — the probe watched only the listening host; it now watches every request after load and reads storage <span class="vid-id">F-39</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-042</span>: after the owner's rulings — one named pair let a hand-written fallback pass; the row now runs ROW-001's sampled strings with the facility removed <span class="vid-id">F-40</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-001</span>; the requirement &quot;Below the box the page shows how many characters you have written out of 500, counting each character you see, space, line break and lone invisible character as one.&quot; <span class="vid-id">REQ-001</span>; an answer <span class="vid-id">A-016</span>: after the owner's rulings — joiners attached to a character against &quot;each invisible character counts&quot;; settled by the owner's answers on joined emoji (A-001 restated) and ROW-001 rewritten <span class="vid-id">F-41</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">ROW-001</span>; the requirement &quot;Below the box the page shows how many characters you have written out of 500, counting each character you see, space, line break and lone invisible character as one.&quot; <span class="vid-id">REQ-001</span>; an answer <span class="vid-id">A-001</span>: Unicode's grapheme data glues a mark to a preceding space, the owner's rule does not; ROW-001 now states the owner's correction with sampled cases <span class="vid-id">F-42</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">HOS-001</span>: the probe covered typing only; it now covers a whole session from load to close, recorded at the network exit <span class="vid-id">F-43</span></li>
+<li><strong>Blocking</strong>, found by the review, about the requirement &quot;Below the box the page shows how many characters you have written out of 500, counting each character you see, space, line break and lone invisible character as one.&quot; <span class="vid-id">REQ-001</span>: round 1 — the first rewording let a joined emoji count as its parts; repaired at the owner's answer to keep an emoji one however built <span class="vid-id">F-44</span></li>
+<li><strong>Blocking</strong>, found by the review, about an answer <span class="vid-id">A-001</span>; an answer <span class="vid-id">A-016</span>: round 1 — A-016 changed A-001's rule; A-001 restated with the owner's yes <span class="vid-id">F-45</span></li>
+<li><strong>Advisory</strong>, found by the review, about the requirement &quot;When your text passes 500 characters a message says so and disappears once you are back to 500 or fewer; typing is never blocked.&quot; <span class="vid-id">REQ-002</span>; the requirement &quot;The page works in the current and previous major versions of Chrome, Edge, Firefox and Safari; on an older browser that lacks the counting feature it shows neither a count nor the over-limit message, rather than wrong ones.&quot; <span class="vid-id">CON-004</span>: round 1 — whether the message shows on an older browser was undecided; the owner ruled it stays hidden (A-019) <span class="vid-id">F-46</span></li>
+<li><strong>Blocking</strong>, found by the review, about the requirement &quot;Below the box the page shows how many characters you have written out of 500, counting each character you see, space, line break and lone invisible character as one.&quot; <span class="vid-id">REQ-001</span>; the requirement &quot;The page works in the current and previous major versions of Chrome, Edge, Firefox and Safari; on an older browser that lacks the counting feature it shows neither a count nor the over-limit message, rather than wrong ones.&quot; <span class="vid-id">CON-004</span>: round 2 — REQ-001 now states no count is shown on an older browser, as CON-004 does <span class="vid-id">F-49</span></li>
+<li><strong>Blocking</strong>, found by the review, about the requirement &quot;Below the box the page shows how many characters you have written out of 500, counting each character you see, space, line break and lone invisible character as one.&quot; <span class="vid-id">REQ-001</span>: round 2 — the plain sentence said every invisible character counts; it now says a lone invisible character <span class="vid-id">F-50</span></li>
+</ul>
+</details>
+<details class="fold chap"><summary><h2 id="c8-your-rulings">Your rulings</h2></summary>
+<ul>
+<li><strong>Advisory</strong>, found by the red team, about how it works: &quot;The count is recomputed from the box's whole text on every change, whatever made the change, by the counting rule the owner chose.&quot; <span class="vid-id">MECH-01</span>; the summary: value-coherence — destinations may count UTF-16 code units or CRLF line breaks, so a summary at 498 / 500 here may be too long there; A-001 is the owner's explicit rule, so a question for the owner, who left it <span class="vid-id">F-01</span></li>
+<li><strong>Blocking</strong>, found by the strength check, about a test of the list <span class="vid-id">RULE-001</span>; a test of the list <span class="vid-id">RULE-002</span>; a test of the list <span class="vid-id">RULE-003</span>; a test of the list <span class="vid-id">RULE-005</span>; a test of the list <span class="vid-id">RULE-007</span>; a test of the list <span class="vid-id">RULE-008</span>: critical — the reviewers read the fifth field as an expected exit code of grep -L; ViD's belief rests on checks/census.sh lines 12-15 and 412-420 (orphans are the left list minus the right list; the exit code is not read) and the template's rule grammar (the fifth field is the tier); the owner kept the rules as written <span class="vid-id">F-18</span></li>
+<li><strong>Blocking</strong>, found by the review, about the requirement &quot;Below the box the page shows how many characters you have written out of 500, counting each character you see, space, line break and lone invisible character as one.&quot; <span class="vid-id">REQ-001</span>: arm 1 — round 2 — the arm now counts each invisible character standing on its own as one, where it used to fail a count differing from what the person sees; the owner accepted the change <span class="vid-id">F-47</span></li>
+<li><strong>Blocking</strong>, found by the review, about the requirement &quot;When your text passes 500 characters a message says so and disappears once you are back to 500 or fewer; typing is never blocked.&quot; <span class="vid-id">REQ-002</span>: arm 1 — round 2 — the arm now applies on the browsers the page supports only; the owner accepted the narrowing <span class="vid-id">F-48</span></li>
+</ul>
+</details>
+<details class="fold chap"><summary><h2 id="c8-noted">Noted</h2></summary>
+<p>None.</p>
+</details>
+</main>
+<script>
+(function () {
+  var b = document.getElementById('copy'); if (!b) return;
+  b.addEventListener('click', function () {
+    var out = [];
+    document.querySelectorAll('.card').forEach(function (c) {
+      var id = c.getAttribute('data-id'), r = c.querySelector('input:checked'), n = c.querySelector('textarea').value.trim();
+      out.push(id + ': ' + (r ? r.value : '(no answer)') + (n ? ' — ' + n : ''));
+    });
+    var t = out.join('\n');
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(function () { b.textContent = 'copied'; }, function () { prompt('Copy these answers:', t); });
+    else prompt('Copy these answers:', t);
+  });
+})();
+(function () {
+  function all(o) { document.querySelectorAll('details.fold').forEach(function (d) { d.open = o; }); }
+  var a = document.getElementById('open-all'), c = document.getElementById('close-all'), s = document.getElementById('show-ids');
+  if (a) a.addEventListener('click', function () { all(true); });
+  if (c) c.addEventListener('click', function () { all(false); });
+  if (s) s.addEventListener('click', function () { var on = document.body.classList.toggle('show-ids'); s.textContent = on ? 'Hide ids' : 'Show ids'; });
+  function reveal() {
+    var h = decodeURIComponent(location.hash.slice(1)), e = h ? document.getElementById(h) : null; if (!e) return;
+    for (var p = e.parentElement; p; p = p.parentElement) if (p.tagName === 'DETAILS') p.open = true;
+    e.scrollIntoView();
+  }
+  window.addEventListener('hashchange', reveal); reveal();
+})();
+</script>
+</body></html>
