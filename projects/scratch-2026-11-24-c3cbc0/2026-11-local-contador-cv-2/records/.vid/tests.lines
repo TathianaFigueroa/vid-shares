@@ -1,0 +1,37 @@
+section counted
+item rows | Test rows
+value | 51
+item rules | Rules checked across every file at each commit
+value | 9
+item attacks | Attack tests on what must never happen
+value | 2
+item live | Rows checked only on the live page, once you publish it
+value | 2
+item first-stage | Rows whose test is written in the first stage of the build
+value | 49
+section look
+item Q1 | Which browsers must the page support? The counting relies on a browser feature older versions lack (Firefox before version 125, for example).
+recommend | Change it: the current and previous major versions of Chrome, Edge, Firefox and Safari; on an older browser the page shows no count rather than a wrong one
+item Q2 | Do invisible characters pasted from Word or PDF (a zero-width space, a soft hyphen, direction marks) count? Your rule counts what the person sees, and these show nothing.
+recommend | Change it: they count, one each, because the site that receives the summary counts them too, so the page warns honestly
+item Q3 | Phone keyboards usually have no undo, so undo after a mistaken clear does not reach most phone users.
+recommend | Keep it: the clear button as you ruled it, one press with no question, undo where the keyboard has it
+item F1 | A reviewer says the rules that search every file judge the search by its exit code, which differs between versions of the search tool, so some could never fail. ViD believes this is wrong: the checker compares two lists of files and ignores the exit code (checks/census.sh, lines 12 to 15 and 412 to 420), and the 0 or 1 beside each rule is its importance.
+recommend | Keep it: the rules as written
+item F2 | The attack test on "the text never leaves the page" plants a call the file search cannot name, so it shows the live page refusing it but never shows the file search itself catching a plain call.
+recommend | Change it: add a second attack test that plants a plain fetch call and expects the file search to fail, and keep the first one as the live-page check
+item F3 | The no-key-press test makes its edits in Chromium, while another row says that test holds in all three browser engines, without saying how the edits are made in Firefox and Safari's engine.
+recommend | Change it: the drags and the replacement run in all three engines; the input-method commit and the emoji insert run in Chromium only, and the rest is checked on a real device
+section kinds
+item k1 | The count goes wrong for text that arrives with no key press: autocorrect, dictation, emoji picker, composing accents, drags, redo
+item k2 | The count goes wrong after the person's own deletions, or a box emptied by hand, or quick edits followed at once by clear or undo
+item k3 | The page changes what the person typed (trims spaces, merges accents) or throws the caret to the end
+item k4 | The over-limit message stacks, lingers, or shows when the stylesheet or script fails to load
+item k5 | Clear, undo and redo misbehave: twice in a row, during a composing word, from the keyboard, or with a redo after
+item k6 | Behaviour differs between Chrome's, Firefox's and Safari's engines, or on a browser missing the counting feature
+item k7 | The text leaks or is kept: clipboard writes, the tab title, the page address read into the box, rich paste loading outside images, saving on tab switch or close
+item k8 | The page names or contacts another site, ships a person's contact details, or includes a script twice
+item k9 | The page breaks on a real host: under a subfolder, with no character set declared, asking for an icon from the host's root
+item k10 | The live page differs from what was tested (host-injected analytics, plain HTTP)
+item k11 | Spanish wording slips into usted, or calls the document something other than "CV"
+empty alone | No failure clause of the PRD is narrowed or withdrawn by this list.

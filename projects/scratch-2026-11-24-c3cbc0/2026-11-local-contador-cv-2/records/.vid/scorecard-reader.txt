@@ -1,0 +1,20 @@
+1 | agrees | A-001 | Fail-if part (1) counts each space, line break, accented letter and emoji as one, exactly the counting rule A-001 sets.
+2 | agrees | A-001 | REQ-002 ties the message to the shown count, which follows A-001's rule, and nothing in it counts characters any other way.
+3 | agrees | A-003 | REQ-002 never blocks or cuts the text and keeps the message only while the count is above 500, as A-003 states.
+4 | agrees | A-002 | REQ-003 clears in one press with no confirmation and fail-if part (2) forbids any question first, as A-002 states.
+5 | agrees | A-014 | REQ-003 says undo right after clearing brings the text back and fail-if part (5) guards it, as A-014 states.
+6 | restatement | - | The seed explicitly leaves the message's wording to ViD ("redáctalo tú"), so the owner has already settled who decides and no question remains.
+7 | builder setting | - | The seed already settles that the count shows characters written; the "123 / 500" form and placement below the box are presentation any sensible value serves.
+8 | builder setting | - | Updating the count on paste, cut, undo and completed accents is what any sensible counter does under the seed's "mientras la persona escribe" and changes nothing users or the business get.
+9 | restatement | - | The seed's "Nada se guarda sobre la persona" and its exclusion of saving the text already settle that the box opens empty and is not remembered.
+10 | product decision | - | The seed says only "en español"; the regional variety and addressing the person as tú rather than usted set the product's voice toward its market, which a PM would decide.
+11 | restatement | A-012 | The owner struck phone layout as a requirement in A-012, so A-011 only restates that settled answer.
+12 | one rule | - | The count's place, form and refresh on every change are one counter behaviour, and the fail-ifs all guard that single count.
+13 | one rule | - | Showing the message exactly while the count is above 500 and never blocking the text together define the single over-limit behaviour.
+14 | one rule | - | Clearing at once without confirmation and undo restoring the text are one clear action, the undo being the guard that makes no confirmation safe.
+15 | observable | - | Every fail-if part compares the shown count with the box's visible text after a stated edit, which a tester can check on the page.
+16 | observable | - | Each fail-if part is a visible state of the message or the text at a stated count, checkable by typing or pasting on the page.
+17 | observable | - | Each fail-if part is visible after one press of clear or an undo: box contents, a dialog, the count, the message.
+18 | product | - | It states what the person sees below the box and when it changes, with no mechanism named.
+19 | product | - | It states when the person sees the message and that their typing is never blocked, all user-visible behaviour.
+20 | product | - | It states what one press of clear and an undo do for the person, with no build mechanism named.

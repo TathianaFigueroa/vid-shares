@@ -1,0 +1,11 @@
+section gaps
+item G1 | If the person presses the clear button by mistake, should undo (Ctrl+Z) right after it bring the text back? With no confirmation and nothing saved, undo is the only way back, and two builds could differ on it.
+look | An open finding
+recommend | Yes: undo right after clearing brings the text back
+choice | Yes: undo right after clearing brings the text back
+choice | No: clearing is final, nothing is promised
+judged faithful | The three rules agree with your answers they rest on (3 of 3; not yet checked against hand labels)
+judged honest | Of my six decisions, the reader called one a builder's setting, three restatements of what your brief already settles, and two product decisions: the variety of Spanish with tú, and phone support
+judged right-grained | Each of the three rules is one rule (not yet checked against hand labels)
+judged testable | All three failure clauses can be seen on the page (not yet checked against hand labels)
+judged product-level | All three rules describe what the person sees, not how it is built

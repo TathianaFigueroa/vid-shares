@@ -1,0 +1,4 @@
+PEND  RULE-004  census command 'checks/extractors/invariant.local-refs.sh' — extractor owed to the skeleton (checks/extractors/ holds none yet; fail-closed once one exists)
+PEND  RULE-006  census command 'checks/extractors/invariant.script-once.sh' — extractor owed to the skeleton (checks/extractors/ holds none yet; fail-closed once one exists)
+
+census: population=0 orphans=0 exceptions=0 suppressed=0 pending=2 vacuity-reports=0 rendered-reports=0 strength-reports=0

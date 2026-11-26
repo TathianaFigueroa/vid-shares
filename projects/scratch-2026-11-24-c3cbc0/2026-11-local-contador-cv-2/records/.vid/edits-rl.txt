@@ -1,0 +1,2 @@
+findings "2026-11-24 — pause 3 sitting" "review: whole, round 2, 2 findings"
+end

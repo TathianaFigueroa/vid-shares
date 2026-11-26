@@ -1,0 +1,22 @@
+Accepted candidates so far (round 1, all lenses), as they landed:
+- ROW-012 strengthened: the page's title stays as at load (no text or count in the tab title or history).
+- ROW-015 strengthened: no usted, the document called "CV".
+- ROW-019 count right after input with no key press (autocorrect, dictation, emoji picker, input-method commit, redo, drag inside, drag out).
+- ROW-020 count right during and after composition (dead key; a word still composing on phone keyboards).
+- ROW-021 the page never changes what was entered; caret stays after a mid-text insert.
+- ROW-022 accents correct when served with no charset.
+- ROW-023 key rows hold in Chromium, Firefox and WebKit.
+- ROW-024 count and message agree with whatever the box holds after load, reload, back navigation.
+- ROW-025 with the script blocked, no count that looks like a reading.
+- ROW-026 clipboard untouched by typing, pasting, clearing, undo; ROW-027 its control (copy by hand works).
+- ROW-028 formatted paste: plain text only, nothing loaded, line break counts once; ROW-029 its control.
+- ROW-030 nothing from the page's address enters the box; ROW-031 its control.
+- ROW-032 undo after clear through every browser undo, redo, no doubling.
+- ROW-033 double clear then undo restores the text.
+- ROW-034 after clear, typing and undo go to the box.
+- RULE-001 widened: window.name, caches, serviceWorker, location assign/replace, window.open, document.title, clipboard writes.
+- RULE-002 the count decided only by the input event and the clear action (no key/change listeners).
+- RULE-003 no HTML written from strings, no strings run as code.
+- RULE-004 every local reference relative and exact in letter case.
+- Grader questions: usted/CV register; session restore after reopen or restart; a dropped file leaves the page untouched; only site/ files published; cached asset mismatch after a re-release.
+- Owner questions raised (to the sitting): which browsers are supported; whether invisible characters (zero-width space, soft hyphen, BOM, direction marks) count; phone keyboards without undo versus A-014.

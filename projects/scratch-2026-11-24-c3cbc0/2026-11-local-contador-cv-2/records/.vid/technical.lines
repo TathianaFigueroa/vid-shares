@@ -1,0 +1,15 @@
+section hints
+item H1 | Any directional hints on design?
+item H2 | Any directional hints on architecture and technical stack?
+section where
+item W1 | Where should the page be hosted? It is one static page with no server and no data, so any plain web host serves it; where the visitors are matters little.
+recommend | A plain static host on a global network, such as GitHub Pages or Netlify, at no cost
+choice | A plain static host on a global network, such as GitHub Pages or Netlify, at no cost
+choice | Your company's own web servers
+choice | Somewhere else (name it)
+item W2 | Which web addresses for the test copy and the live page?
+recommend | The host's own free addresses for both, for now
+choice | The host's own free addresses for both, for now
+choice | Addresses on your own domain (name them)
+section access
+item X1 | How does ViD get access to the host to publish the page? Say which log-in (for example the host's own command-line log-in, done by you), or the name of an environment variable holding a key; or "none" if you will publish by hand.

@@ -1,0 +1,12 @@
+empty rewordings | The wording check proposed no rewordings: every failure clause already describes the harm to the person.
+section findings
+item F-03 | The over-limit message and the count could have been checked against two different counts, so a build could show "497 / 500" beside the message. Repaired: the message now follows the same count the page shows; the four earlier failure clauses are kept as written, and a fifth was added.
+recommend | Accept
+item F-04 | My decision that the page must work on phones clashed with your ruling that phone layout is not a requirement. Repaired: my decision now says phone layout is not required in this version and nothing is graded against it.
+recommend | Accept
+plain-changed REQ-003
+judged faithful | The three rules agree with your answers they rest on, including the undo answer
+judged honest | Of my six decisions, the reader called three restatements of what you already settled, two builder's settings, and one a product decision: neutral Latin American Spanish with tú
+judged right-grained | Each of the three rules is one rule; the clear rule joins "no confirmation" and "undo brings it back", a close call
+judged testable | All three failure clauses can be seen on the page
+judged product-level | All three rules describe what the person sees

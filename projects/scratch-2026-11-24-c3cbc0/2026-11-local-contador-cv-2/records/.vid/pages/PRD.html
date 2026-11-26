@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contador de caracteres para el resumen del CV: the product</title>
+<style>
+:root { --bg: #fbfaf7; --fg: #1d1d1b; --mute: #6b6a66; --line: #dedbd3; --card: #ffffff; --accent: #2f5d8a; --rec: #e7f0e4; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #181816; --fg: #ecebe6; --mute: #a3a29c; --line: #3a3934; --card: #22221f; --accent: #8cb4dc; --rec: #233523; } }
+:root[data-theme="dark"] { --bg: #181816; --fg: #ecebe6; --mute: #a3a29c; --line: #3a3934; --card: #22221f; --accent: #8cb4dc; --rec: #233523; }
+body { background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; padding: 24px 16px 64px; }
+main { max-width: 860px; margin: 0 auto; }
+h1 { font-size: 1.6em; margin: 0 0 .6em; } h2 { font-size: 1.25em; margin: 1.8em 0 .5em; border-bottom: 1px solid var(--line); padding-bottom: .2em; }
+h3 { font-size: 1.05em; margin: 1.4em 0 .4em; } h4 { font-size: 1em; margin: 1.2em 0 .3em; color: var(--mute); }
+table { border-collapse: collapse; width: 100%; margin: .8em 0; font-size: .94em; display: block; overflow-x: auto; }
+th, td { border: 1px solid var(--line); padding: .35em .6em; text-align: left; vertical-align: top; } th { background: var(--card); }
+code { font: .9em ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--card); padding: .05em .3em; border-radius: 3px; }
+pre { background: var(--card); border: 1px solid var(--line); padding: .8em; overflow-x: auto; border-radius: 6px; } pre code { background: none; padding: 0; }
+.card { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px; padding: .8em 1em; margin: 1em 0; }
+.card .meta { color: var(--mute); font-size: .88em; } .card .q { font-weight: 600; margin: .3em 0; } .card label { display: block; margin: .2em 0; }
+.card label.rec { background: var(--rec); border-radius: 4px; padding: 0 .3em; } .card textarea { width: 100%; box-sizing: border-box; margin-top: .4em; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 4px; }
+button#copy { position: sticky; top: 8px; float: right; background: var(--accent); color: var(--bg); border: 0; border-radius: 6px; padding: .5em .9em; font-weight: 600; cursor: pointer; }
+a { color: var(--accent); }
+.tools { position: sticky; top: 8px; float: right; display: flex; gap: .4em; } .tools button { background: var(--card); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: .3em .7em; cursor: pointer; }
+details.fold { border: 1px solid var(--line); border-radius: 6px; padding: .2em .8em; margin: .6em 0; background: var(--card); } details.fold > summary { cursor: pointer; font-weight: 600; padding: .3em 0; }
+details.fold details.fold { background: var(--bg); }
+nav.contents ul { padding-left: 1.2em; } .note { border: 1px solid var(--accent); border-left-width: 4px; border-radius: 6px; padding: .6em 1em; margin: 1em 0; background: var(--rec); }
+.mark { color: var(--accent); font-size: .8em; vertical-align: super; } .vid-id { display: none; } body.show-ids .vid-id { display: inline; color: var(--mute); font: .8em ui-monospace, SFMono-Regular, Menlo, monospace; margin-left: .3em; }
+</style>
+</head><body><main>
+<div class="tools"><button id="open-all" type="button">Open all</button><button id="close-all" type="button">Close all</button><button id="show-ids" type="button">Show ids</button></div>
+<h1>Contador de caracteres para el resumen del CV: the product</h1>
+<p>As of 2026-11-24 20:06 UTC</p>
+<ul>
+<li><code>PRD.md</code>: not committed yet</li>
+</ul>
+<p>Requirements: 3 · Features: 3 · Open questions: 0 · Answers of yours: 13 · Answers of ViD's: 6 · Findings: 4</p>
+<nav class="contents"><ul><li><a href="#the-summary">The summary</a></li><li><a href="#the-qualities-it-must-have">The qualities it must have</a></li><li><a href="#the-features">The features</a></li><li><a href="#decisions">Decisions</a></li><li><a href="#open-questions">Open questions</a></li><li><a href="#history-what-changed-after-the-final-wording-was-agreed">History: what changed after the final wording was agreed</a></li><li><a href="#when-it-was-agreed">When it was agreed</a></li></ul></nav>
+<h2 id="the-summary">The summary</h2>
+<h3>Product summary</h3>
+<p>A single web page, with its interface in Spanish, where a person types or pastes the summary of their CV into one text box and sees, as they write, how many characters it holds against a limit of 500. When the text goes past 500 characters a message says so, without ever blocking the typing; one button clears all the text. Nothing about the person is kept or sent anywhere.</p>
+<h3>Primary users</h3>
+<p>A person writing the summary paragraph of their own CV who needs it to fit within 500 characters before they use it somewhere else.</p>
+<h3>MVP focus</h3>
+<ul>
+<li>G1: The person always knows how many characters their summary holds, and is told plainly when it is past 500.</li>
+<li>G2: The person can start over with an empty box in one press.</li>
+<li>G3: The summary the person writes stays theirs alone: nothing about them is kept or sent.</li>
+</ul>
+<h3>Explicitly not MVP</h3>
+<p>Saving the text, accounts, sending or downloading the CV, a spell checker, writing suggestions, other languages, analytics, and an elaborate design (a clean, readable page is enough), all as the seed lists them. The first version holds at most three requirements, at the owner's word; everything else waits for a later version.</p>
+<h3>Required core flows</h3>
+<ul>
+<li>Write or paste a summary and see its character count, and whether it is past 500, at every moment.</li>
+<li>Clear the box in one press to start again.</li>
+</ul>
+<h3>Value logic</h3>
+<p>Wherever a CV summary is limited to 500 characters, the person needs to know before they use it whether it fits, and by how much it does not. The page answers that one question while they write, and asks nothing of them in return: no account, nothing stored.</p>
+<h3>Evidence basis</h3>
+<p>The seed and the five interview answers (A-001 to A-005) are the only sources; they do not conflict. The seed leaves the message's wording to ViD, which is therefore a ViD decision.</p>
+<h2 id="the-qualities-it-must-have">The qualities it must have</h2>
+<ul>
+<li><strong>NFR: privacy &amp; data protection</strong>: Needs it <span class="vid-id">DIM-nfr-privacy</span></li>
+<li><strong>What counts as one character</strong>: Needs it <span class="vid-id">DIM-char-count-rule</span></li>
+<li><strong>How and when the count is shown</strong>: Needs it <span class="vid-id">DIM-count-display</span></li>
+<li><strong>The 500 boundary and the over-limit message</strong>: Needs it <span class="vid-id">DIM-limit-boundary</span></li>
+<li><strong>What clearing does</strong>: Needs it <span class="vid-id">DIM-clear-action</span></li>
+<li><strong>The interface's Spanish words</strong>: Needs it <span class="vid-id">DIM-spanish-copy</span></li>
+<li><strong>Nothing kept across reloads or visits</strong>: Needs it <span class="vid-id">DIM-no-retention</span></li>
+<li><strong>The text never leaves the page</strong>: Needs it <span class="vid-id">DIM-text-egress</span></li>
+</ul>
+<h2 id="the-features">The features</h2>
+<details class="fold"><summary>The character counter — 1 requirement in the first version, 0 must never break <span class="vid-id">FEAT-01</span></summary>
+<span id="req-001" class="at"></span>
+<p><strong>Below the box the page shows how many characters you have written out of 500, counting each character you see, space, line break and lone invisible character as one.</strong> <span class="vid-id">REQ-001</span></p>
+<p>It fails if:</p>
+<ul>
+<li>(1) after a change the shown count differs from the characters the person sees in the box, where each space, each line break, each accented letter and each emoji counts as one, an emoji built from several joined parts (a family, a skin tone, a flag) counting as one, and where each zero-width space, soft hyphen and direction mark standing on its own counts as one; (2) after text is pasted, cut, dropped</li>
+<li>undone the count does not change until a further key is pressed; (3) the count shows characters remaining instead of characters used; (4) the count stops at 500 while the box holds more</li>
+</ul>
+<p>Rests on a ViD decision</p>
+</details>
+<details class="fold"><summary>The over-limit message — 1 requirement in the first version, 0 must never break <span class="vid-id">FEAT-02</span></summary>
+<span id="req-002" class="at"></span>
+<p><strong>When your text passes 500 characters a message says so and disappears once you are back to 500 or fewer; typing is never blocked.</strong> <span class="vid-id">REQ-002</span></p>
+<p>It fails if:</p>
+<ul>
+<li>(1) on a browser the page supports, the box holds 501 characters and the over-limit message is not shown; (2) the over-limit message is shown while the box holds 500 characters</li>
+<li>fewer; (3) the message is still shown after the text is brought back to 500 characters</li>
+<li>fewer; (4) a key press, paste</li>
+<li>drop that would take the text past 500 characters is refused</li>
+<li>the text is cut to 500; (5) the over-limit message is shown while the count the page shows is 500</li>
+<li>fewer</li>
+<li>is not shown while that count is above 500</li>
+</ul>
+<p>Rests on a ViD decision</p>
+</details>
+<details class="fold"><summary>The clear button — 1 requirement in the first version, 0 must never break <span class="vid-id">FEAT-03</span></summary>
+<span id="req-003" class="at"></span>
+<p><strong>One press of the clear button empties the box straight away, without asking, and the count goes back to zero; undo right after brings the text back.</strong> <span class="vid-id">REQ-003</span></p>
+<p>It fails if:</p>
+<ul>
+<li>(1) after one press of the clear button the box still holds any character; (2) a confirmation</li>
+<li>any other question appears before the box is emptied; (3) after clearing the count shows anything other than zero characters; (4) after clearing the over-limit message is still shown; (5) undo pressed right after clearing does not bring back the text that was cleared</li>
+</ul>
+</details>
+<details class="fold"><summary>Beyond the features</summary>
+<span id="con-001" class="at"></span>
+<p><strong>The text the person writes, and anything derived from it, never leaves the open page: it is never sent over the network, never placed in the page's address, and never written to cookies or to any storage in the browser.</strong> <span class="vid-id">CON-001</span></p>
+<p>Must never break</p>
+<span id="con-002" class="at"></span>
+<p><strong>The text box opens empty on every load of the page, and the browser is told not to restore or remember what was typed in it.</strong> <span class="vid-id">CON-002</span></p>
+<p>Rests on a ViD decision</p>
+<span id="con-003" class="at"></span>
+<p><strong>Every word of the interface is in Spanish, worded as A-010 states, and the page declares Spanish as its language.</strong> <span class="vid-id">CON-003</span></p>
+<p>Rests on a ViD decision</p>
+<span id="ng-001" class="at"></span>
+<p><strong>Saving the text, in any form, is not part of this version.</strong> <span class="vid-id">NG-001</span></p>
+<span id="ng-002" class="at"></span>
+<p><strong>Accounts or sign-in are not part of this version.</strong> <span class="vid-id">NG-002</span></p>
+<span id="ng-003" class="at"></span>
+<p><strong>Sending or downloading the CV is not part of this version.</strong> <span class="vid-id">NG-003</span></p>
+<span id="ng-004" class="at"></span>
+<p><strong>A spell checker added by the page is not part of this version.</strong> <span class="vid-id">NG-004</span></p>
+<span id="ng-005" class="at"></span>
+<p><strong>Writing suggestions are not part of this version.</strong> <span class="vid-id">NG-005</span></p>
+<span id="ng-006" class="at"></span>
+<p><strong>Languages other than Spanish are not part of this version.</strong> <span class="vid-id">NG-006</span></p>
+<span id="ng-007" class="at"></span>
+<p><strong>Analytics of any kind are not part of this version.</strong> <span class="vid-id">NG-007</span></p>
+<span id="ng-008" class="at"></span>
+<p><strong>An elaborate design is not part of this version: a clean, readable page is enough.</strong> <span class="vid-id">NG-008</span></p>
+<span id="ng-009" class="at"></span>
+<p><strong>Accessibility work beyond what a plain page gives, such as announcing the count to screen readers, is deferred out of this version.</strong> <span class="vid-id">NG-009</span></p>
+<span id="con-004" class="at"></span>
+<p><strong>The page works in the current and previous major versions of Chrome, Edge, Firefox and Safari; on an older browser that lacks the counting feature it shows neither a count nor the over-limit message, rather than wrong ones.</strong> <span class="vid-id">CON-004</span></p>
+</details>
+<h2 id="decisions">Decisions</h2>
+<h3>Yours</h3>
+<ul>
+<li><strong>How does the count treat spaces, line breaks and special letters?</strong> accepted as recommended: every character in the box counts as one, each one the person sees (spaces and line breaks included, an accented letter or an emoji counting as one however many parts it is built from), plus each invisible character standing on its own (a zero-width space, a soft hyphen, a direction mark); an invisible joiner or modifier attached to the letter or emoji before it is part of that character <span class="vid-id">A-001</span></li>
+<li><strong>Does the clear button ask for confirmation first?</strong> accepted as recommended: no confirmation; one press clears the text at once <span class="vid-id">A-002</span></li>
+<li><strong>Once the text passes 500, can the person keep typing?</strong> accepted as recommended: typing is never blocked; the over-limit message stays until the text is back to 500 or fewer <span class="vid-id">A-003</span></li>
+<li><strong>Boundary challenge: keep the clear-all button in the first version?</strong> accepted as recommended: keep <span class="vid-id">A-004</span></li>
+<li><strong>Boundary challenge: keep the over-limit message in the first version?</strong> accepted as recommended: keep <span class="vid-id">A-005</span></li>
+<li><strong>Which qualities does the contract hold?</strong> accepted as recommended: the eight kept (privacy, what counts as one character, how and when the count is shown, the 500 boundary, what clearing does, the Spanish wording, nothing kept across reloads or visits, the text never leaves the page); struck and out of this version: accessibility, phone layout as a requirement, third-party loads, browser spell-check and autofill, an on-page privacy note, text box shape, unrequested controls, large-paste performance, and the catalog floor dimensions security, availability, operability, core-loop continuity, identity, consent, lifecycle, operations, feedback intake, trust states, authorization, notifications, data integrity, proof thresholds, instrumentation; case-by-case dimensions technical SEO and i18n-locale ruled out <span class="vid-id">A-012</span></li>
+<li><strong>The critic's finding F-01: sites that receive the text may count emoji or line breaks as two characters; add help text?</strong> accepted as recommended: leave it; the counting rule of A-001 stands and no help text is added <span class="vid-id">A-013</span></li>
+<li><strong>If the person presses the clear button by mistake, does undo right after it bring the text back?</strong> accepted as recommended: yes, undo right after clearing brings the cleared text back <span class="vid-id">A-014</span></li>
+<li><strong>Which browsers must the page support?</strong> accepted as recommended: the current and previous major versions of Chrome, Edge, Firefox and Safari; on an older browser that lacks the counting feature the page shows no count rather than a wrong one <span class="vid-id">A-015</span></li>
+<li><strong>Do invisible characters pasted from Word or PDF (zero-width space, soft hyphen, direction marks) count?</strong> accepted as recommended: they count, one each, like every other character, because the site that receives the summary counts them too <span class="vid-id">A-016</span></li>
+<li><strong>Phone keyboards usually have no undo; keep the clear button as ruled?</strong> accepted as recommended: keep it as ruled, one press with no question, undo wherever the keyboard has it <span class="vid-id">A-017</span></li>
+<li><strong>A strength reviewer says the census rules judge the file search by its exit code; keep the rules as written?</strong> accepted as recommended: keep the rules as written; the census compares two lists of files and ignores the exit code, and the number beside each rule is its tier <span class="vid-id">A-018</span></li>
+<li><strong>On an older browser that lacks the counting feature the page shows no count; should the over-limit message stay hidden there too?</strong> yes: on such a browser the over-limit message stays hidden too, like the count; the message rule's first failure clause applies to the browsers the page supports (CON-004) <span class="vid-id">A-019</span></li>
+</ul>
+<h3>ViD's</h3>
+<ul>
+<li><strong>What does the over-limit message say?</strong> &quot;Tu resumen supera los 500 caracteres. Acórtalo para que quepa.&quot; shown below the text box, addressing the person as tú (you have seen this) <span class="vid-id">A-006</span></li>
+<li><strong>How is the count shown?</strong> as characters used out of the limit, for example &quot;123 / 500&quot;, directly below the text box; past the limit it keeps showing the real count, for example &quot;523 / 500&quot; (you have seen this) <span class="vid-id">A-007</span></li>
+<li><strong>Which edits update the count?</strong> every change to the text counts the same, whether typed, pasted, cut, dropped, undone or autocorrected; an accent typed in two keystrokes counts once it is complete (you have seen this) <span class="vid-id">A-008</span></li>
+<li><strong>What happens to the text on reload or on returning to the page?</strong> the box always opens empty; the browser is told not to restore or remember the text (you have seen this) <span class="vid-id">A-009</span></li>
+<li><strong>Which Spanish does the interface use?</strong> neutral Latin American Spanish, the person addressed as tú, the document called &quot;CV&quot;, the page declared as Spanish (you have seen this) <span class="vid-id">A-010</span></li>
+<li><strong>Must the page work on a phone?</strong> no requirement in this version: phone layout was struck by the owner (A-012); the plain page is left readable at phone width as a builder's matter, and nothing is graded against it (you have seen this) <span class="vid-id">A-011</span></li>
+</ul>
+<h2 id="open-questions">Open questions</h2>
+<p>None.</p>
+<h2 id="history-what-changed-after-the-final-wording-was-agreed">History: what changed after the final wording was agreed</h2>
+<p>Wording here may have been replaced since. Parts 2 to 6 show what holds now.</p>
+<details class="fold"><summary>2026-11-24 (test list sitting)</summary>
+<pre><code>
+A-015 | human | 2026-11-24 | Q: Which browsers must the page support? | A: accepted as recommended: the current and previous major versions of Chrome, Edge, Firefox and Safari; on an older browser that lacks the counting feature the page shows no count rather than a wrong one | settles: OQ-1, CON-004
+A-016 | human | 2026-11-24 | Q: Do invisible characters pasted from Word or PDF (zero-width space, soft hyphen, direction marks) count? | A: accepted as recommended: they count, one each, like every other character, because the site that receives the summary counts them too | settles: OQ-2, REQ-001
+A-017 | human | 2026-11-24 | Q: Phone keyboards usually have no undo; keep the clear button as ruled? | A: accepted as recommended: keep it as ruled, one press with no question, undo wherever the keyboard has it | settles: OQ-3 | unchanged: REQ-003
+A-018 | human | 2026-11-24 | Q: A strength reviewer says the census rules judge the file search by its exit code; keep the rules as written? | A: accepted as recommended: keep the rules as written; the census compares two lists of files and ignores the exit code, and the number beside each rule is its tier | settles: contract
+A-019 | human | 2026-11-24 | Q: On an older browser that lacks the counting feature the page shows no count; should the over-limit message stay hidden there too? | A: yes: on such a browser the over-limit message stays hidden too, like the count; the message rule's first failure clause applies to the browsers the page supports (CON-004) | settles: REQ-002, CON-004
+A-001 AMENDED | human | 2026-11-24 | Q: How does the count treat spaces, line breaks and special letters? | A: accepted as recommended: every character in the box counts as one, each one the person sees (spaces and line breaks included, an accented letter or an emoji counting as one however many parts it is built from), plus each invisible character standing on its own (a zero-width space, a soft hyphen, a direction mark); an invisible joiner or modifier attached to the letter or emoji before it is part of that character | settles: REQ-001, MECH-01 | unchanged: REQ-002
+</code></pre>
+<pre><code>
+REQ-001 AMENDED | functional | T1 | Below the text box the page shows how many characters the box holds out of the limit of 500, in the form A-007 states, updated on every change to the text whatever made it; an invisible character standing on its own (a zero-width space, a soft hyphen, a direction mark) counts as one like any other, and an invisible part of an emoji or an accented letter adds nothing to it; on an older browser that lacks the counting feature (CON-004) no count is shown. | fail-if: (1) after a change the shown count differs from the characters the person sees in the box, where each space, each line break, each accented letter and each emoji counts as one, an emoji built from several joined parts (a family, a skin tone, a flag) counting as one, and where each zero-width space, soft hyphen and direction mark standing on its own counts as one; (2) after text is pasted, cut, dropped or undone the count does not change until a further key is pressed; (3) the count shows characters remaining instead of characters used; (4) the count stops at 500 while the box holds more | serves: the person knows at every moment how long their summary is against the 500 they are allowed (G1) | authority: provisional | confirms_via: owner-decision/no | source: seed, A-001, A-007, A-008, A-016 | covers: DIM-char-count-rule, DIM-count-display | phase: pilot | feature: FEAT-01 | plain: Below the box the page shows how many characters you have written out of 500, counting each character you see, space, line break and lone invisible character as one. | arms: 1 strengthened, 2 retained, 3 retained, 4 retained
+CON-004 | constraint | T1 | The page works in the current and previous major versions of Chrome, Edge, Firefox and Safari; on an older browser that lacks the counting feature it shows neither a count nor the over-limit message, rather than wrong ones. | authority: authoritative | source: A-015, A-019 | covers: DIM-count-display
+REQ-002 AMENDED | functional | T1 | While the count the page shows is above 500 characters the message A-006 states is shown below the box, and while that count is 500 or fewer no such message is shown; nothing ever blocks or cuts what the person types or pastes; on an older browser that lacks the counting feature (CON-004) neither the count nor the message is shown. | fail-if: (1) on a browser the page supports, the box holds 501 characters and the over-limit message is not shown; (2) the over-limit message is shown while the box holds 500 characters or fewer; (3) the message is still shown after the text is brought back to 500 characters or fewer; (4) a key press, paste or drop that would take the text past 500 characters is refused, or the text is cut to 500; (5) the over-limit message is shown while the count the page shows is 500 or fewer, or is not shown while that count is above 500 | serves: the person learns the moment their summary no longer fits, without losing anything they wrote (G1) | authority: provisional | confirms_via: owner-decision/no | source: seed, A-001, A-003, A-006, A-019, thesis MECH-02 | covers: DIM-limit-boundary | phase: pilot | feature: FEAT-02 | plain: When your text passes 500 characters a message says so and disappears once you are back to 500 or fewer; typing is never blocked. | arms: 1 retained, 2 retained, 3 retained, 4 retained, 5 retained
+</code></pre>
+<p>RESOLVED: (OQ-1) A-015 — Which browsers must the page support? The counting rule relies on a browser feature that older versions lack (Firefox before version 125, for example).</p>
+<p>RESOLVED: (OQ-2) A-016 — Do invisible characters that paste in from Word or PDF (zero-width space, soft hyphen, direction marks) count? The rule counts every character the person sees, and these show nothing.</p>
+<p>RESOLVED: (OQ-3) A-017 — Phone keyboards usually have no undo, so undo after a mistaken clear does not reach most phone users. Keep the clear button as ruled (no confirmation, undo on keyboards), or change it?</p>
+</details>
+<h2 id="when-it-was-agreed">When it was agreed</h2>
+<ul>
+<li>2026-11-24 — thesis+contract — 3a7c18d</li>
+<li>2026-11-24 — gap answers — 8cb11f9</li>
+<li>2026-11-24 — final — 6d33f71</li>
+</ul>
+</main>
+<script>
+(function () {
+  var b = document.getElementById('copy'); if (!b) return;
+  b.addEventListener('click', function () {
+    var out = [];
+    document.querySelectorAll('.card').forEach(function (c) {
+      var id = c.getAttribute('data-id'), r = c.querySelector('input:checked'), n = c.querySelector('textarea').value.trim();
+      out.push(id + ': ' + (r ? r.value : '(no answer)') + (n ? ' — ' + n : ''));
+    });
+    var t = out.join('\n');
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(function () { b.textContent = 'copied'; }, function () { prompt('Copy these answers:', t); });
+    else prompt('Copy these answers:', t);
+  });
+})();
+(function () {
+  function all(o) { document.querySelectorAll('details.fold').forEach(function (d) { d.open = o; }); }
+  var a = document.getElementById('open-all'), c = document.getElementById('close-all'), s = document.getElementById('show-ids');
+  if (a) a.addEventListener('click', function () { all(true); });
+  if (c) c.addEventListener('click', function () { all(false); });
+  if (s) s.addEventListener('click', function () { var on = document.body.classList.toggle('show-ids'); s.textContent = on ? 'Hide ids' : 'Show ids'; });
+  function reveal() {
+    var h = decodeURIComponent(location.hash.slice(1)), e = h ? document.getElementById(h) : null; if (!e) return;
+    for (var p = e.parentElement; p; p = p.parentElement) if (p.tagName === 'DETAILS') p.open = true;
+    e.scrollIntoView();
+  }
+  window.addEventListener('hashchange', reveal); reveal();
+})();
+</script>
+</body></html>

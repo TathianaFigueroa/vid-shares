@@ -1,0 +1,19 @@
+NOTE  join 16: 3 feature(s) for 3 goal(s) — a feature is narrower than a goal.
+
+pause material (checks/prd.sh --pause, grammar 0.26.11.1.2)
+size: demand=0 pilot=0 grader-batches≈0.0 features=3 largest=FEAT-01 (0), FEAT-02 (0)
+questions (must-never-break, each asking one ViD decision): 0
+new ViD decisions (not yet shown; ranked by T0, T1, total grounded, id): 0
+sensitive (T1/T2 resting on a ViD decision, covering security, privacy, authorization, consent or data integrity): 0
+measurement and external-dependency (the routes join 19 does not trace): 0
+near-duplicates (not yet ruled; statement overlap ≥0.6 and statement+fail-if Jaccard ≥0.35): 0
+features: 3
+  FEAT-01 | G1 | The character counter | pilot demand 0 | T0 0
+  FEAT-02 | G1 | The over-limit message | pilot demand 0 | T0 0
+  FEAT-03 | G2 | The clear button | pilot demand 0 | T0 0
+features per goal: G1 2, G2 1, G3 0
+features with no demand item: 3 — FEAT-01, FEAT-02, FEAT-03
+plain sentences (every demand item and invariant, each beside its rule; the owner approves both): 0
+owner questions (an arm withdrawn under ViD's draft, or under a delegated answer not yet confirmed — asked here, a gap at commit until the owner's ruling restates the answer human): 0
+
+prd: items=0 demand=0 frame=0 non-goals=0 pilot=0 later=0 authoritative=0 provisional=0 (owner-decision=0) pending=0 blocking-confirms=0 open-OQs=0 resolved-OQs=0 dims=8 (mechanism=6 nfr=2 proof=0) covered=0 na=0 facets=0 answers=13 (human=7 model=6) findings=1 arm-losing=0 arm-changed=0 gaps=0 grammar=0.26.11.1.2 notes=1 features=3 priority=0 shown=6/6 values-unchecked=0

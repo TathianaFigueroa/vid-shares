@@ -1,0 +1,8 @@
+row F-44 | review | blocking | REQ-001 | repaired | evidence: round 1 — the first rewording let a joined emoji count as its parts; repaired at the owner's answer to keep an emoji one however built
+row F-45 | review | blocking | A-001, A-016 | repaired | evidence: round 1 — A-016 changed A-001's rule; A-001 restated with the owner's yes
+row F-46 | review | advisory | REQ-002, CON-004 | repaired | evidence: round 1 — whether the message shows on an older browser was undecided; the owner ruled it stays hidden (A-019)
+row F-47 | review | blocking | REQ-001 | accepted A-020 | evidence: arm 1 — round 2 — the arm now counts each invisible character standing on its own as one, where it used to fail a count differing from what the person sees; the owner accepted the change
+row F-48 | review | blocking | REQ-002 | accepted A-020 | evidence: arm 1 — round 2 — the arm now applies on the browsers the page supports only; the owner accepted the narrowing
+row F-49 | review | blocking | REQ-001, CON-004 | repaired | evidence: round 2 — REQ-001 now states no count is shown on an older browser, as CON-004 does
+row F-50 | review | blocking | REQ-001 | repaired | evidence: round 2 — the plain sentence said every invisible character counts; it now says a lone invisible character
+review "review: delta, round 2, 7 findings"

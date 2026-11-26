@@ -1,0 +1,3 @@
+Strength re-read (delta, table): 2 blocking.
+S-1 | blocking | INVENTORY.md:ROW-001, REQ-001, A-001 | Unicode grapheme data glues an Extend code point to a preceding space or tab; the owner's rule makes it part of a character only after a letter or emoji; state the owner's correction with sampled cases ("a 🏽" 3, "a ZWJ" 3, "a ́" 3) | fix_from_record
+S-2 | blocking | HOS-001 | the probe covers typing only; widen to paste, over 500, clear, 30 s idle, hide and close; record the whole session at the network exit; no request to another host ever, none to the page's own address after load, storage empty at the end | fix_from_record

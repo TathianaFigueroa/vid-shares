@@ -1,0 +1,13 @@
+findings "2026-11-24 — final review" "review: final, round 1, 8 findings, read: PRD.md ARCHITECTURE.md DECISIONS.md BASELINE.md INVENTORY.md GRADING-CHECKLIST.md"
+row F-51 | final | blocking | DECISIONS.md, INVENTORY.md:ROW-043, CON-002 | repaired | evidence: critical — D-005 emptied the box on every pageshow, wiping text typed during load; replaced by D-016 (only on a back-forward cache return)
+row F-52 | final | blocking | BASELINE.md, GRADING-CHECKLIST.md | repaired | evidence: critical — an ES module does not load from file://; BASELINE now names a classic script with defer
+row F-53 | final | blocking | DECISIONS.md, INVENTORY.md:ROW-001, A-001 | repaired | evidence: critical — "letter or emoji" undefined, keycaps ambiguous, prepend rule missing from D-015; replaced by D-017, ROW-001 names keycaps as one
+row F-54 | final | blocking | INVENTORY.md:ROW-015, CON-003, A-010 | repaired | evidence: critical — the interface words beyond the message were unrecorded; recorded as ViD decision A-021, no placeholder
+row F-55 | final | advisory | INVENTORY.md:ROW-001, INVENTORY.md:ROW-023 | repaired | evidence: the pinned Unicode version was unnamed; D-018 names Unicode 15.1
+row F-56 | final | advisory | INVENTORY.md:ROW-040, DECISIONS.md | repaired | evidence: host HSTS support and max-age unstated; ROW-040 now requires at least one year, D-019 names the host property
+row F-57 | final | advisory | INVENTORY.md:ROW-042, CON-004 | repaired | evidence: ROW-042 allowed a fallback count CON-004 forbids; now no reading at all
+row F-58 | final | advisory | GRADING-CHECKLIST.md, A-012 | noted | evidence: the framing line asks for a header-only protection under a struck security quality; left as written, raised with the owner
+end
+append "final review repairs" "review: final, round 1, 0 findings, see 2026-11-24 — final review"
+row A-021 | model_proposed | 2026-11-24 | Q: What words does the interface use beyond the over-limit message? | A: page title "Contador de caracteres para tu CV"; heading "Resumen de tu CV"; box label "Escribe o pega aquí el resumen de tu CV"; no placeholder; button "Borrar todo"; the count as A-007 states | settles: CON-003
+end

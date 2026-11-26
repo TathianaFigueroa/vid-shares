@@ -1,0 +1,9 @@
+section findings
+item R1 | Your answer on invisible characters named ones that stand on their own (a zero-width space, a soft hyphen, a direction mark). Some emoji are built from several parts joined by invisible characters (a family, a skin tone, a heart with a style mark). As I first wrote it, a build could count such an emoji as several characters, and show the message at a true 497.
+recommend | Fix it: an emoji or accented letter counts as one however many parts it is built from; only invisible characters standing on their own count one each
+item R2 | Your first counting answer still reads "every character the person sees counts as one", which your invisible-characters answer has since changed. I should restate it in one line that holds both answers, but a restated answer of yours needs your yes.
+recommend | Fix it: every character in the box counts as one, each one you see (spaces, line breaks, an accented letter or emoji counting as one), plus each invisible character standing on its own
+section alone
+item R3 | On an older browser that lacks the counting feature, the page shows no count, as you ruled. Should the over-limit message also stay hidden there? Saying yes narrows the message rule's first failure clause to the browsers you support.
+choice | Yes: on such a browser the over-limit message stays hidden too, like the count
+choice | No: keep the message rule as it is everywhere

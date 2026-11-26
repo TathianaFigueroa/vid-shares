@@ -1,0 +1,6 @@
+- **Writing aids.** Has the text box been given attributes that switch off the phone's own writing help (capitals at the start of sentences, autocorrect) that nothing in the PRD asks to switch off?
+- **Dark mode.** With the device in dark mode, are the box's text, the count and the message still readable?
+- **The host's logs.** Does the host the owner publishes to keep request logs with full visitor addresses, and for how long? Something about each person kept there runs against the seed's "nothing is kept about the person".
+- **A shared origin.** Is the page served from an origin it shares with no other app, and is it refused when another site frames it?
+- **Opened from the file.** Opened by double-clicking index.html, does the page count, warn and clear exactly as it does over the web?
+- **Machine translation.** With the browser translating the page, do the count and the message keep following the box?

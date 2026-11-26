@@ -1,0 +1,22 @@
+NOTE  join 16: 3 feature(s) for 3 goal(s) — a feature is narrower than a goal.
+
+pause material (checks/prd.sh --pause, grammar 0.26.11.1.2)
+size: demand=3 pilot=3 grader-batches≈0.1 features=3 largest=FEAT-01 (1), FEAT-02 (1)
+questions (must-never-break, each asking one ViD decision): 0
+new ViD decisions (not yet shown; ranked by T0, T1, total grounded, id): 0
+sensitive (T1/T2 resting on a ViD decision, covering security, privacy, authorization, consent or data integrity): 0
+measurement and external-dependency (the routes join 19 does not trace): 0
+near-duplicates (not yet ruled; statement overlap ≥0.6 and statement+fail-if Jaccard ≥0.35): 0
+features: 3
+  FEAT-01 | G1 | The character counter | pilot demand 1 | T0 0
+  FEAT-02 | G1 | The over-limit message | pilot demand 1 | T0 0
+  FEAT-03 | G2 | The clear button | pilot demand 1 | T0 0
+features per goal: G1 2, G2 1, G3 0
+features with no demand item: 0
+plain sentences (every demand item and invariant, each beside its rule; the owner approves both): 3
+  REQ-001 | plain: Below the box the page always shows how many characters you have written out of 500, counting every visible character, space and line break as one. | rule: Below the text box the page shows how many characters the box holds out of the limit of 500, in the form A-007 states, updated on every change to the text whatever made it.
+  REQ-002 | plain: When your text passes 500 characters a message says so and disappears once you are back to 500 or fewer; typing is never blocked. | rule: While the box holds more than 500 characters the message A-006 states is shown below it, and while it holds 500 or fewer no such message is shown; nothing ever blocks or cuts what the person types or pastes.
+  REQ-003 | plain: One press of the clear button empties the box straight away, without asking, and the count goes back to zero; undo right after brings the text back. | rule: One press of the clear button empties the text box at once, with no confirmation, and the count and the over-limit message follow the empty box; undo right after clearing brings the cleared text back.
+owner questions (an arm withdrawn under ViD's draft, or under a delegated answer not yet confirmed — asked here, a gap at commit until the owner's ruling restates the answer human): 0
+
+prd: items=15 demand=3 frame=12 non-goals=9 pilot=15 later=0 authoritative=11 provisional=4 (owner-decision=4) pending=0 blocking-confirms=0 open-OQs=0 resolved-OQs=0 dims=8 (mechanism=6 nfr=2 proof=0) covered=8 na=0 facets=0 answers=14 (human=8 model=6) findings=2 arm-losing=0 arm-changed=0 gaps=0 grammar=0.26.11.1.2 notes=1 features=3 priority=0 shown=6/6 values-unchecked=0

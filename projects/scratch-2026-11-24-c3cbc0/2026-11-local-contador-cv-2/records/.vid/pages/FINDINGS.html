@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contador de caracteres para el resumen del CV: the findings</title>
+<style>
+:root { --bg: #fbfaf7; --fg: #1d1d1b; --mute: #6b6a66; --line: #dedbd3; --card: #ffffff; --accent: #2f5d8a; --rec: #e7f0e4; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #181816; --fg: #ecebe6; --mute: #a3a29c; --line: #3a3934; --card: #22221f; --accent: #8cb4dc; --rec: #233523; } }
+:root[data-theme="dark"] { --bg: #181816; --fg: #ecebe6; --mute: #a3a29c; --line: #3a3934; --card: #22221f; --accent: #8cb4dc; --rec: #233523; }
+body { background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; padding: 24px 16px 64px; }
+main { max-width: 860px; margin: 0 auto; }
+h1 { font-size: 1.6em; margin: 0 0 .6em; } h2 { font-size: 1.25em; margin: 1.8em 0 .5em; border-bottom: 1px solid var(--line); padding-bottom: .2em; }
+h3 { font-size: 1.05em; margin: 1.4em 0 .4em; } h4 { font-size: 1em; margin: 1.2em 0 .3em; color: var(--mute); }
+table { border-collapse: collapse; width: 100%; margin: .8em 0; font-size: .94em; display: block; overflow-x: auto; }
+th, td { border: 1px solid var(--line); padding: .35em .6em; text-align: left; vertical-align: top; } th { background: var(--card); }
+code { font: .9em ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--card); padding: .05em .3em; border-radius: 3px; }
+pre { background: var(--card); border: 1px solid var(--line); padding: .8em; overflow-x: auto; border-radius: 6px; } pre code { background: none; padding: 0; }
+.card { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px; padding: .8em 1em; margin: 1em 0; }
+.card .meta { color: var(--mute); font-size: .88em; } .card .q { font-weight: 600; margin: .3em 0; } .card label { display: block; margin: .2em 0; }
+.card label.rec { background: var(--rec); border-radius: 4px; padding: 0 .3em; } .card textarea { width: 100%; box-sizing: border-box; margin-top: .4em; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 4px; }
+button#copy { position: sticky; top: 8px; float: right; background: var(--accent); color: var(--bg); border: 0; border-radius: 6px; padding: .5em .9em; font-weight: 600; cursor: pointer; }
+a { color: var(--accent); }
+.tools { position: sticky; top: 8px; float: right; display: flex; gap: .4em; } .tools button { background: var(--card); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: .3em .7em; cursor: pointer; }
+details.fold { border: 1px solid var(--line); border-radius: 6px; padding: .2em .8em; margin: .6em 0; background: var(--card); } details.fold > summary { cursor: pointer; font-weight: 600; padding: .3em 0; }
+details.fold details.fold { background: var(--bg); }
+nav.contents ul { padding-left: 1.2em; } .note { border: 1px solid var(--accent); border-left-width: 4px; border-radius: 6px; padding: .6em 1em; margin: 1em 0; background: var(--rec); }
+.mark { color: var(--accent); font-size: .8em; vertical-align: super; } .vid-id { display: none; } body.show-ids .vid-id { display: inline; color: var(--mute); font: .8em ui-monospace, SFMono-Regular, Menlo, monospace; margin-left: .3em; }
+</style>
+</head><body><main>
+<div class="tools"><button id="show-ids" type="button">Show ids</button></div>
+<h1>Contador de caracteres para el resumen del CV: the findings</h1>
+<p>As of 2026-11-24 16:39 UTC</p>
+<ul>
+<li><code>PRD.md</code>: not committed yet</li>
+</ul>
+<p>Still open: 0 · Fixed: 3 · Your rulings: 1 · Noted: 0</p>
+<nav class="contents"><ul><li><a href="#still-open">Still open</a></li><li><a href="#fixed">Fixed</a></li><li><a href="#your-rulings">Your rulings</a></li><li><a href="#noted">Noted</a></li></ul></nav>
+<h2 id="still-open">Still open</h2>
+<p>None.</p>
+<h2 id="fixed">Fixed</h2>
+<ul>
+<li><strong>Advisory</strong>, found by the completeness audit, about the quality &quot;What clearing does&quot; <span class="vid-id">DIM-clear-action</span>; the requirement &quot;One press of the clear button empties the box straight away, without asking, and the count goes back to zero; undo right after brings the text back.&quot; <span class="vid-id">REQ-003</span>; how it works: &quot;One press of the clear button empties the box at once, with no confirmation, and the count and message follow the empty text.&quot; <span class="vid-id">MECH-03</span>: a mistaken press of the clear button loses the only copy of the text, and whether undo restores it depended on how a builder clears the box; the owner ruled undo restores it (A-014); REQ-003 now carries it as fail-if part (5) <span class="vid-id">F-02</span></li>
+<li><strong>Blocking</strong>, found by the review, about the requirement &quot;When your text passes 500 characters a message says so and disappears once you are back to 500 or fewer; typing is never blocked.&quot; <span class="vid-id">REQ-002</span>: critical — unguarded seam: the message's 500 was not tied to the count the page shows, so a build could show 497 / 500 beside the over-limit message; REQ-002 now uses the shown count and carries part (5); arms (1) to (4) retained <span class="vid-id">F-03</span></li>
+<li><strong>Advisory</strong>, found by the review, about an answer <span class="vid-id">A-011</span>; an answer <span class="vid-id">A-012</span>: A-011 said the page must work at phone width while the owner struck phone layout as a requirement (A-012); A-011 restated as no requirement in this version <span class="vid-id">F-04</span></li>
+</ul>
+<h2 id="your-rulings">Your rulings</h2>
+<ul>
+<li><strong>Advisory</strong>, found by the red team, about how it works: &quot;The count is recomputed from the box's whole text on every change, whatever made the change, by the counting rule the owner chose.&quot; <span class="vid-id">MECH-01</span>; the summary: value-coherence — destinations may count UTF-16 code units or CRLF line breaks, so a summary at 498 / 500 here may be too long there; A-001 is the owner's explicit rule, so a question for the owner, who left it <span class="vid-id">F-01</span></li>
+</ul>
+<h2 id="noted">Noted</h2>
+<p>None.</p>
+</main>
+<script>
+(function () {
+  var b = document.getElementById('copy'); if (!b) return;
+  b.addEventListener('click', function () {
+    var out = [];
+    document.querySelectorAll('.card').forEach(function (c) {
+      var id = c.getAttribute('data-id'), r = c.querySelector('input:checked'), n = c.querySelector('textarea').value.trim();
+      out.push(id + ': ' + (r ? r.value : '(no answer)') + (n ? ' — ' + n : ''));
+    });
+    var t = out.join('\n');
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(function () { b.textContent = 'copied'; }, function () { prompt('Copy these answers:', t); });
+    else prompt('Copy these answers:', t);
+  });
+})();
+(function () {
+  function all(o) { document.querySelectorAll('details.fold').forEach(function (d) { d.open = o; }); }
+  var a = document.getElementById('open-all'), c = document.getElementById('close-all'), s = document.getElementById('show-ids');
+  if (a) a.addEventListener('click', function () { all(true); });
+  if (c) c.addEventListener('click', function () { all(false); });
+  if (s) s.addEventListener('click', function () { var on = document.body.classList.toggle('show-ids'); s.textContent = on ? 'Hide ids' : 'Show ids'; });
+  function reveal() {
+    var h = decodeURIComponent(location.hash.slice(1)), e = h ? document.getElementById(h) : null; if (!e) return;
+    for (var p = e.parentElement; p; p = p.parentElement) if (p.tagName === 'DETAILS') p.open = true;
+    e.scrollIntoView();
+  }
+  window.addEventListener('hashchange', reveal); reveal();
+})();
+</script>
+</body></html>

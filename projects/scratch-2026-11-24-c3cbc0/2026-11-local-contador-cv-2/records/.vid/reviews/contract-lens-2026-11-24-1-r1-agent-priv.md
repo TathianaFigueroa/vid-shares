@@ -1,0 +1,1 @@
+Lens: privacy and data minimisation. Proposed: DIM-text-egress (nfr); DIM-third-party-loads (nfr); DIM-local-persistence; DIM-browser-assist-leakage; DIM-clear-finality; DIM-privacy-statement; DIM-observability-redaction (nfr); DIM-proof-no-retention (proof). Notes: 1+2 mergeable; 7 constrains floor operability.
